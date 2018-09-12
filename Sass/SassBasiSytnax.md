@@ -1,13 +1,13 @@
 <a id="top" href="#top">Sass 语法  :maple_leaf:</a> 
 ----
-`Sass语法及其简单,让我们来进入Sass的世界`
+`Sass语法及其简单,让我们来进入Sass的世界  注释 /* */ 与 // 都支持`
 
 - [x] :maple_leaf: <a href="#SassValraible">`Sass 变量 `</a>
 - [x] :maple_leaf: <a href="#SassQianTao">`Sass 嵌套`</a>
   - <a href="#CengciProperty" >`sass 层次嵌套`</a>
   - <a href="#Property" >`sass 属性嵌套`</a>
-- [x] :maple_leaf: <a href="#P">`部分 scss `</a>
-- [x] :maple_leaf: <a href="#">``</a>
+- [x] :maple_leaf: <a href="#PartialSass">`部分 scss `</a>
+- [x] :maple_leaf: <a href="#mixinSupport">`供应商前缀 mixin `</a>
 
 ####  <a id="SassValraible" href="#SassValraible">Sass 变量</a>  :star2: <a href="#top"> :arrow_up: </a>
 * `Sass 变量可以存储颜色，字体堆栈或您认为要重用的任何CSS值等内容 Sass 变量必须以` `$` `开头如果变量需要嵌套到字符串之中，就必须卸载#{}中` 
@@ -168,11 +168,12 @@ nav .full-right {
   padding-right: 5px;
 }
 ```
-####  <a id="Property" href="#Property">Sass 属性嵌套</a>  :star2: <a href="#top"> :arrow_up: </a>
+#####  <a id="Property" href="#Property">Sass 属性嵌套</a>  :star2: <a href="#top"> :arrow_up: </a>
 ```scss
+
 ```
 
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
+####  <a id="PartialSass" href="#PartialSass">部分 Sass</a>  :star2: <a href="#top"> :arrow_up: </a>
 `您可以创建包含很少CSS片段的部分Sass文件，您可以将这些片段包含在其他Sass文件中。这是模块化CSS并帮助保持易于维护的好方法。partial只是一个以前导下划线命名的Sass文件。你可能会说出类似的东西_partial.scss。下划线让Sass知道该文件只是一个部分文件，不应该生成CSS文件。Sass partials与@import指令一起使用。`
 * `nav.scss`
 ```scss
@@ -233,8 +234,8 @@ body a {
 }
 
 ```
-
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
+#####  <a id="mixinSupport" href="#mixinSupport">供应商前缀 mixin</a>  :star2: <a href="#top"> :arrow_up: </a>
+``
 ####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
 ####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
 ####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
