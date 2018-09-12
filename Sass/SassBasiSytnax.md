@@ -1,4 +1,4 @@
-<a id="top" href="#top">Sass 语法  :maple_leaf:</a> 
+<a id="top" href="#top">Sass 基本语法  :maple_leaf:</a> 
 ----
 `Sass语法及其简单,让我们来进入Sass的世界  注释 /* */ 与 // 都支持`
 
@@ -8,6 +8,9 @@
   - <a href="#Property" >`sass 属性嵌套`</a>
 - [x] :maple_leaf: <a href="#PartialSass">`部分 scss `</a>
 - [x] :maple_leaf: <a href="#mixinSupport">`供应商前缀 mixin `</a>
+- [x] :maple_leaf: <a href="#kuozhanhejicheng">`继承 @extend`</a>
+
+
 
 ####  <a id="SassValraible" href="#SassValraible">Sass 变量</a>  :star2: <a href="#top"> :arrow_up: </a>
 * `Sass 变量可以存储颜色，字体堆栈或您认为要重用的任何CSS值等内容 Sass 变量必须以` `$` `开头如果变量需要嵌套到字符串之中，就必须卸载#{}中` 
@@ -235,14 +238,72 @@ body a {
 
 ```
 #####  <a id="mixinSupport" href="#mixinSupport">供应商前缀 mixin</a>  :star2: <a href="#top"> :arrow_up: </a>
-``
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
+* `mixin`:`类似于宏定义的复用 类似于javascript 中的function 定义`
+* `然后 的名称类似于函数吗,然后是参数 {} 内部的属性值就是返回的所有内容`
+* `使用` `@include` `调用函数名称 传入方法`
+* `其实` `@mixin` `@include` `可以和js函数比较理解`
+```scss
+@mixin transform($property) {
+    -webkit-transform: $property;
+        -ms-transform: $property;
+            transform: $property;
+  }
+ 
+@mixin font-align($align){
+    text-align: $align;
+}  
+
+.box { 
+    @include transform(rotate(30deg)); 
+    @include font-align(center);
+}
+```
+**`编译结果:`**
+```css
+.box {
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+  text-align: center;
+}
+```
+####  <a id="kuozhanhejicheng" href="#kuozhanhejicheng">继承 @extend</a>  :star2: <a href="#top"> :arrow_up: </a>
+`在设计网页的时候常常遇到这种情况：一个元素使用的样式与另一个元素完全相同，但又添加了额外的样式，好一点的设计还会分成两个css类一个通用类一个特殊类,麻烦的是，这样做必须时刻记住使用 .seriousError 时需要参考 .error 的样式，带来了很多不变,sass 引入了基础的概念`
+```css
+.error {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+.seriousError {
+  border-width: 3px;
+}
+//html
+<div class="error seriousError">
+  Oh no! You've been hacked!
+</div>
+```
+**`基础 @extend`**
+```scss
+.error {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+.seriousError {
+  @extend .error;
+  border-width: 3px;
+}
+```
+`编译结果:`
+```css
+.error, .seriousError {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+
+.seriousError {
+  border-width: 3px;
+}
+```
 
 
 
