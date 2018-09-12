@@ -34,6 +34,13 @@
   * `sass -v  查看Sass 版本`
   * `gem update sass 更新Sass版本`
 #####  <a id="CodingFileSass" href="#CodingFileSass">编译文件</a>  :star2: <a href="#top"> :arrow_up: </a>
+`一旦你开始修改Sass，它将采用你的预处理Sass文件并将其保存为您可以在您的网站中使用的普通CSS文件。`
+* `实现这一目标的最直接方法是在您的终端。安装Sass后，您可以使用该sass命令将Sass编译为CSS 。您需要告诉Sass要构建哪个文件，以及将CSS输出到何处。例如，sass input.scss output.css从终端运行将获取单个Sass文件input.scss，并将该文件编译为output.css。`
+
+* `您还可以使用该--watch标志查看单个文件或目录。watch标志告诉Sass要查看源文件的更改，并在每次保存Sass时重新编译CSS。如果您想观看（而不是手动构建）您的input.scss文件，您只需将watch标志添加到您的命令中，如下所示：` `sass --watch input.scss output.css`
+
+* `您可以使用文件夹路径作为输入和输出来观察和输出到目录，并使用冒号分隔它们。在这个例子中：` `sass --watch app/sass:public/stylesheets` `Sass会查看文件app/sass夹中的所有文件以进行更改，并将CSS编译到该public/stylesheets文件夹。`
+
 `通过命令行编译`
 ```C#
  //单文件转换命令
