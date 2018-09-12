@@ -119,4 +119,10 @@
       color:$color_red;
   }
 ```
+##### 那么如何配置 css / .min.css 的输出目录呢
+* `文本`-> `首选项目`->`设置`->`用户设置` `列表下`-> `扩展`->`EasySass configuration` 
+* `然后在settings.json 中编辑`
+* `在右边的用户设置里面追加一条属性` `"easysass.targetDir":"css/"`  
+* `然后在工作区添加一个css文件夹,在编辑保存scss文件 就会吧编译文件保存在那里面了`
+
 
