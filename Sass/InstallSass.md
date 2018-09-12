@@ -3,11 +3,10 @@
 `	Sass是世界上最成熟，最稳定，最强大的专业级CSS扩展语言。Bootstrap4.0 也是基于Sass 编写的,使用Sass构建了无数的框架。Compass，Bourbon和Susy..。`
 
 - [x] :maple_leaf: <a href="#WindowsInstallSass">`Windows 10 安装Sass`</a>
-- [x] :maple_leaf: <a href="#">``</a>
-- [x] :maple_leaf: <a href="#">``</a>
-- [x] :maple_leaf: <a href="#">``</a>
+- [x] :maple_leaf: <a href="#CodingFileSass">`编译文件`</a>
+- [x] :maple_leaf: <a href="#vscodeUseSass">`使用vscode 实现自动编译 / 自由开发`</a>
 
-#####  <a id="InstallSass" href="#InstallSass">安装Sass</a>  :star2: <a href="#top"> :arrow_up: </a>
+#####  <a id="WindowsInstallSass" href="#WindowsInstallSass">安装Sass</a>  :star2: <a href="#top"> :arrow_up: </a>
 `Sass 是基于Ruby的扩展语言,所以需要安装Ruby`
 * 1.[`Ruby 安装地址`](http://rubyinstaller.org/downloads)
   * `安装完后 在windos dos 中 输入` `ruby -v` `输出版本 信息输出后安装成功`
@@ -34,21 +33,83 @@
 * 4.`Sass 设置`
   * `sass -v  查看Sass 版本`
   * `gem update sass 更新Sass版本`
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
+#####  <a id="CodingFileSass" href="#CodingFileSass">编译文件</a>  :star2: <a href="#top"> :arrow_up: </a>
+`通过命令行编译`
+```C#
+ //单文件转换命令
+ sass input.scss output.css
 
+ //单文件监听命令
+ sass --watch input.scss:output.css
 
+ //如果你有很多的sass文件的目录，你也可以告诉sass监听整个目录：
+ sass --watch app/sass:public/stylesheets
+ 
+ //编译格式
+ sass --watch input.scss:output.css --style compact
 
+ //编译添加调试map
+ sass --watch input.scss:output.css --sourcemap
 
+ //选择编译格式并添加调试map
+ sass --watch input.scss:output.css --style expanded --sourcemap
 
+ //开启debug信息
+ sass --watch input.scss:output.css --debug-info
+```
+**`编译格式`**
+```C#
+  //未编译样式
+ .box {
+   width: 300px;
+   height: 400px;
+   &-title {
+     height: 30px;
+     line-height: 30px;
+   }
+ }
+```
+**`nested 编译排版格式`**
+```css
+ /*命令行内容*/
+ sass style.scss:style.css --style nested
 
+ /*编译过后样式*/
+ .box {
+   width: 300px;
+   height: 400px; }
+   .box-title {
+     height: 30px;
+     line-height: 30px; }
+```
+**`compressed 编译排版格式`**
+```css
+ /*命令行内容*/
+ sass style.scss:style.css --style compressed
+
+ /*编译过后样式*/
+ .box{width:300px;height:400px}.box-title{height:30px;line-height:30px}
+```
+**`可以使用Koala 编译 单开具有scss类型的文件 点击编译就可以了`** <br/>
+* `这里推荐koala&codekit,它们是优秀的编译器，界面清晰简洁，操作起来也非常简单`
+* [`koala 下载`](https://www.sass.hk/skill/koala-app.html)
+#####  <a id="vscodeUseSass" href="#vscodeUseSass">使用vscode 实现自动编译 / 自由开发</a>  :star2: <a href="#top"> :arrow_up: </a>
+`sass 编译 使用vscode 安装一个插件那么在编辑 sass之后 ` `ctrl+s ` `保存的时候就自定吧scss 文件编译为 .css .min.css css.map 三种文件类型`
+* `插件列表`：
+  * `EasySass`:`自动编译Sass  但是需要先配置好安装环境 就是前面讲的ruby sass 等等环境...`
+  * `Sass`：`vscode Sass语法支持`
+  * `Sass Formatter`:`支持对Sass 代码的格式化`
+`安装好这些插件后,打开一个文件夹,添加一个scss 文件 然后写上代码 点击保存,就自动编译了`
+```scss
+  $color_red:"red";
+  $width: 500px;
+
+  .nav-bar{
+      width: $width
+  }
+
+  .font-color{
+      color:$color_red;
+  }
+```
 
