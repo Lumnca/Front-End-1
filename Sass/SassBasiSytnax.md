@@ -6,7 +6,7 @@
 - [x] :maple_leaf: <a href="#SassQianTao">`Sass 嵌套`</a>
   - <a href="#CengciProperty" >`sass 层次嵌套`</a>
   - <a href="#Property" >`sass 属性嵌套`</a>
-- [x] :maple_leaf: <a href="#PartialSass">`部分 scss `</a>
+- [x] :maple_leaf: <a href="#PartialSass">`@import scss `</a>
 - [x] :maple_leaf: <a href="#mixinSupport">`供应商前缀 mixin `</a>
 - [x] :maple_leaf: <a href="#kuozhanhejicheng">`继承 @extend`</a>
 
@@ -176,8 +176,11 @@ nav .full-right {
 
 ```
 
-####  <a id="PartialSass" href="#PartialSass">部分 Sass</a>  :star2: <a href="#top"> :arrow_up: </a>
-`您可以创建包含很少CSS片段的部分Sass文件，您可以将这些片段包含在其他Sass文件中。这是模块化CSS并帮助保持易于维护的好方法。partial只是一个以前导下划线命名的Sass文件。你可能会说出类似的东西_partial.scss。下划线让Sass知道该文件只是一个部分文件，不应该生成CSS文件。Sass partials与@import指令一起使用。`
+####  <a id="PartialSass" href="#PartialSass">import Sass</a>  :star2: <a href="#top"> :arrow_up: </a>
+* `您可以创建包含很少CSS片段的部分Sass文件，您可以将这些片段包含在其他Sass文件中。这是模块化CSS并帮助保持易于维护的好方法。partial只是一个以前导下划线命名的Sass文件。你可能会说出类似的东西_partial.scss。下划线让Sass知道该文件只是一个部分文件，不应该生成CSS文件。Sass partials与@import指令一起使用。`
+* `对于导入的文件 scss文件可以只写文件名`：`@import nav` `全名称：@import nav.scss ` `对于导入的css文件要加上文件后缀名`
+
+-----
 * `nav.scss`
 ```scss
 body{
