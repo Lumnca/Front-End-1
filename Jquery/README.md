@@ -14,7 +14,8 @@
  - [x] :maple_leaf: [JQuery 特效 ](https://github.com/kickgod/Front-End/blob/master/Jquery/QueryEffect.md) 
  
  - [x] :maple_leaf: [JQuery Ajax ](https://github.com/kickgod/Front-End/blob/master/Jquery/QueryEffect.md) 
- 
+
+ - [x] :maple_leaf: [JQuery 回调对象 ](https://github.com/kickgod/Front-End/blob/master/Jquery/JqueryCallBack.md) 
  
  ----
  ##### **`推荐书籍/网站:`**
