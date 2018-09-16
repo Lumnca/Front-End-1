@@ -4,11 +4,11 @@
 
  - [x] :maple_leaf: [JQuery 属性 Css 操作 ](https://github.com/kickgod/Front-End/blob/master/Jquery/JqueryProperty.md) 
 
- - [x] :maple_leaf: [JQuery 事件处理 ](https://github.com/kickgod/Front-End/master/Jquery/JqueryEvent.md)
+ - [x] :maple_leaf: [JQuery 事件处理 ](https://github.com/kickgod/Front-End/blob/master/Jquery/JqueryEvent.md)
 
- - [x] :maple_leaf: [JQuery 特效 ](https://github.com/kickgod/Front-End/master/Jquery/QueryEffect.md) 
+ - [x] :maple_leaf: [JQuery 特效 ](https://github.com/kickgod/Front-End/blob/master/Jquery/QueryEffect.md) 
  
- - [x] :maple_leaf: [JQuery Ajax ](https://github.com/kickgod/Front-End/master/Jquery/QueryAjax.md) 
+ - [x] :maple_leaf: [JQuery Ajax ](https://github.com/kickgod/Front-End/blob/master/Jquery/QueryEffect.md) 
  
  
  ----
