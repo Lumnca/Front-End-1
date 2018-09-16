@@ -2,6 +2,9 @@
 -----
 `Web前端Jquey框架学习笔记`
 
+
+ - [x] :maple_leaf: [JQuery 选择器 ](https://github.com/kickgod/Front-End/blob/master/Jquery/JquerySelector.md) 
+
  - [x] :maple_leaf: [JQuery Dom结构 操作 ](https://github.com/kickgod/Front-End/blob/master/Jquery/JqueryDomCorporation.md) 
 
  - [x] :maple_leaf: [JQuery 属性 Css 操作 ](https://github.com/kickgod/Front-End/blob/master/Jquery/JqueryProperty.md) 
