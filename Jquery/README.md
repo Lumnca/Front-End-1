@@ -11,6 +11,8 @@
 
  - [x] :maple_leaf: [JQuery 事件处理 ](https://github.com/kickgod/Front-End/blob/master/Jquery/JqueryEvent.md)
 
+ - [x] :maple_leaf: [JQuery 工具方法 ](https://github.com/kickgod/Front-End/blob/master/Jquery/JqueryFunction.md) 
+
  - [x] :maple_leaf: [JQuery 特效 ](https://github.com/kickgod/Front-End/blob/master/Jquery/QueryEffect.md) 
  
  - [x] :maple_leaf: [JQuery Ajax ](https://github.com/kickgod/Front-End/blob/master/Jquery/QueryEffect.md) 
