@@ -68,7 +68,7 @@
         }
     ]
 ```
-![属性值](/Echarts/IMG/onZeroFalse.png) 
+![属性值](/Echarts/IMG/onZeroFlase.png) 
 
 ```javascript
     xAxis : [
