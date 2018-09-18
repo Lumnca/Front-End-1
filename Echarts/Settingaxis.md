@@ -42,12 +42,11 @@
 
 ![定格](/Echarts/IMG/dingGe.png)
 ##### <a href="#top">配置样式</a>
-
     
 ![属性值](/Echarts/IMG/axiStyle.png) 
-* `axis.axisLine:{}}`
+* `axis.axisLine: {}`
   * `配置参数 {boolean} show` `默认值`:`true` `通用 是否展示`
-  * `配置参数 {boolean} onZero` `默认值`:`true` `通用 定位到垂直方向的0值坐标上` 
+  * `配置参数 {boolean} onZero` `默认值`:`true` `通用 定位到垂直方向的0值坐标上 如下所示` 
   * `配置参数 lineStyle 通用` `属性lineStyle控制线条样式，`
     ```javascript
       {
@@ -56,30 +55,43 @@
           type: 'solid'
       }  
     ```
+   
 ```javascript
-    xAxis : [
-        {
-            type : 'category',
-            boundaryGap : false,
-          	axisLine:{
-            	onZero:false
-            },
-            data : ['周一','周二','周三','周四','周五','周六','周日']
-        }
-    ]
+xAxis : [
+ {
+    type : 'category',
+    boundaryGap : false,
+    axisLine:{
+        onZero:false
+    },
+    data : ['周一','周二','周三','周四','周五','周六','周日']
+ }
+]
 ```
 ![属性值](/Echarts/IMG/onZeroFlase.png) 
 
 ```javascript
-    xAxis : [
-        {
-            type : 'category',
-            boundaryGap : false,
-          	axisLine:{
-            	onZero:true
-            },
-            data : ['周一','周二','周三','周四','周五','周六','周日']
-        }
-    ]
+xAxis : [
+ {
+    type : 'category',
+    boundaryGap : false,
+    axisLine:{
+        onZero:true
+    },
+    data : ['周一','周二','周三','周四','周五','周六','周日']
+ }
+]
 ```
 ![属性值](/Echarts/IMG/onZeroTrue.png) 
+
+* `axis.axisTick`
+  * `配置参数 {boolean} show` `默认值`:`true` `通用 是否展示`
+  * `配置参数 {string | number | function} interval`  `默认值`:`'auto'` `类目型专用`
+    * `小标记显示挑选间隔，默认为'auto'，可选为`
+    * `'auto'（随axisLabel，自动隐藏显示不下的） | 0（全部显示） |`
+    * `{number}（用户指定选择间隔）`
+    * `{function}函数回调，传递参数[index，data[index]]，返回true显示，返回false隐藏`
+  * `配置参数 {boolean} inside` `默认值`：`false` `通用 小标记是否显示为在grid内部，默认在外部`
+  * `配置参数 {number} length`  `默认值`:`5` `通用	属性length控制线长`
+  * `配置参数 {Object} lineStyle`  `默认值`:`{ color: '#333',width: 1}` `通用 属性lineStyle控制线条样式，（详见lineStyle）`
+  
