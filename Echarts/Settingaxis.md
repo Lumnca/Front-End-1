@@ -94,4 +94,34 @@ xAxis : [
   * `配置参数 {boolean} inside` `默认值`：`false` `通用 小标记是否显示为在grid内部，默认在外部`
   * `配置参数 {number} length`  `默认值`:`5` `通用	属性length控制线长`
   * `配置参数 {Object} lineStyle`  `默认值`:`{ color: '#333',width: 1}` `通用 属性lineStyle控制线条样式，（详见lineStyle）`
+  <br/>
   
+  ```javascript
+       axisTick:{
+        inside:false,
+        length:10,
+      onGap:true,
+       lineStyle:{
+         color:'grey'
+       }
+    }
+  ```
+  
+* `axis.axisLabel`
+  * `配置参数 {boolean} show` `默认值`:`true` `通用 是否展示`
+  * `配置参数 {string | number | function} interval`  `默认值`:`'auto'` `类目型专用`
+    * `小标记显示挑选间隔，默认为'auto'，可选为`
+    * `'auto'（随axisLabel，自动隐藏显示不下的） | 0（全部显示） |`
+    * `{number}（用户指定选择间隔）`
+    * `{function}函数回调，传递参数[index，data[index]]，返回true显示，返回false隐藏`
+  * `配置参数 {number} rotate` `默认值`：`0` `通用 标签旋转角度，默认为0，不旋转，正值为逆时针，负值为顺时针，可选为：-90 ~ 90`
+  * `配置参数 {number} margin`  `默认值`:`	8` `通用	坐标轴文本标签与坐标轴的间距，默认为8，单位px`
+  * `配置参数 {boolean} clickable`  `默认值`:`false` `通用 坐标轴文本标签是否可点击`
+  * `配置参数 {string | Function} formatter`  `默认值`:`	null` `通用 间隔名称格式器：{string}（Template） | {Function}`
+     * {string}，模板（Template），其变量为：
+      * {value}: 内容或值  
+     *{Function}，传递参数同模板变量：
+        eg：function (value){return "星期" + "日一二三四五六".charAt(value);'}
+  * `配置参数{boolean} clickable`  `默认值`:`{ color: '#333',width: 1}` `通用 属性lineStyle控制线条样式，（详见lineStyle）`
+  * `配置参数{boolean} clickable`  `默认值`:`{ color: '#333',width: 1}` `通用 属性lineStyle控制线条样式，（详见lineStyle）`
+  <br/>
