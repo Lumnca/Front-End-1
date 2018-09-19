@@ -25,9 +25,6 @@
 |`{boolean} scale`|false|`数值型，时间型`|`脱离0值比例，放大聚焦到最终_min，_max区间`|
 |`{number} splitNumber`|null|`数值型，时间型`|`分割段数，不指定时根据min、max算法调整`|
 
-
-
-
 ##### <a href="#top">类目录 专有配置选项</a>
 |名称|	默认值|	适用类型|	描述|
 |----|-----|-----|-----|
@@ -119,9 +116,16 @@ xAxis : [
   * `配置参数 {boolean} clickable`  `默认值`:`false` `通用 坐标轴文本标签是否可点击`
   * `配置参数 {string | Function} formatter`  `默认值`:`	null` `通用 间隔名称格式器：{string}（Template） | {Function}`
      * {string}，模板（Template），其变量为：
-      * {value}: 内容或值  
-     *{Function}，传递参数同模板变量：
-        eg：function (value){return "星期" + "日一二三四五六".charAt(value);'}
-  * `配置参数{boolean} clickable`  `默认值`:`{ color: '#333',width: 1}` `通用 属性lineStyle控制线条样式，（详见lineStyle）`
-  * `配置参数{boolean} clickable`  `默认值`:`{ color: '#333',width: 1}` `通用 属性lineStyle控制线条样式，（详见lineStyle）`
+       * {value}: 内容或值  
+     * {Function}，传递参数同模板变量：
+       * eg：function (value){return "星期" + "日一二三四五六".charAt(value);'}
+  * `配置参数{Object} textStyle`  `默认值`:`{ color: '#333'}` `通用 文本样式（详见textStyle），其中当坐标轴为数值型和时间型时，color接受方法回调，实现个性化的颜色定义，support #226 »`
   <br/>
+ ```javascript
+  axisLabel:{
+     rotate:20,
+     clickable:true,
+     margin:10,
+     formatter:"类:{value}"
+  }
+ ```
