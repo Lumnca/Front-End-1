@@ -19,14 +19,18 @@
 ```javascript
 window.onload=function(){
     function setMask(){
-        let winHeights =[$(window).height(),$(document).height(),$(document.body).height(),$(document.body).outerHeight(true)];
-        let winWidths = [$(window).width(),$(document).width(),$(document.body).width(),$(document.body).outerWidth(true)]
-        var maxHeight = winHeights.sort((one,two)=> one<two)[0]; //获得页面最大高度
-        var maxWidth = winWidths.sort((one,two)=> one<two)[0]; //获得页面大宽度啊
+        $('.mask').height(0);
+        $('.mask').width(0);
+        let winHeights =[$(window).height(),$(document).height(),
+        $(document.body).height(),$(document.body).outerHeight(true)];
+        let winWidths = [$(window).width(),$(document).width(),
+        $(document.body).width(),$(document.body).outerWidth(true)]
+        var maxHeight = winHeights.sort((one,two)=> one<two)[0];
+        var maxWidth = winWidths.sort((one,two)=> one<two)[0];
         $('.mask').height(maxHeight);
+        $('.mask').width(maxWidth);
     }
-    window.addEventListener("resize",setMask,false)
-
+    window.addEventListener("resize",setMask,false);
     setMask();
 }
 ```
