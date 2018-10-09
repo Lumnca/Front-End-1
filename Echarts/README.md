@@ -1,24 +1,9 @@
 <a id="top" href="#top">ECharts 使用笔记 :maple_leaf:</a> 
 ----
-`展示一下ECharts 的例子~ 实例 `
+`展示一下ECharts 的例子~ 实例 自己做的Echarts 图标样例,而不是写笔记,因为官方的笔记明显写的非常的好 `
 
-- [x] :maple_leaf: <a href="#NeedEnglish">`名词解析`</a>
-- [x] :maple_leaf: <a href="#">``</a>
-- [x] :maple_leaf: <a href="#">``</a>
-- [x] :maple_leaf: <a href="#">``</a>
+#####  <a id="Mine" href="https://github.com/kickgod/Front-End/tree/master/Echarts/FoldingLine">自己实现的折线图</a>  :star2:
 
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
-####  <a id="" href="#"></a>  :star2: <a href="#top"> :arrow_up: </a>
 
 
 ------
