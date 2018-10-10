@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../Script/echarts.min.js"></script>
+    <script src="../Script/macarons.js"></script>
+    <style>
+        a {
+            text-decoration: none;
+            font-size: 14px;
+            color: cornflowerblue;
+        }
+
+        a:hover {
+            color: darkcyan;
+        }
+    </style>
+    <title>南丁格尔</title>
+</head>
+
+<body style=" padding:15px">
+    <div id="main" style="width:600px; height:400px"></div>
+    <br>
+    <a href="http://echarts.baidu.com/tutorial.html#%E4%B8%AA%E6%80%A7%E5%8C%96%E5%9B%BE%E8%A1%A8%E7%9A%84%E6%A0%B7%E5%BC%8F">个性化图表的样式-南丁格尔</a>
+</body>
+<script>
+    var myChart = echarts.init(document.getElementById('main'), 'macarons');
+    myChart.showLoading(); //播放加载小动画
+     window.setTimeout(function(){
+        myChart.setOption({
+        //背景色是全局的，所以直接在 option 下设置 backgroundColor
+        backgroundColor: '#2c343c',
+        visualMap: {
+            //visualMap 是视觉映射组件，用于进行『视觉编码』，也就是将数据映射到视觉元素（视觉通道）。
+            show: true,
+            //不显示 visualMap 组件，只用于明暗度的映射
+            min: 80,// 映射的最小值为 80
+            max: 600,// 映射的最大值为 600
+            inRange: {
+                colorLightness: [0, 1]// 明暗度的范围是 0 到 1
+            }
+        },
+        series: [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius: '55%',
+                roseType: "angle", //按照角度分布
+                data: [
+                    //单独对每一个扇区设置颜色
+                    //{value:335, name:'视频广告',itemStyle: {color: '#fff'}},
+                    //emphasis 当高亮的时候 有些图标并没有高亮
+                    { value: 335, name: '视频广告', itemStyle: { emphasis: { color: "#22B14C" } } },
+                    {
+                        value: 274, name: '联盟广告', label: {
+                            normal: {
+                                show: true,
+                                // 标签的文字。
+                                formatter: '联盟广告'
+                            },
+                            emphasis: {
+                                show: true,
+                                // 高亮时标签的文字。
+                                formatter: '联盟广告 值:274'
+                            }
+                        }
+                    },
+                    { value: 310, name: '邮件营销' },
+                    { value: 335, name: '直接访问' },
+                    { value: 400, name: '搜索引擎' }
+                ],
+                //阴影的配置
+                itemStyle: {
+                    //一般情况下的样式
+                    normal: {
+                        // 设置扇形的颜色
+                        color: '#c23531',
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        /*
+                        shadowBulr:200,
+                        shadowColor:'rgba(0,0,0,0.5)'*/
+                    },
+                    //itemStyle的emphasis是鼠标 hover 时候的高亮样式
+                    emphasis: {
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                },
+
+                labelLine: {
+                    //一般情况下的样式
+                    normal: {
+                        lineStyle: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        }
+                    }
+                },
+                //文本的样式可以设置全局的 textStyle。
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        }
+                    }
+                }
+            }
+        ]
+    })
+        myChart.hideLoading();//结束加载小动画
+     },1000)
+
+</script>
+
+</html>
