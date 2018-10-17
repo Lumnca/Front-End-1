@@ -2,12 +2,12 @@
 ----
 `JS6新语法提供了let实现块级作用域,字符串也新增了许多功能,增加了箭头函数,默认参数,不定参数`
 
-- [x] <a href="#LetConstQuest">块级作用域绑定</a>
-- [x] <a href="#StringRegular">字符串扩展</a>
-- [x] <a href="#RegularExpansion">正则表达式扩展</a>
-- [x] <a href="#Function">函数</a>
+- [x] <a href="#LetConstQuest">`块级作用域绑定`</a>
+- [x] <a href="#StringRegular">`字符串扩展`</a>
+- [x] <a href="#RegularExpansion">`正则表达式扩展`</a>
+- [x] <a href="#Function">`函数`</a>
 
-#### 1.	:whale2:  `块级作用域绑定` <a id="LetConstQuest" href="#LetConstQuest">let,const</a>    <a href="#top">----:arrow_up::arrow_up: </a>
+##### 1. :whale2:  `块级作用域绑定` <a id="LetConstQuest" href="#LetConstQuest">let,const</a>    <a href="#top">----:arrow_up::arrow_up: </a>
 * `块级作用域 是用let 声明变量,可以把变量变成块级`
 * let `可以使得变量避免变量提升,不允许重复声明,使得变量成为块级变量,隔绝在块级作用域之间,而不会混淆`
 * `未声明访问会报错,而不是underfine输出`
@@ -77,7 +77,7 @@ funcs.forEach(function(funcs_){
 ##### 1.3 全局作用域绑定
 * `全局作用域不会被绑定到window的全局属性中,所以不会产生覆盖window的属性的情况,`
 
-#### 2.	:whale2:  `字符串和正则表达式` <a id="StringRegular" href="#StringRegular">`代理对`,normalize,,=></a>    <a href="#top"> ----:arrow_up::arrow_up: </a>
+##### 2.	:whale2:  `字符串和正则表达式` <a id="StringRegular" href="#StringRegular">`代理对`,normalize,,=></a>    <a href="#top"> ----:arrow_up::arrow_up: </a>
 
 `JS5的字符串是基于16位的UTF-16编码进行构建的,每十六位表示一个编程单元,代表一个字符,许多字符串方法和属性都是基于此编程单元的的,但是过去16足够了但是
 Unicode引入扩展字符集,编码规则不得不进行变更,所有不再限制在16位,扩展到了32位,一个字符对应一个码位例如 55362 表示 吉这个字符.UTF-16中,前面`2<sup>16</sup>`码位 均以16位的编码单位表示,这个范围被称为基于多文中平面(BMP)`<br/>
@@ -86,7 +86,7 @@ Unicode引入扩展字符集,编码规则不得不进行变更,所有不再限�
 
 * `2.不利于对字符串进行排序和比较,要使用normalize() 方法进行等效关系标准化.`
 
-#### 针对代理对编码提供了码点方法
+##### 针对代理对编码提供了码点方法
 * `codePointAt() 方法,  能够正确处理 4(32位) 个字节储存的字符，返回一个字符的码点。` `charCodeAt() 方法只能返回16位的码点,无法兼容到代理对`
 * `ES5 提供String.fromCharCode方法，用于从码点返回对应字符，但是这个方法不能识别 32 位的 UTF-16 字符（Unicode 编号大于0xFFFF）。ES6 提供了String.fromCodePoint方法，可以识别大于0xFFFF的字符，弥补了String.fromCharCode方法的不足。在作用上，正好与codePointAt方法相反。`
 
@@ -116,7 +116,7 @@ Unicode引入扩展字符集,编码规则不得不进行变更,所有不再限�
 
 -----
 **`注意`**:`fromCodePoint方法定义在String对象上，而codePointAt方法定义在字符串的实例对象上。`
-#### 标准化 normalize
+##### 标准化 normalize
 `许多欧洲语言有语调符号和重音符号。为了表示它们，Unicode 提供了两种方法。一种是直接提供带重音符号的字符，比如Ǒ（\u01D1）。另一种是提供合成符号（combining character），即原字符与重音符号的合成，两个字符合成一个字符，比如O（\u004F）和ˇ（\u030C）合成Ǒ（\u004F\u030C）。这两种表示方法，在视觉和语义上都等价，但是 JavaScript 不能识别。JavaScript 将合成字符视为两个字符，导致两种表示方法不相等。`
 
 -----
@@ -172,7 +172,7 @@ Unicode引入扩展字符集,编码规则不得不进行变更,所有不再限�
         }
     }));
 ```
-#### 字符串遍历器
+##### 字符串遍历器
 `for...of循环遍历，除了遍历字符串，这个遍历器最大的优点是可以识别大于0xFFFF的码点，传统的for循环无法识别这样的码点。`
 ```C#
   for (let codePoint of 'foo') {
@@ -182,7 +182,7 @@ Unicode引入扩展字符集,编码规则不得不进行变更,所有不再限�
   // "o"
   // "o"
 ```
-#### 字符串对象新增加的实例方法
+##### 字符串对象新增加的实例方法
 * **`str.includes(string [,indexStart])`** ：`返回布尔值，表示是否找到了参数字符串。`
 * **`str.startsWith(string [,indexStart])`** ：`返回布尔值，表示参数字符串是否在原字符串的头部。`
 * **`str.endsWith(string [,indexStart])`** ：`返回布尔值，表示参数字符串是否在原字符串的尾部。`
@@ -220,7 +220,7 @@ Unicode引入扩展字符集,编码规则不得不进行变更,所有不再限�
   'x'.padEnd(4, 'ab') // 'xaba'
 ```
 
-#### 3.	:whale2:  `正则表达式扩展` <a id="RegularExpansion" href="#RegularExpansion">let,const</a>    <a href="#top">----:arrow_up::arrow_up: </a>
+##### 3.1	:whale2:  `正则表达式扩展` <a id="RegularExpansion" href="#RegularExpansion">let,const</a>    <a href="#top">----:arrow_up::arrow_up: </a>
 `在 ES5 中，RegExp构造函数的参数有两种情况。`
 * 第一种情况是，参数是字符串，这时第二个参数表示正则表达式的修饰符（flag）。
 
