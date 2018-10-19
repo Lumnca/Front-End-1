@@ -1,5 +1,4 @@
-:checkered_flag: <a href="#top" id="top">Jquery 脚本框架</a>
------
+### :checkered_flag: <a href="#top" id="top">Jquery 脚本框架[$./()]</a>
 `Web前端Jquey框架学习笔记`
 
 
@@ -20,6 +19,11 @@
  - [x] :maple_leaf: [JQuery 回调对象 ](https://github.com/kickgod/Front-End/blob/master/Jquery/JqueryCallBack.md) 
  
  ----
+ 
+### :checkered_flag: <a href="#top" id="top">Jquery 插件库[ Plugins]</a>
+
+- [x]	:herb: [jQuery Plugin 表单验证插件 ](https://github.com/kickgod/Front-End/blob/master/Jquery/JQueryPluginFormValidation.md) 
+
  ##### **`推荐书籍/网站:`**
 
  《JavaScript高级编程》  [《Jquery API 中文文档》](http://jquery.cuishifeng.cn/)  [《Jquery 官方文档》](https://jquery.com/) [《Jquery插件库》](http://www.jq22.com/)
