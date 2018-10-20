@@ -3,11 +3,9 @@
 - [x] ::herb:: <a href="#liezi">`简单介绍`</a>
 - [x] ::herb:: <a href="#validateUseIt">`validate()方法使用例子`</a>
 - [x] ::herb:: <a href="#ruleValidation">`validate() 内置的验证规则`</a>
-- [x] ::herb:: <a href="#messageValidation">`提示信息修改`</a>
-- [x] ::herb:: <a href="#callbacksfireIndex">`callbacks.fire()`</a>
-- [x] ::herb:: <a href="#callbacksfirewithIndex">`callbacks.fireWith([context ] [, args ])`</a>
-
-
+- [x] ::herb:: <a href="#otherFunction">`validate() 其他配置对象`</a>
+- [x] ::herb:: <a href="#ValidatorObject">`Validator对象`</a>
+- [x] ::herb:: <a href="#OtherSomeThing">`其他方法`</a>
 
 ##### <a href="#top" id="liezi" >简单介绍</a>
 `Validation是一个十分优秀的表单验证插件，它历史悠久，全球使用率超高，好评不断,学习jq 掌握这个插件是非常有必要的`
@@ -155,4 +153,413 @@ $("form[name='login']").validate({
 });
 ```
 `你可以通过messages 属性配置设置所有的提示信息 {0} 使用属性对象的第一个值 {1} 使用属性对应的第二个值`
-<a href="#top" id="messageValidation">validation 常用配置选项</a> 
+
+##### :herb: <a  href="#top"  id="otherFunction">`validate() 其他配置对象`</a>
+* `submitHandler:Function(form)`:`表单验证合理之后,默认添加该函数则不会再提交除非手动提交或者使用return true;`
+  * `该函数接受一个参数表示当前表单 DOM对象`
+```javascript
+  <script>
+    $(function () {
+      $("form[name='login']").validate({
+        messages: {
+          Userid: {
+              required:"请填写你的用户名"
+          }
+        },
+        rules: {
+          Userid: {
+            required: true
+          }
+        },
+        submitHandler:function(form){
+            alert("提交成功");
+            // 当验证成功后悔打印出字符串 但是不会自动提交表单 需要自动提交表单需要 
+            // 调用方法 form.submit()
+        }
+      });
+    });
+  </script>
+```
+* `invalidHandler:类型: Function(event,validator)`
+  * `当前验证的表单validator对象,当表单验证失败的时候执行`
+```javascript
+ $(function () {
+   $("form[name='login']").validate({
+     messages: {
+       Userid: {
+           required:"请填写你的用户名"
+       }
+     },
+     rules: {
+       Userid: {
+         required: true
+       }
+     },
+     invalidHandler:function(event,validator){
+         alert("表单验证失败");
+     }
+   });
+ });
+```
+* `errorClass (默认值: error) String`
+   * `指定错误提示与验证不通过的控件的 css 类名 会作用在errorElement控件和input/..空间上面`
+* `validClass (默认值: "valid") String`
+   * `在验证成功的控件上加上传入的css类`
+* `errorElement (默认值: "label") String 用什么标签标记错误`
+* `errorPlacement Function(error, element) (默认值: 在无效的元素之后)`
+   * `自定义错误信息放到哪里 error 是错误信息提示标签  element 是输入验证控件`
+* `errorContainer String 选择器字符串`
+   * `有错误信息出现时把选择器匹配的元素变为显示，无错误时隐藏`
+```Html
+<style>
+    .errorInfo{
+        display: block;
+        display: block;
+        font-size: 14px;
+        color: brown;
+    }
+    .validaSuccess{
+        border-color: green;
+        border-radius: 5px;
+        width: 200px;
+        height: 30px;
+    }
+    .validaSuccess:focus{
+        outline: none;
+    }
+</style>
+<script>
+$(function () {
+    $("form[name='login']").validate({
+    messages: {
+        Userid: {
+            required:"请填写你的用户名",
+            minlength:"密码长度不合法"
+        }
+    },
+    rules: {
+        Userid: {
+        required: true,
+        minlength:8
+        }
+    },
+    invalidHandler:function(event,validator){
+        alert("表单验证失败");
+    },
+    errorClass:"errorInfo" ,
+    validClass :"validaSuccess",
+    errorElement:"div",
+    errorPlacement:function(error,element){
+        $(error).insertBefore(element);
+        //把错误信息提示放到控件前面去
+    }, 
+    errorContainer:"#info",
+    debug:true
+    });
+});
+</script>
+</head>
+<body>
+  <div id="info" style=" display: none; ">
+    验证信息错误
+  </div>
+  <form  method="POST" name="login">
+    <div>
+        账号：
+    </div>
+    <input type="text" name="Userid" id="id" />
+    <br/><br/>  
+    <button type="submit">立即提交</button>
+  </form>
+</body>
+```
+* `errorLabelContainer String 选择器字符串 把错误信息统一放在一个容器里面`
+* `wrapper String 用什么标签再把上边的 errorELement 包起来`
+```html
+<style>
+    .errorInfo{
+        display: block;
+        display: block;
+        font-size: 14px;
+        color: brown;
+    }
+    .validaSuccess{
+        border-color: green;
+        border-radius: 5px;
+        width: 200px;
+        height: 30px;
+    }
+    .validaSuccess:focus{
+        outline: none;
+    }
+</style>
+<script>
+$(function () {
+  $("form[name='login']").validate({
+    messages: {
+        Userid: {
+            required:"请填写你的用户名",
+            minlength:"密码长度不合法"
+        }
+    },
+    rules: {
+        Userid: {
+        required: true,
+        minlength:8
+        }
+    },
+    errorLabelContainer:"#errorList",//把错误信息统一放在一个容器里面
+    debug:true
+    });
+});
+</script>
+</head>
+<body>
+  <div id="info" style=" display: none; ">
+    验证信息错误
+  </div>
+  <form  method="POST" name="login">
+    <div>
+        账号：
+    </div>
+    <input type="text" name="Userid" id="id" />
+    <br/><br/>  
+    <button type="submit">立即提交</button>
+  </form>
+  <div id="errorList">
+
+  </div>
+</body>
+```
+* `wrapper 类型：String 说明：用什么标签再把上边的 errorELement 包起来`
+```javascript
+$(function () {
+  $("form[name='login']").validate({
+    messages: {
+        Userid: {
+            required:"请填写你的用户名",
+            minlength:"密码长度不合法"
+        }
+    },
+    rules: {
+        Userid: {
+        required: true,
+        minlength:8
+        }
+    },
+    errorClass:"errorInfo",
+    debug:true,
+    wrapper:"div"
+    });
+});
+```
+* `success 类型：String or Function(label,element) 每个字段验证通过执行函数`
+  * `函数参数：label：信息提示标签的jQuery对象。 element：当前验证成功的DOM元素对象 如果跟一个字符串,会作为css类加在提示信息的标签上`
+```javascript
+<style>
+    .errorInfo{
+        font-size: 14px;
+        color: brown;
+    }
+    .validaSuccess{
+        border-color: green;
+        border-radius: 5px;
+        width: 200px;
+        height: 30px;
+    }
+    .validaSuccess:focus{
+        outline: none;
+    }
+</style>
+<script>
+$(function () {
+  $("form[name='login']").validate({
+    messages: {
+        Userid: {
+            required:"请填写你的用户名",
+            minlength:"密码长度不合法"
+        }
+    },
+    rules: {
+        Userid: {
+        required: true,
+        minlength:8
+        }
+    },
+    errorClass:"errorInfo",
+    debug:true,
+    wrapper:"div",
+    success:function(label,element){
+        console.log(label);
+    }
+    });
+});
+</script>
+</head>
+<body>
+  <div id="info" style=" display: none; ">
+    验证信息错误
+  </div>
+  <form  method="POST" name="login">
+    <div>
+        账号：
+    </div>
+    <input type="text" name="Userid" id="id" />
+    <br/><br/>  
+    <button type="submit">立即提交</button>
+  </form>
+  <div id="errorList">
+
+  </div>
+</body>
+```
+* `highlight(默认值: 添加errorClass到验证失败的表单控件) Type: Function(element, errorClass, validClass)`
+  * `传入的函数会在每个控件验证不通过时执行，我们可以通过这个配置属性，给不通过的控件加写效果`
+  * `函数参数：element：当前未通过验证的控件DOM元素对象`
+  * `errorClass：错误时给错误提示标签的css类名称`
+  * `validClass：validClass属性的当前值`
+* `unhighlight(默认值: 移除验证失败控件的errorClass) function(element, errorClass, validClass)`
+* `debug (默认值: false)  类型: Boolean 设置为true之后则表单不会真正的提交，仅仅是验证！ 使用方法以及参数同上，作用相反`
+* `ignore  类型：Selector 说明：忽略某些元素不验证`
+```javascript
+  highlight:function(element, errorClass, validClass){
+      element.addClass("valid");
+  },
+  unhighlight:function(element, errorClass, validClass){
+     element.removeClass("valid");
+  }
+```
+##### :herb: <a id="ValidatorObject" href="#top">`Validator对象`</a>
+` validate方法返回一个 Validator 对象，我们可以称这个对象为Validator对象`   
+* `Validator.form() 返回：Boolean` :`验证 form 返回成功还是失败`
+* `Validator.element() 返回：Boolean`:`验证单个元素是成功还是失败`
+* `Validator.resetForm() 把前面验证的 FORM 恢复到验证前原来的状态`  
+* `Validator.showErrors()`:`显示特定的错误信息`
+* `Validator.numberOfInvalids()`:` 返回验证不通过的字段数`
+```html
+<body>
+  <div id="info" style=" display: none; ">
+    验证信息错误
+  </div>
+  <form  method="POST" name="login">
+    <div>
+        账号：
+    </div>
+    <input type="text" name="Userid" id="id" />
+    <br/>
+    <div>
+        密码
+    </div>
+    <input type="password" class="input_pwd" id="password" name="password"  >
+    <button type="submit">立即提交</button>
+  </form>
+  <br/><br/>  
+  <div>
+      <button id="Check" type="button">检查一下</button>
+      <button id="resetForm" type="button">删除验证信息</button>
+  </div>
+</body>
+```
+```javascript
+$(function () {
+  var validater =  $("form[name='login']").validate({
+    messages: {
+        Userid: {
+            required:"请填写你的用户名",
+            minlength:"密码长度不合法"
+        }
+    },
+    rules: {
+        Userid: {
+        required: true,
+        minlength:8
+        }
+    },
+    errorClass:"errorInfo",
+    debug:true,
+    wrapper:"div",
+    });
+    $('#Check').on("click",null,null,function(){
+        console.log(`表单验证：${validater.form()}`);
+        console.log(`账号验证: ${validater.element("form input:eq(0)")}`);
+    });
+    $('#resetForm').on("click",null,null,function(){
+        validater.resetForm();
+    });
+ });
+```
+###### 静态方法
+* `$.validator.setDefaults() 改变默认的设置`         
+* `$.validator.addClassRules() 增加组合验证类型，可以在一个css类里面用多种验证规则`           
+* `$.validator.format() 用参数代替模板中的 {n}`
+* `$.validator.addMethod("MethodName",Function(value,element,args),"ErrorMessage") 添加一个新的验证方法 自定义验证规则`  
+  * `第一个参数：规则名称`
+  * `第二个参数: 验证函数(输入值,输入控件,是否启用 true/false)`
+  * `第三个参数: 错误提示信息`
+  * `返回值: false 失败  返回true 验证成功`
+```javascript
+  $.validator.addMethod("RemoteServer",function(value,element,args){
+      //用户输入的值
+      if(args){
+            if(value != "123456789"){
+            return false;
+            }else{
+                return true;
+            }
+      };
+      return true;
+      console.log(args);//true / false  如果是true 则启用规则 否则不启用规则
+  },"服务器验证失败,你不能登陆");
+```
+```javascript
+ $.validator.addClassRules({
+   input_pwd:{
+       required: true,
+       minlength:8
+   },
+   userName:{
+       required: true,  //凡是有.userName类的标签 都必须填写
+   }
+ });
+```
+```javascript
+ var template = $.validator.format("{0} is {1}  ");
+ console.log(template("My age","18"));  //My age is 18 
+```
+##### :herb: <a href="#ruleFunction">`rule() 方法`</a> 
+* `rules()` `返回元素的验证规则`
+* `rules("add",rules)` `增加验证规则`
+* `rules("remove",rules)` `删除验证规则 多个验证规则用空格隔开`
+```javascript
+  //需要调用validate 方法 之前
+  $('form input:eq(1)').rules('add',{
+       required: true,
+       minlength:8
+  });
+  $('form input:eq(1)').rules('remove',"required minlength");
+```
+##### :herb: <a id="OtherSomeThing" href="#top">`其他方法`</a>   
+```
+五、valid()方法
+    1、介绍
+        说明：检查表单是否验证通过
+    2、使用
+        表单jQuery对象.valid()
+六、jQuery Validation提供的选择器
+    1、增加的选择器
+    这个插件还提供了几个选择器
+   :blank
+     选择所有没有值或者值为空白的表单控件
+   :filled
+     选择所有填写了非空值的表单控件
+   :unchecked
+     与jQuery提供的:checked选择器相反        
+```
+            
+                
+            
+                
+            
+                
+            
+                
