@@ -1,9 +1,13 @@
 <a id="top" href="#top">Node 起步  :maple_leaf:</a> 
 ----
 `让我们把环境搭建起来,运行起来一个node,其他的Node的历史,还有各种原因请查看Node的书籍,这里是记录干货,笔记`
+- [x] :maple_leaf: <a href="#NodeNotice">`Node 注意`</a>
 - [x] :maple_leaf: <a href="#InstallNode">`Node 环境`</a>
 - [x] :maple_leaf: <a href="#NodeServer">`Node Web Server`</a>
 
+#### <a id="NodeNotice" href="#NodeNotice">Node 注意</a>  :star2: <a href="#top"> :arrow_up: </a>
+* `1.Node 没有Dom Bom 它运行在服务端`
+* `2.Node 提供了js文件操作`
 ####  <a id="InstallNode" href="#InstallNode">Node 环境</a>  :star2: <a href="#top"> :arrow_up: </a>
 `请自行安装node 环境直到在命令行中 有如下反应 版本不限制... 这代表node环境已经有了`
 ```shell
