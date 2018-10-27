@@ -13,6 +13,7 @@ npm -v
 6.4.1
 ```
 `新建一个index.js文件里面输入一些js代码`
+* `注意:你的文件不要命名为 `
 ```javascript
  var age = 18;
  console.log("你好啊");
@@ -20,7 +21,7 @@ npm -v
 ```
 `命令行中运行,请到文件的目录下面(Shift+右键  就会有在此打开命令行) 运行 node index.js 就会看到结果 `<br/>'
 
-####  <a id="InstallNode" href="#NodeServer">Node Web Server</a>  :star2: <a href="#top"> :arrow_up: </a>
+####  <a id="NodeServer" href="#NodeServer">Node Web Server</a>  :star2: <a href="#top"> :arrow_up: </a>
 `让我们跑起来一个简单的web请求页面`<Br/>
 `替换index.js代码为如下：`
 ```javascript
