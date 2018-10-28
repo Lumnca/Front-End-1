@@ -2,9 +2,9 @@
 -----
 `更新时间:2018/10/8`
 
-* [x] [`	JavaScript5 基本数据类型 简述`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptDateType.md)
+* [x] [`JavaScript5. 基本数据类型 简述`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptDateType.md)
 
-* [x] [`JavaScript5. 原生数据类型`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptDateType.md)
+* [x] [`JavaScript5. 内存作用域环境`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptVariable.md.md)
  
 * [x] [`JavaScript5. 原生Event`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptEvent.md)
 
