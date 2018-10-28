@@ -1,6 +1,7 @@
 <a id="top"  href="#top">:arrow_lower_left: JavaScript5 正则表达式 vscode :maple_leaf:</a>
 ----
-`Javascript 正则表达式的使用,正则表达式具体请 到此处学习` [`菜鸟正则表达式`](http://www.runoob.com/regexp/regexp-tutorial.html)
+`Javascript 正则表达式的使用,正则表达式具体请 到此处学习` [`菜鸟正则表达式`](http://www.runoob.com/regexp/regexp-tutorial.html) 
+[`RegExp官方文档`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
 
 - [x] <a href="#CreateObject">`创建RegExp 对象 注意模式`</a>
 - [x] <a href="#BabelrcFile">`配置.Babelrc文件`</a>
