@@ -7,7 +7,7 @@
 
 #### <a id="NodeNotice" href="#NodeNotice">Node 注意</a>  :star2: <a href="#top"> :arrow_up: </a>
 * `1.Node 没有Dom Bom 它运行在服务端`
-* `2.Node 提供了js文件操作`
+* `2.Node 提供了js文件操作,http 数据库交互 OS 等等一系列功能`
 ####  <a id="InstallNode" href="#InstallNode">Node 环境</a>  :star2: <a href="#top"> :arrow_up: </a>
 `请自行安装node 环境直到在命令行中 有如下反应 版本不限制... 这代表node环境已经有了`
 ```shell
