@@ -2,7 +2,13 @@
 -----
 `运用console命令将信息输入到控制台中`
 
-##### [Node.js中的全局作用域和全局函数](#)
+- [x] :maple_leaf: <a href="#Node">`Node.js 中的全局作用域和全局函数`</a>
+- [x] :maple_leaf: <a href="#NodeTimer">`Node.js 全局定时器`</a>
+- [x] :maple_leaf: <a href="#NodeGlobal">`Node.js 与模块先关的全局函数及对象`</a>
+- [x] :maple_leaf: <a href="#NodeVariables">`Node.js 全局变量`</a> 
+- [x] :maple_leaf: <a href="#NodeModuleVariable">`Node.js 全局变量`</a> 
+  
+##### [Node.js中的全局作用域和全局函数](#) <span id="Node"></span>
 `虽然node 分模块的,存在模块作用域,在一个模块中定义的变量,函数和方法只能在该模块可以用,但可以通过exports对象的使用将其传递到模块底部,但是你会发现有些函数是每个模块都可以调用的,甚至不需要加载任何的的模块，在Node中任然存在一个全局作用域,既可以定义不需要通过任何模块加载就可以使用的函数 变量或类，
 同时,也预先定义了一些全局方法和全局类,在Node中定义了一个Global 对象,代表Node的全局命名空间,任何全局变量,函数都是该对象的一个属性值`
 ```javascript
@@ -11,7 +17,7 @@ console.log(global);
 ```
 
 
-##### [全局定时器](#)
+##### [全局定时器](#) <span id="NodeTimer"></span> 
 `Node 中含定义了很多的全局函数`[`定时API官网文档`](https://nodejs.org/api/timers.html) `由于计时器函数是全局变量，因此无需调用require('timers')即可使用API。`
 * `Class:Timeout`
     * `setTimeout(func,time,[args],[...])`
@@ -86,7 +92,7 @@ console.log("正常执行");
 `process.nextTick()中的回调函数执行的优先级要高于setImmediate()。这里的原因在于事件循环对观察者的检查是有先后顺序的，process.nextTick()属于
 idle观察者，setImmediate()属于check观察者。在每一个轮循环检查中，idle观察者先于I/O观察者，I/O观察者先于check观察者。`
 
-##### [与模块先关的全局函数及对象](#)
+##### [与模块先关的全局函数及对象](#) <span id="NodeGlobal"></span>
 `在Node.js,可以使用require 函数来加载模块,代码如下` `加载一个自定义模块`<br/>
 
 second.js
@@ -141,6 +147,37 @@ D:\Users\Kick\WebstormProjects\node-wordspace\learing\modules\second.js
 ```javascript
 delete require.cache[require.resolve('./modules/second.js')];
 ```
+#### [Node.js 全局变量](#) <span id="NodeVariables"></span> 
+* `_filename`:`反应执行环境所在目录文件完整绝对路径`
+* `_dirname`:`反应执行环境所在目录完整绝对路径`
+* `console`:`指向Node内置的console模块，提供命令行环境中的标准输入、标准输出功能。可对断言 报告堆栈 输出错误警告`
+* `global`：`表示Node所在的全局环境，类似于浏览器中的window对象`
+* `process`:`指向Node内置的process模块，允许开发者与当前进程互动。`
+```javascript
+console.log(__filename);
+console.log(__dirname);
+/*
+D:\Users\Kick\WebstormProjects\node-wordspace\learing\app.js
+D:\Users\Kick\WebstormProjects\node-wordspace\learing
+*/
+```
+
+##### `准全局变量` <span id="NodeModuleVariable"></span>
+`模块内部的局部变量，指向的对象根据模块不同而不同，但是所有模块都适用，可以看作是伪全局变量，主要为module, module.exports, exports等。` <br/>
+
+`module变量指代当前模块。module.exports变量表示当前模块对外输出的接口，其他文件加载该模块，实际上就是读取module.exports变量。`
+
+* `module.id 模块的识别符，通常是模块的文件名。`
+* `module.filename 模块的文件名。`
+* `module.loaded 返回一个布尔值，表示模块是否已经完成加载。`
+* `module.parent 返回使用该模块的模块。`
+* `module.children 返回一个数组，表示该模块要用到的其他模块。`
+
+```javascript
+exports.自定义模块 = function (x){ console.log(x);};
+//上面这样的写法是无效的，因为它切断了exports与module.exports之间的链接。
+```
+
 
 
 
