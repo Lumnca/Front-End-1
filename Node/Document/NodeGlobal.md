@@ -6,7 +6,7 @@
 - [x] :maple_leaf: <a href="#NodeTimer">`Node.js 全局定时器`</a>
 - [x] :maple_leaf: <a href="#NodeGlobal">`Node.js 与模块先关的全局函数及对象`</a>
 - [x] :maple_leaf: <a href="#NodeVariables">`Node.js 全局变量`</a> 
-- [x] :maple_leaf: <a href="#NodeModuleVariable">`Node.js 全局变量`</a> 
+- [x] :maple_leaf: <a href="#NodeModuleVariable">`Node.js 准全局变量`</a> 
   
 ##### [Node.js中的全局作用域和全局函数](#) <span id="Node"></span>
 `虽然node 分模块的,存在模块作用域,在一个模块中定义的变量,函数和方法只能在该模块可以用,但可以通过exports对象的使用将其传递到模块底部,但是你会发现有些函数是每个模块都可以调用的,甚至不需要加载任何的的模块，在Node中任然存在一个全局作用域,既可以定义不需要通过任何模块加载就可以使用的函数 变量或类，
