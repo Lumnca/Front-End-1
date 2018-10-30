@@ -7,5 +7,6 @@
 - [`node 编码注意`](https://github.com/kickgod/Front-End/blob/master/Node/Document/NodeUse.md)
 
 #### [Node 系统学习步骤](#) :white_check_mark:
-- [x]  [`Node REPL 执行交换环境`](https://github.com/kickgod/Front-End/blob/master/Node/Document/NodeREPL.md) :clock130:
-- [x]  [`Node console 对象`](https://github.com/kickgod/Front-End/blob/master/Node/Document/NodeConsole.md) :clock10:
+- [x]  [`1.Node REPL 执行交换环境`](https://github.com/kickgod/Front-End/blob/master/Node/Document/NodeREPL.md) :clock130:
+- [x]  [`2.Node console 对象`](https://github.com/kickgod/Front-End/blob/master/Node/Document/NodeConsole.md) :clock10:
+- [x]  [`3.Node Global 函数 变量`](https://github.com/kickgod/Front-End/blob/master/Node/Document/NodeGlobal.md) :clock11:
