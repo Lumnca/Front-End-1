@@ -1,10 +1,10 @@
 ### [Node 事件处理机制和时间环机制 :maple_leaf: ](#top)<span id="top"></span>
 `课客户端JavaScript 脚本代码一样，Node.js中,许多对象也将会触发事件.例如，针对代表了web服务器的http.Server对象来说,可能也会触发 接收到客户端请求
 ,产生链接错误,等各种事件,针对每个不同的事件,都需要进行不同的事件处理`
-- [x] [`EventEmitter 类`](#EventEmitter)
+- [x] [EventEmitter](#EventEmitter)
 - [x] [`事件环机制`](#Eventloop)
 
-#### [EventEmitter 类 :white_check_mark:](#) <span id="EventEmitter"></span>	
+#### [EventEmitter](#):white_check_mark: <span id="EventEmitter"></span>	
 `在Node 中用户实现各种事件处理的event模板中,定义了一个EventEmitter类,所有可能触发事件的对象都是一个继承了EventEmitter类的子实例对象,在Node.js中
 为EventEmitter 类定义了许多方法,所有与对象的事件处理函数的绑定和接触相关的处理均依靠这些方法的调用来执行
 
