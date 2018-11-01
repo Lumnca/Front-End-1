@@ -10,3 +10,5 @@
 - [x]  [`1.Node REPL 执行交换环境`](https://github.com/kickgod/Front-End/blob/master/Node/Document/NodeREPL.md) :clock130:
 - [x]  [`2.Node console 对象`](https://github.com/kickgod/Front-End/blob/master/Node/Document/NodeConsole.md) :clock10:
 - [x]  [`3.Node Global 函数 变量`](https://github.com/kickgod/Front-End/blob/master/Node/Document/NodeGlobal.md) :clock11:
+- [x]  [`4.Node 事件处理机制和时间环机制`](https://github.com/kickgod/Front-End/blob/master/Node/Document/NodeEvent.md) :clock12:
+ 
