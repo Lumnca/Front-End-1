@@ -10,7 +10,7 @@
   - [`watch/unwatch`](#codewatch)
   - [`sb/setBreakpoint`](#setbreakpoint)
   - [`cb/clearBreakpoint`](#clearbreakpoint)
-
+- [x] [`其他有用的调试命令`](#othercode)
 ##### [使用VsCode 调试Node.js](#top) <b id="vscodedebug"></b>
 `这个实在是很简单的,Vscode 提供了一个十分友好的Node调试功能,只要学会使用它,就可以满足Node调试的大部分需求,而且操作很简单,添加监视,断点`
 `例如如下所示`
@@ -68,16 +68,6 @@ debug> n
 break in app.js:7
   5     return 100;
   6 }
-> 7 let bar  = "this is a pen";
-  8 console.log(bar);
-  9 let http = require("http");
-debug> n
-break in app.js:8
-  6 }
-  7 let bar  = "this is a pen";
-> 8 console.log(bar);
-  9 let http = require("http");
- 10 let i = foo();
 ```
 ###### [s/step](#top) <b id="codestep"></b>  
 `使用` `s` `或` `step` `命令可是进入函数内部 然后就可以在函数内部 单步调试了`
@@ -93,13 +83,7 @@ unwatch('i==100') 一旦查看到结果也可以取消监视
 ```
 ```node
 PS E:\nodejs-workspace\study> node debug app.js
-(node:1540) [DEP0068] DeprecationWarning: `node debug` is deprecated. Please use `node inspect` instead.
-< Debugger listening on ws://127.0.0.1:9229/08253620-b94f-43fa-8af9-a08b2f415404
-< For help, see: https://nodejs.org/en/docs/inspector
-Break on start in app.js:1
-> 1 (function (exports, require, module, __filename, __dirname) { console.log("start to run");
-  2
-  3 function foo() {
+...
 debug> watch('i')
 debug> watch('i==10')
 debug> n
@@ -111,43 +95,12 @@ Watchers:
 > 1 (function (exports, require, module, __filename, __dirname) { console.log("start to run");
   2
   3 function foo() {
-debug> n
-< start to run
-break in app.js:7
+...
+debug> unwatch('i==10')
+....
 Watchers:
   0: i = undefined
-  1: i==10 = false
-
-  5     return 100;
-  6 }
-> 7 let bar  = "this is a pen";
-  8 console.log(bar);
-  9 let http = require("http");
-  
-  ....
-  debug> n
-< hello foo
-break in app.js:11
-Watchers:
-  0: i = 100
-  1: i==10 = false
-
-  9 let http = require("http");
- 10 let i = foo();
->11 console.log(i);
- 12
- 13
-debug> unwatch('i==10')
-debug> n
-< 100
-break in app.js:15
-Watchers:
-  0: i = 100
-
- 13
- 14
->15 });
-  ....
+...  
 ```
 ##### [sb/setBreakpoint](#top) <b id="setbreakpoint"></b>
 `设置断点` `sb(filename,line)` `在debug中使用`
@@ -155,3 +108,23 @@ Watchers:
 ##### [cb/clearBreakpoint](#top) <b id="clearbreakpoint"></b>
 `取消断点` `cb(filename,line)`
 `取消断点`
+
+#### [其他有用的调试命令](#top) <b id="othercode"></b>
+**`list(n)`** `查看当前执行代码之前及之后的多少行代码,例如 list(3) 查看执行代码之前及之后三行代码`
+```node
+debug> list(3)
+ 199         this[kFormatForStdout](args),
+ 200         this._stdoutErrorHandler,
+ 201         this[kGroupIndent]);
+>202 };
+ 203 Console.prototype.debug = Console.prototype.log;
+ 204 Console.prototype.info = Console.prototype.log;
+ 205 Console.prototype.dirxml = Console.prototype.log;
+```
+**`Repl**` `在调试过程中进入REPL 环境中测试代码 Press Ctrl + C to leave debug repl` <br/>
+**`restart**` `重新开始脚本的调试`<br/>
+**`kill**` `停止正在调试的脚本`<br/>
+**`run**` `重新开始被kill暂停的调试脚本`<br/>
+**`version**` `查看VS 引擎版本号`<br/>
+**`scripts**` `查看当前运行文件,和被夹在的模块文件名称`<br/>
+
