@@ -12,6 +12,8 @@ let dataBase = require('./modules/DataBase.js');
 - [x] [`使用exports对象访问`](#exports) :maple_leaf:
 - [x] [`组织和管理模块`](#nodemodules) :maple_leaf:
 - [x] [`模块对象的属性`](#moduleshuxing) :maple_leaf:
+- [x] [`Node.js中的包`](#nodepackage) :maple_leaf:
+- [x] [`npm 包管理器`](#npmpackage) :maple_leaf:
 
 ##### [核心模块](#top) <b id="moudlecenter"></b> 	:maple_leaf:
 * `node 加载预定于的核心模块速度快,而且只需要使用require 函数输出模块名指定参数就可以`
@@ -88,7 +90,7 @@ module.exports = foo;
    * `然后在app.js 里面加载` `require('foo')`
    * `node 会自动去加载 node_modules 里面的foo文件夹里面的index.js 文件里面的代码`
 * `更加科学的方法`
-   * `在node_modules文件夹里面定义一个 package.json 文件 定义模块名称和路径`
+   * `在node_modules文件夹 里面的foo 文件夹 里面定义一个 package.json 文件 定义模块名称和路径`
    
    ```json
     {
@@ -101,9 +103,9 @@ module.exports = foo;
    app.js  
    node_modules
      |
-     --package.json    
-     |
      --foo
+        |
+        --package.json    
         |
         --lib
           |
@@ -112,12 +114,83 @@ module.exports = foo;
    `let foo = require('foo'); 此时node 会查找package.json 然后寻杂目录路径然后 去 node_modules里面的foo文件夹里面的lib文件夹里面的foo.js加载代码`
 
 
+##### [`模块对象的属性`](#top) <b id="moduleshuxing"></b> :maple_leaf: 
+`在模块文件内部,可以访问当前模块的如下的一些属性`
+* `moudle.id`：`当前模块的ID,主模块的ID 属性值为“.” 其他模块的ID属性值为当前模块的绝对路径`
+* `moudle.filename`：`属性值为当前模块文件的文件名`：`D:\Users\Kick\WebstormProjects\node-wordspace\node-module\app.js 例如`
+* `module.children`:`返回存放了当前模块的所有子模块对象 返回一个数组`
+* `module.children`:`返回存放了当前模块的所有子模块对象 返回一个数组`
+* `module.load`:`flase/true 当前模块是否加载`
 
+##### [`Node.js中的包`](#top) <b id="nodepackage"></b> :maple_leaf: 
+`在node中通过包来对一组相互依赖的模块进行统一管理,通过包的使用可以将某个独立的功能封装起来,在Node中一个包就是一个目录 其中包含了用于对包进行描述的JSON格式 的package文件.在一个包中,通常包含如下所示的一些内容`
 
+![Node 包结构](/Resources/NodeImage/nodepackage.png)
 
+##### [`npm 包管理器`](#npmpackage)  <b id="npmpackage"></b> :maple_leaf:
 
+```node
+npmsearch forever 
+//node 的官方包仓库,搜索包
+```
+```node
+npmview forever 
+//forever 查看官方包仓库中的package.json中的信息 
+```
+```node
+npm install forever 
+//安装forever 在node_modules 里面 
+npm install -g forever
+//安装forever 在node的全局包路径中
+```
+```node
+//我们可以通过以下命令来查看Node.js的全举报的安装路径
+$ npm root -g
+C:\Users\Kick\AppData\Roaming\npm\node_modules
+```
+```node
+//修改
+$ npmconfig set prefix "D:\Node\node_modules"
+C:\Users\Kick\AppData\Roaming\npm\node_modules
+```
 
+```node
+//修改
+$ npm list
+//可以使用以下命令查看当前目录下所有已经安装的包：
+```
 
+```node
+//修改
+$ npm list -g
+//使用以下命令可以查看全局路径下安装的所有的包：
+```
+
+```node
+npm uninstall <包名称>
+//可以使用以下的命令卸载全局目录中已经安装的一个包:
+```
+
+```node
+npm uninstall -g <包名称>
+可以使用更新命令对当前目录下已经安装的某一个包进行安装：
+```
+
+```node
+npm update <包名称>
+可以使用如下命令对安装在全局路径的包进行更新：
+```
+
+```powershell
+npm update -g <包名称>
+使用以下命令更新当前目录下所有已经安装的包：
+```
+
+```powershell
+//使用以下的命令对全局路径中所有已经安装的包
+npm update
+npm update -g
+````
 
 
 
