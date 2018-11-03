@@ -127,6 +127,9 @@ module.exports = foo;
 
 ![Node 包结构](/Resources/NodeImage/nodepackage.png)
 
+
+![Npde 实例](/Resources/NodeImage/nodepackexample)
+
 ##### [`npm 包管理器`](#npmpackage)  <b id="npmpackage"></b> :maple_leaf:
 
 ```node
