@@ -5,7 +5,7 @@
 - [x] <a href="#LetConstQuest">`块级作用域绑定`</a>
 - [x] <a href="#StringRegular">`字符串扩展`</a>
 - [x] <a href="#RegularExpansion">`正则表达式扩展`</a>
-- [x] <a href="#Function">`函数`</a>
+
 
 ##### 1. :whale2:  `块级作用域绑定` <a id="LetConstQuest" href="#LetConstQuest">let,const</a>    <a href="#top">----:arrow_up::arrow_up: </a>
 * `块级作用域 是用let 声明变量,可以把变量变成块级`
@@ -246,85 +246,4 @@ console.log(reg.flags);// 返回正则对象的修饰符
 * 字符串对象共有 4 个方法，可以使用正则表达式：match()、replace()、search()和split()。
 
 * ES6 将这 4 个方法，在语言内部全部调用RegExp的实例方法，从而做到所有与正则相关的方法，全都定义在RegExp对象上。
-```javascript
 
-```
-
-```javascript
-
-```
-```javascript
-
-```
-
-```javascript
-
-```
-
-```javascript
-
-```
-
-
-```javascript
-
-```
-
-
-```javascript
-
-```
-
-
-```javascript
-
-```
-
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
