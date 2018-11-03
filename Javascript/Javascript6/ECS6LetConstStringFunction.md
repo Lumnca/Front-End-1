@@ -1,13 +1,12 @@
-<a id="top"  href="#top">:arrow_lower_left: JavaScript6 块级作用域.字符串.正则.函数 :maple_leaf:</a>
-----
+### <a id="top"  href="#top">:arrow_lower_left: JavaScript6 块级作用域.字符串.正则:maple_leaf:</a>
 `JS6新语法提供了let实现块级作用域,字符串也新增了许多功能,增加了箭头函数,默认参数,不定参数`
 
-- [x] <a href="#LetConstQuest">`块级作用域绑定`</a>
-- [x] <a href="#StringRegular">`字符串扩展`</a>
-- [x] <a href="#RegularExpansion">`正则表达式扩展`</a>
+- [x] <a href="#letconst">`块级作用域绑定`</a>
+- [x] <a href="#stringexpend">`字符串扩展`</a>
+- [x] <a href="#regularexpend">`正则表达式扩展`</a>
 
 
-##### 1. :whale2:  `块级作用域绑定` <a id="LetConstQuest" href="#LetConstQuest">let,const</a>    <a href="#top">----:arrow_up::arrow_up: </a>
+##### 1. :whale2:  `块级作用域绑定` <a id="letconst" href="#letconst">let,const</a>    <a href="#top">----:arrow_up::arrow_up: </a>
 * `块级作用域 是用let 声明变量,可以把变量变成块级`
 * let `可以使得变量避免变量提升,不允许重复声明,使得变量成为块级变量,隔绝在块级作用域之间,而不会混淆`
 * `未声明访问会报错,而不是underfine输出`
@@ -77,7 +76,7 @@ funcs.forEach(function(funcs_){
 ##### 1.3 全局作用域绑定
 * `全局作用域不会被绑定到window的全局属性中,所以不会产生覆盖window的属性的情况,`
 
-##### 2.	:whale2:  `字符串和正则表达式` <a id="StringRegular" href="#StringRegular">`代理对`,normalize,,=></a>    <a href="#top"> ----:arrow_up::arrow_up: </a>
+##### 2.	:whale2:  `字符串和正则表达式` <a id="stringexpend" href="#stringexpend">`代理对`,normalize,,=></a>    <a href="#top"> ----:arrow_up::arrow_up: </a>
 
 `JS5的字符串是基于16位的UTF-16编码进行构建的,每十六位表示一个编程单元,代表一个字符,许多字符串方法和属性都是基于此编程单元的的,但是过去16足够了但是
 Unicode引入扩展字符集,编码规则不得不进行变更,所有不再限制在16位,扩展到了32位,一个字符对应一个码位例如 55362 表示 吉这个字符.UTF-16中,前面`2<sup>16</sup>`码位 均以16位的编码单位表示,这个范围被称为基于多文中平面(BMP)`<br/>
@@ -220,7 +219,7 @@ Unicode引入扩展字符集,编码规则不得不进行变更,所有不再限�
   'x'.padEnd(4, 'ab') // 'xaba'
 ```
 
-##### 3.1	:whale2:  `正则表达式扩展` <a id="RegularExpansion" href="#RegularExpansion">let,const</a>    <a href="#top">----:arrow_up::arrow_up: </a>
+##### 3.1	:whale2:  [`正则表达式扩展`](#top) <b id="regularexpend"></b>
 `在 ES5 中，RegExp构造函数的参数有两种情况。`
 * 第一种情况是，参数是字符串，这时第二个参数表示正则表达式的修饰符（flag）。
 
