@@ -1,6 +1,6 @@
 ### <a href="#top" id="top"> ECSMScript6 学习笔记 :maple_leaf:</a>
 
-- [x] :maple_leaf: [`JavaScript Babel 环境`](https://github.com/kickgod/Script/blob/master/Document/ECS6LetConstStringFunction.md/ES6Babel.md)
+- [x] :maple_leaf: [`JavaScript6 Babel 环境`](https://github.com/kickgod/Script/blob/master/Document/ECS6LetConstStringFunction.md/ES6Babel.md)
 - [x] :maple_leaf: [`JavaScript6 块级作用域.字符串`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript6/ECS6LetConstString.md)
 
 -----
