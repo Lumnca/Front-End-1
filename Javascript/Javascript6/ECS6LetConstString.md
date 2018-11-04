@@ -3,7 +3,7 @@
 
 - [x] <a href="#letconst">`块级作用域绑定`</a>
 - [x] <a href="#stringexpend">`字符串扩展`</a>
-- [x] <a href="#regularexpend">`正则表达式扩展`</a>
+- [x] <a href="#regularexpend">`模板字符串`</a>
 
 
 ##### 1. :whale2:  `块级作用域绑定` <a id="letconst" href="#letconst">let,const</a>    <a href="#top">----:arrow_up::arrow_up: </a>
@@ -219,30 +219,142 @@ Unicode引入扩展字符集,编码规则不得不进行变更,所有不再限�
   'x'.padEnd(4, 'ab') // 'xaba'
 ```
 
-##### 3.1	:whale2:  [`正则表达式扩展`](#top) <b id="regularexpend"></b>
-`在 ES5 中，RegExp构造函数的参数有两种情况。`
-* 第一种情况是，参数是字符串，这时第二个参数表示正则表达式的修饰符（flag）。
+##### 3.1	:whale2:  [`模板字符串`](#top) <b id="regularexpend"></b>
+`传统的 JavaScript 语言，输出模板通常是这样写的（下面使用了 jQuery 的方法）。`
+```node
+$('#result').append(
+  'There are <b>' + basket.count + '</b> ' +
+  'items in your basket, ' +
+  '<em>' + basket.onSale +
+  '</em> are on sale!'
+);
+```
+`上面这种写法相当繁琐不方便，ES6 引入了模板字符串解决这个问题。`
+```node
+$('#result').append(`
+  There are <b>${basket.count}</b> items
+   in your basket, <em>${basket.onSale}</em>
+  are on sale!
+`);
+```
+`模板字符串（template string）是增强版的字符串，用反引号（``）标识。它可以当作普通字符串使用，也可以用来定义` `多行字符串` `，或者在字符串中嵌入变量。`
+```node
+/ 普通字符串
+`In JavaScript '\n' is a line-feed.`
 
-```javascript
-  var regex = new RegExp('xyz', 'i');
-  // 等价于
-  var regex = /xyz/i;
-```
-* 第二种情况是，参数是一个正则表示式，这时会返回一个原有正则表达式的拷贝。
-```javascript
-  var regex = new RegExp(/xyz/i); //修饰符跟在后面此时不允许使用第二个参数
-  // 等价于
-  var regex = /xyz/i;
-```
-ES6 改变了这种行为。如果RegExp构造函数第一个参数是一个正则对象，那么可以使用第二个参数指定修饰符。而且，返回的正则表达式会忽略原有的正则表达式的修饰符，只使用新指定的修饰符。
-```javascript
-let reg=new RegExp(/abc/ig, 'i');
-console.log(reg.flags);// 返回正则对象的修饰符
-// "i" 
-// 原有正则对象的修饰符是ig，它会被第二个参数i覆盖。
-```
-##### 3.2 字符串的正则方法
-* 字符串对象共有 4 个方法，可以使用正则表达式：match()、replace()、search()和split()。
+// 多行字符串
+`In JavaScript this is
+ not legal.`
 
-* ES6 将这 4 个方法，在语言内部全部调用RegExp的实例方法，从而做到所有与正则相关的方法，全都定义在RegExp对象上。
+console.log(`string text line 1
+string text line 2`);
+
+// 字符串中嵌入变量
+let name = "Bob", time = "today";
+`Hello ${name}, how are you ${time}?`
+```
+###### [模板实例](http://es6.ruanyifeng.com/#docs/string#%E5%AE%9E%E4%BE%8B%EF%BC%9A%E6%A8%A1%E6%9D%BF%E7%BC%96%E8%AF%91)
+
+###### 标签模板
+`模板字符串的功能，不仅仅是上面这些。它可以紧跟在一个函数名后面，该函数将被调用来处理这个模板字符串。
+这被称为“标签模板”功能（tagged template）。`
+```node
+alert`123`
+// 等同于
+alert(123)
+
+let a = 5;
+let b = 10;
+
+tag`Hello ${ a + b } world ${ a * b }`;
+// 等同于
+tag(['Hello ', ' world ', ''], 15, 50);
+```
+* `函数tag依次会接收到多个参数。`
+```node
+function tag(stringArr, ...values){
+  // ...
+}
+```
+```node
+let a = 5;
+let b = 10;
+
+function tag(s, v1, v2) {
+  console.log(s[0]);
+  console.log(s[1]);
+  console.log(s[2]);
+  console.log(v1);
+  console.log(v2);
+
+  return "OK";
+}
+
+tag`Hello ${ a + b } world ${ a * b}`; //=tag(['Hello ', ' world ', ''], 15, 50)
+// "Hello "
+// " world "
+// ""
+// 15
+// 50
+// "OK"
+```
+**`末班实例`**
+```node
+let total = 30;
+let msg = passthru`The total is ${total} (${total*1.05} with tax)`;
+
+function passthru(literals) {
+  let result = '';
+  let i = 0;
+
+  while (i < literals.length) {
+    result += literals[i++];
+    if (i < arguments.length) {
+      result += arguments[i];
+    }
+  }
+
+  return result;
+}
+```
+##### [String.raw()](#top)
+`ES6 还为原生的 String 对象，提供了一个raw方法。往往用来充当模板字符串的处理函数，返回一个斜杠都被转义（即斜杠前面再加一个斜杠）的字符串，对应于替换变量后的模板字符串。`
+```node
+String.raw`Hi\n${2+3}!`;
+// 返回 "Hi\\n5!"
+
+String.raw`Hi\u000A!`;
+// 返回 "Hi\\u000A!"
+
+String.raw`Hi\\n`
+// 返回 "Hi\\\\n"
+```
+`作为函数，String.raw的代码实现基本如下。`
+
+```node
+String.raw({ raw: 'test' }, 0, 1, 2);
+// 't0e1s2t'
+
+// 等同于
+String.raw({ raw: ['t','e','s','t'] }, 0, 1, 2);
+
+String.raw = function (strings, ...values) {
+  let output = '';
+  let index;
+  for (index = 0; index < values.length; index++) {
+    output += strings.raw[index] + values[index];
+  }
+
+  output += strings.raw[index]
+  return output;
+}
+```
+
+
+
+
+
+
+
+
 
