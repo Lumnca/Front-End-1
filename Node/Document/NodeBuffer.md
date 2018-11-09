@@ -4,9 +4,10 @@
 
 - [x] [Encode 类](#encode) :maple_leaf:
 - [x] [Buffer 类](#buffer) :maple_leaf:
+- [x] [Buffer 类 方法](#function) :maple_leaf:
 
 
-#### [1. 编码](#top) <b id="buffer"></b>:maple_leaf: 
+#### [1. 编码](#top) <b id="encode"></b>:maple_leaf: 
 * `ascii`:	 `ASCLL字符串`
 * `utf8`:	`UTF-8字符串`
 * `utf16le`	:`UTF-16LE字符串`
@@ -22,7 +23,7 @@
 * `废弃的构造函数`
   * `new Buffer(arrayBuffer[, byteOffset[, length]])`
   * `new Buffer(buffer)`
-  * `new Buffer(size)`
+  * `new Buffer(size) ` `->` `Buffer.alloc（size [，fill [，encoding]]）`
   * `new Buffer(string[, encoding])`
 ```node
 /* 1.0 */
@@ -47,7 +48,11 @@ console.log(buf1.toString('ascii'));
 * `新的的构造方法`
   * `Buffer.from(arrayBuffer[, byteOffset[, length]]) `
   * `Buffer.from(buffer)`
-  * `new Buffer(string[, encoding])`
+  * `Buffer(string[, encoding])`
+  * `Buffer.from（object [，offsetOrEncoding [，length]]）`
+  * `Buffer.alloc（size [，fill [，encoding]]）`
+    * `fill <string> | <缓冲区> | <integer>预先填充新的值Buffer。 默认值： 0。`
+    * `encoding <string> If fill是一个字符串，这是它的编码。 默认值： 'utf8'。`
 ```node
 const buf = Buffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]);
 
@@ -55,4 +60,22 @@ const arr = new Uint16Array(2);
 arr[0] = 5000;
 arr[1] = 4000;
 const buf = Buffer.from(arr.buffer);
+
+const buf = Buffer.from(new String('this is a test'));
+// Prints: <Buffer 74 68 69 73 20 69 73 20 61 20 74 65 73 74>
+```
+#### [Buffer 类 方法](#top) :maple_leaf: <b id="function"></b>
+###### `对象方法`
+* `buf.fill(value [，offset [，end]] [，encoding])`
+   * `第一个参数 要填充的值`
+   * `第二个参数 要从何处开始填充 可选 默认为 0`
+   * `第三个参数 填充到何处停止 可选 默认为 128`
+   * `编码格式`
+```node
+ let bur = new Buffer.alloc(20);
+
+ bur.fill(1,2,5);
+ console.log(bur);
+ //<Buffer 00 00 01 01 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00>
+
 ```
