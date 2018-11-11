@@ -13,4 +13,5 @@
 - [x]  [`4.Node 事件处理机制和时间环机制`](https://github.com/kickgod/Front-End/blob/master/Node/Document/NodeEvent.md) :clock12:
 - [x]  [`5.Node 程序调试`](https://github.com/kickgod/Front-End/blob/master/Node/Document/NodeDebug.md) :clock12:
 - [x]  [`6.Node 模块和npm包管理`](https://github.com/kickgod/Front-End/blob/master/Node/Document/NodeModule.md) :clock930:
+- [x]  [`6.Node Buffer`](https://github.com/kickgod/Front-End/blob/master/Node/Document/NodeBuffer.md) :clock1230:
  
