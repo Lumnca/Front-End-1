@@ -10,6 +10,8 @@
 
 * [x] [`JavaScript5. 表单脚本`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptForm.md)
 
+* [x] [`JavaScript5. 正则表达式`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavascriptRegExp.md)
+
 * [x] [`JavaScript5. 原声Error`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/ErrorHandling.md)
 
 * [x] [`JavaScript5. 原生XML`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptXML.md)
