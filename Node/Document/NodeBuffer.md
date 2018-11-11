@@ -8,8 +8,7 @@
 - [x] [`Buffer toString`](#tostring) :maple_leaf:
 - [x] [`Buffer write`](#write) :maple_leaf: 
 - [x] [`StringDecoder`](#encoder) :maple_leaf:
-
-
+- [x] [`官方文档`](http://nodejs.cn/api/buffer.html)
 #### [1. 编码](#top) <b id="encode"></b>:maple_leaf: 
 `Node Buffer 的默认编码是 `
 * `ascii`:	 `ASCLL字符串`
@@ -70,6 +69,27 @@ const buf = Buffer.from(new String('this is a test'));
 ```
 #### [Buffer 类 方法](#top) :maple_leaf: <b id="function"></b>
 ###### `对象方法`
+* :white_check_mark: `buf.copy(target[, targetStart[, sourceStart[, sourceEnd]]])`
+   * `target <Buffer> | <Uint8Array>要拷贝进的Buffer或Uint8Array。`
+   * `targetStart <integer> target中开始拷贝进的偏移量。 默认: 0`
+   * `sourceStart <integer> buf中开始拷贝的偏移量。 默认: 0`
+   * `sourceEnd <integer> buf中结束拷贝的偏移量（不包含）。 默认: buf.length`
+   * `返回: <integer>被拷贝的字节数。`
+   * `拷贝buf的一个区域的数据到target的一个区域，即便target的内存区域与buf的重叠。`
+```node
+const buf1 = Buffer.allocUnsafe(26);
+const buf2 = Buffer.allocUnsafe(26).fill('!');
+
+for (let i = 0; i < 26; i++) {
+  // 97 是 'a' 的十进制 ASCII 值
+  buf1[i] = i + 97;
+}
+
+buf1.copy(buf2, 8, 16, 20);
+
+// 输出: !!!!!!!!qrst!!!!!!!!!!!!!
+console.log(buf2.toString('ascii', 0, 25));
+```
 * :white_check_mark: `buf.fill(value [，offset [，end]] [，encoding])`
    * `第一个参数 要填充的值`
    * `第二个参数 要从何处开始填充 可选 默认为 0`
@@ -99,9 +119,31 @@ const buf = Buffer.from(new String('this is a test'));
 > buf
 <Buffer e4 bd a0 e6 98 af e6 `0c` 91 e7 9a 84 e5 84 bf e5 ad 90>
 >
-
 ```
-###### `字符串的长度和缓存区的长度`
+* :white_check_mark: `buf.entries()`:`从buf的内容中，创建并返回一个[index, byte]形式的迭代器`
+  * `返回: <Iterator>`
+```node
+const buf = Buffer.from('buffer');
+
+// 输出:
+//   [0, 98]
+//   [1, 117]
+//   [2, 102]
+//   [3, 102]
+//   [4, 101]
+//   [5, 114]
+for (const pair of buf.entries()) {
+  console.log(pair);
+}
+```
+* :white_check_mark: `buf.includes(value[, byteOffset][, encoding])`
+```node
+const buf = Buffer.from('this is a buffer');
+
+// 输出: true
+console.log(buf.includes('this'));
+```
+###### [字符串的长度和缓存区的长度](#top)
 `字符串长度以字符个数计数,而Buffer的长度以字节来计数`
 ```node
 const str = "你们好啊我的儿子";
@@ -153,3 +195,28 @@ console.log(decoder.write(cent));
 const euro = Buffer.from([0xE2, 0x82, 0xAC]);
 console.log(decoder.write(euro));
 ```
+##### [类方法：Buffer.byteLength(string[, encoding])](#top)
+`计算一个指定字符串的字节数`
+##### [类方法：Buffer.concat(list[, totalLength])](#top)
+`list <Array> 要合并的 Buffer 或 Uint8Array 实例的数组 totalLength <integer> 合并时 list 中 Buffer 实例的总长度`
+```node
+const buf1 = Buffer.alloc(10);
+const buf2 = Buffer.alloc(14);
+const buf3 = Buffer.alloc(18);
+const totalLength = buf1.length + buf2.length + buf3.length;
+
+// 输出: 42
+console.log(totalLength);
+
+const bufA = Buffer.concat([buf1, buf2, buf3], totalLength);
+
+// 输出: <Buffer 00 00 00 00 ...>
+console.log(bufA);
+
+// 输出: 42
+console.log(bufA.length);
+```
+##### [类方法：Buffer.isBuffer(obj)](#top)
+`如果obj是一个Buffer则返回true，否则返回false。`
+##### [类方法：Buffer.isEncoding(encoding)](#top)
+`如果 encoding 是一个支持的字符编码则返回 true，否则返回 false 。`
