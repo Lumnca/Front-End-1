@@ -30,7 +30,7 @@ cnpm run build
 //然后我们将插件文件夹里的shells>chorme文件夹直接拖到页面中，完成安装。
 ```
 * `本地启动它,需要一些操作 在扩展程序 里面找到 devtool里面的详细信息`
-   * `允许访问文件网址`
+   * `允许访问文件网址` <br/> <br/>
 ![mvvm 模式图](/Resources/vue/devtool.png)
 
 ##### :maple_leaf: [二.使用Vue](#top) <b id="usevue"></b>
