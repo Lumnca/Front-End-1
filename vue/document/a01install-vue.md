@@ -42,19 +42,20 @@ cnpm run build
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- .... bootstrap 引入文件 通过cdn 引入 网址: https://www.bootcdn.cn/twitter-bootstrap/  -->
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <!-- ....jquery bootstrap 引入文件 通过cdn 引入 网址: https://www.bootcdn.cn/twitter-bootstrap/  -->
 </head>
 <body class=" container">
     <br/>
     <div id="app">
         <input  type="text" v-model="name" class=" form-control " />
         <p>
-             <label class="label label-primary">我的名称是: {{name}} </label> 
+            <label class="label label-primary">我的名称是: {{name}} </label> 
         </p>
-        <button class="btn btn-danger btn-sm ">点击我啊</button>
+        <button class="btn btn-danger btn-sm " v-on:click="showName(name)" >点击我啊</button>
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="../vue-depend/vue.min.js"></script>
 <script>
     const vm = new Vue({
         el:"#app",
@@ -64,14 +65,15 @@ cnpm run build
             sex:true
         },
         methods:{
-            showName:function(){
-                alert(this.data.name);
+            showName:function(name){
+                alert(name);
             }
         }
     });
 </script>
 </html>
 ```
+**`样式如下:`** <br/>
 ![mvvm 模式图](/Resources/vue/example.png)
 
 ##### :maple_leaf: [`三.MVVM 模式 解释`](#top) <b id="mvvm"></b>
