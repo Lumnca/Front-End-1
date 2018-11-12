@@ -29,4 +29,4 @@ cnpm run build
 ```
 
 ##### :maple_leaf: [`三.MVVM 模式 解释`](#top) <b id="mvvm"></b>
-![mvvm 模式图](Resources/vue/mvvm.png)
+![mvvm 模式图](/Resources/vue/mvvm.png)
