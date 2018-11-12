@@ -13,18 +13,17 @@
 `响应式数据`
 * `注意`:`只有初始化时传入的对象才是响应式的,如果在声明实例后再添加一个属性  那么这个属性不是响应式并且抛出异常`
 * `所以我们应该尽量在初始化的时候,吧所有的变量都设定好,如果没有值,也可以用undefined 或null 占位`
+
 * `组件类型的实例可以通过props来获取数据,和data一样`
 ```html
-<body class="container">
-    <br/>
-    <div id="app">
-        <label class=" label label-danger">{{name}}</label>
-        <val-list title="这是标题一"  content="这是内容一" ></val-list>
-        <val-list title="这是标题二"  content="这是内容二" ></val-list>
-    </div>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script>
+<div id="app">
+    <label class=" label label-danger">{{name}}</label>
+    <val-list title="这是标题一"  content="这是内容一" ></val-list>
+    <val-list title="这是标题二"  content="这是内容二" ></val-list>
+</div>
+```
+
+```node
 let myComponent = Vue.component('val-list',{
   props:[ 'title','content'],
   template:`<h3>{{title}} <small>{{content}}</small></h3>`
@@ -36,7 +35,6 @@ new Vue({
       name:"这是组件"
   }  
  })
-</script>
 ```
 * `在组件内部可以使用data 声明数据,一个组件的 data 选项必须是一个函数，因此每个实例可以维护一份被返回对象的独立的拷贝` **`重要的一句话`**
 ```html
@@ -45,6 +43,9 @@ new Vue({
     <val-list title="这是标题一"  content="这是内容一" ></val-list> 
     <val-list title="这是标题二"  content="这是内容二" ></val-list>
 </div>
+```
+
+```node
 let myComponent = Vue.component('val-list',{
   props:[ 'title','content'],
   data: function () {
@@ -77,7 +78,9 @@ new Vue({
      <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:count="post.id" v-bind:title="post.title" >
     </blog-post>
 </div>
-<script>
+```
+
+```node
 Vue.component('blog-post', {
     props: ['title','count'],
     template: '<h3><label class=" label label-primary">{{ title }} --- {{count}}</label>   </h3>'
@@ -92,7 +95,6 @@ new Vue({
         ]
     }
 });
-</script>
 ```
 ##### :maple_leaf: [一.普通属性绑定](#top)
 `当一个 Vue 实例被创建时，它向 Vue 的响应式系统中加入了其 data 对象中能找到的所有的属性。当这些属性的值发生改变时，视图将会
@@ -267,8 +269,10 @@ computed: {
   }
 }
 ```
-##### :maple_leaf: [三.vue 侦听器](#top) <b id="watch"></b>
+##### :maple_leaf: [四.vue 侦听器](#top) <b id="watch"></b>
 `虽然计算属性在大多数情况下更合适，但有时也需要一个自定义的侦听器。这就是为什么 Vue 通过 watch 选项提供了一个更通用的方法，来响应数据的变化。当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的。`
+
+
 ```node
 var vm = new Vue({
   el: '#demo',
@@ -287,28 +291,22 @@ var vm = new Vue({
   }
 })
 ```
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+* `vm.$watch( expOrFn, callback, [options] )`
+  * `options`:`{}`
+     * `{boolean} deep`:`为了发现对象内部值的变化，可以在选项参数中指定 deep: true 。注意监听数组的变动不需要这么做。`
+     * `{boolean} immediate`:`在选项参数中指定 immediate: true 将立即以表达式的当前值触发回调：`
+```node
+vm.$watch('person.friends.count', function (newVal, oldVal) {
+  // 做点什么
+})
+
+// 函数
+vm.$watch(
+  function () {
+    return this.a + this.b
+  },
+  function (newVal, oldVal) {
+    // 做点什么
+  }
+)
+```
