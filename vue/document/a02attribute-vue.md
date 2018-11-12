@@ -1,9 +1,9 @@
-[Vue 数据属性 ](#top) <b id="top"></b> :maple_leaf:
+[`Vue 数据属性` ](#top) <b id="top"></b> :maple_leaf:
 -----
 `Vue 数据属性体验 {{}} ` `v-text` `v-html` `计算属性` `监视`
 
-- [x] [vue 数据绑定语法](#bind)
-- [x] [vue 计算属性](#calcul)
+- [x] [`vue 数据绑定语法`](#bind)
+- [x] [`vue 计算属性`](#calcul)
 
 #### :maple_leaf: [零.数据](#top)
 `Vue 实例中可以通过data属性定义数据,这些数据可以在实例对应的模板中进行绑定并使用`
