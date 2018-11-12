@@ -4,6 +4,7 @@
 
 - [x] [`vue 数据绑定语法`](#bind)
 - [x] [`vue 计算属性`](#calcul)
+- [x] [`vue 侦听器`](#watch)
 
 #### :maple_leaf: [零.数据](#top)
 `Vue 实例中可以通过data属性定义数据,这些数据可以在实例对应的模板中进行绑定并使用`
@@ -138,7 +139,7 @@ new Vue({
     });
 </script>
 ```
-#### :maple_leaf: [二.Vue 数据绑定语法](#top) <b id="bind"></b>
+##### :maple_leaf: [二.Vue 数据绑定语法](#top) <b id="bind"></b>
 `Vue.js 使用了基于 HTML 的模板语法 数据绑定具有多种方法 ` `在底层的实现上，Vue 将模板编译成虚拟 DOM 渲染函数。结合响应系统，Vue 能够智能地计算出最少需要重新渲染多少组件，并把 DOM 操作次数减到最少。` 
 * `插值绑定 {{}} v-once`
 * `原始 HTML`
@@ -222,11 +223,70 @@ new Vue({
 <div id="example">
   {{ message.split('').reverse().join('') }}
 </div>
+
+<script>
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            message: 'Hello'
+        },
+        computed: {
+            // 计算属性的 getter
+            reversedMessage: function () {
+                // `this` 指向 vm 实例
+                return this.message.split('').reverse().join('')
+            }
+        }
+    })
+</script>
 ```
-    
-    
-    
-    
+* `缺点是 只有当与计算属性有关的值属性变动的时候 计算属性的值才会变化,不然值就一直不会更新 下面的就一直不会更新 计算属性是基于它们的依赖进行缓存的`
+* `只在相关依赖发生改变时它们才会重新求值`
+* `这也同样意味着下面的计算属性将不再更新，因为 Date.now() 不是响应式依赖`
+```node
+computed: {
+  now: function () {
+    return Date.now()
+  }
+}
+```
+##### [计算属性默认只有 getter ，不过在需要时你也可以提供一个 setter ](#top)
+```node
+computed: {
+  fullName: {
+    // getter
+    get: function () {
+      return this.firstName + ' ' + this.lastName
+    },
+    // setter
+    set: function (newValue) {
+      var names = newValue.split(' ')
+      this.firstName = names[0]
+      this.lastName = names[names.length - 1]
+    }
+  }
+}
+```
+##### :maple_leaf: [三.vue 侦听器](#top) <b id="watch"></b>
+`虽然计算属性在大多数情况下更合适，但有时也需要一个自定义的侦听器。这就是为什么 Vue 通过 watch 选项提供了一个更通用的方法，来响应数据的变化。当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的。`
+```node
+var vm = new Vue({
+  el: '#demo',
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar',
+    fullName: 'Foo Bar'
+  },
+  watch: {
+    firstName: function (val) {
+      this.fullName = val + ' ' + this.lastName
+    },
+    lastName: function (val) {
+      this.fullName = this.firstName + ' ' + val
+    }
+  }
+})
+```
     
     
     
