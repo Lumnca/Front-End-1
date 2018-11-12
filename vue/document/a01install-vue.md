@@ -9,9 +9,11 @@
   * `收缩网址:https://chrome.google.com/webstore/category/extensions`
   * `打开chrome 网上应用店 搜索 devtool 就行 然后添加就行`
   * `前提是你要有一个翻墙工具`
+  
 ```c#
+/* 源代码安装
 devtool github: https://github.com/vuejs/vue-devtools
-
+*/
 git clone 下来
 
 //然后运行命名
@@ -27,6 +29,50 @@ cnpm run build
 
 //然后我们将插件文件夹里的shells>chorme文件夹直接拖到页面中，完成安装。
 ```
+
+##### :maple_leaf: [二.使用Vue](#top) <b id="usevue"></b>
+* `通过CDN 引入 vue脚本`
+   * `引入最新版 开发环境版本`:`<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>`
+   * `引入最新版 生产环境版本`:`<script src="https://cdn.jsdelivr.net/npm/vue"></script>`
+   * `引入 指定版本`:`<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>`
+```html
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- .... bootstrap 引入文件 通过cdn 引入 网址: https://www.bootcdn.cn/twitter-bootstrap/  -->
+</head>
+<body class=" container">
+    <br/>
+    <div id="app">
+        <input  type="text" v-model="name" class=" form-control " />
+        <p>
+             <label class="label label-primary">我的名称是: {{name}} </label> 
+        </p>
+        <button class="btn btn-danger btn-sm ">点击我啊</button>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            name:"jxKicker",
+            age:15,
+            sex:true
+        },
+        methods:{
+            showName:function(){
+                alert(this.data.name);
+            }
+        }
+    });
+</script>
+</html>
+```
+![mvvm 模式图](/Resources/vue/example.png)
 
 ##### :maple_leaf: [`三.MVVM 模式 解释`](#top) <b id="mvvm"></b>
 ![mvvm 模式图](/Resources/vue/mvvm.png)
