@@ -1,8 +1,9 @@
-[vue 列表渲染](#top) :maple_leaf:<b id="top"></b> 
+[vue 列表渲染](#top) :maple_leaf: <b id="top"></b> 
 ----
 `我们用 v-for 指令根据一组数组的选项列表进行渲染。v-for 指令需要使用 item in items 形式的特殊语法，items 是源数据数组并且 item 是数组元素迭代的别名。`
 
-- :maple_leaf: [数组列表](#top)
+* :maple_leaf: [`数组列表`](#array) 
+##### [数组渲染](#top)  <b id="array"></b> 
 `数组渲染` `在 v-for 块中，我们拥有对父作用域属性的完全访问权限。`
 ```html
 <ul class=" list-unstyled">
