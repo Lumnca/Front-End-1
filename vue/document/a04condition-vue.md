@@ -3,6 +3,10 @@
 `条件渲染涉及到几个指令` `v-if` `v-else` `v-else-if` `v-show` `再解决一些复用问题就可以了`
 
 ##### [if 指令家族](#top)
+* `v-if`
+* `v-else`
+* `v-else-if`
+* `v-show`:`如果值/表达式为 true 则显示`
 ```html
 <div id="val">
     <p  v-show="isVip" v-bind:class="Vipclass"  > <small>{{name}}先生 你是尊贵的Vip 会员</small>
