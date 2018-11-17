@@ -2,16 +2,11 @@
 ----
 :white_check_mark: `引用类型通常叫做类（class），也就是说，遇到引用值，所处理的就是对象`
 
-- [x] :maple_leaf: <a href="#ObjectObject" id="ObjectObject" >`Object 对象`</a>
-- [x] :maple_leaf: <a href="#BooleanObject" id="BooleanObject" >`Boolean 对象`</a>
-- [x] :maple_leaf: <a href="#NumberObject" id="NumberObject" >`Number 对象`</a>
-- [x] :maple_leaf: <a href="#StringObject" id="StringObject" >`String 对象`</a>
-- [x] :maple_leaf: <a href="#ArrayObject" id="ArrayObject" >`Array 对象`</a>
-- [x] :maple_leaf: <a href="#DateObject" id="DateObject" >`Date 对象`</a>
-- [x] :maple_leaf: <a href="#RegExpObject" id="RegExpObject" >`RegExp 对象`</a>
-- [x] :maple_leaf: <a href="#FunctionObject" id="FunctionObject" >`Function 对象`</a>
+- [x] :maple_leaf: [`Object 对象`](#object)
+- [x] :maple_leaf: [`Boolean 对象`](#boolean)
+- [x] :maple_leaf: [`Number 对象`](#number)
  
-####  :star2: <a id="EventStream" href="#EventStream">Object 对象 </a><a href="#top">:whale2:</a>
+#####  :star2: [Object 对象](#top) <b id="object"></b>
 `尽管JS支持对象,但是它并不支持接口和类的基本结构,引用类型又叫对象定义 描述属性和方法`
 * `Object 是终极父类 Object 对象中的所有属性和方法都会出现在其他对象中`
 
@@ -29,10 +24,10 @@ var apple = {
 var phone = {};
 phone.color = "red"
 ```
-##### [`Object 对象具有下列属性`](#)
+###### [`Object 对象具有下列属性`](#top)
 * `constructor`:`对创建对象的函数的引用（指针）。对于 Object 对象，该指针指向原始的 Object() 函数。`
 * `Prototype`:`对该对象的对象原型的引用。对于所有的对象，它默认返回 Object 对象的一个实例。`
-##### [`Object 对象还具有几个方法`](#)
+###### [`Object 对象还具有几个方法`](#top)
 * `hasOwnProperty(property)`:`判断对象是否有某个特定的属性。必须用字符串指定该属性。（例如，o.hasOwnProperty("name")）`
 * `IsPrototypeOf(object)`:`判断该对象是否为另一个对象的原型`
 * `PropertyIsEnumerable`:`判断给定的属性是否可以用 for...in 语句进行枚举。`
@@ -80,7 +75,8 @@ console.log(val.toString());
 ```
 `val 明明是值类型 为何还能够调用方法呢？ 类似于引用类型`
 ```javascript
-//实际做法 做了包装 在不调用方法的时候就是值类型 将要调用方法的时候将其转换为引用类型  然后调用结束后 再转换会值类型  有一个包装的过程
+// 实际做法 做了包装 在不调用方法的时候就是值类型 将要调用方法的时候将其转换为引用类型 
+// 然后调用结束后 再转换会值类型  有一个包装的过程
 var val = new Boolean(true);
 console.log(val.toString());
 ```
