@@ -10,6 +10,8 @@
 
 - [x] :maple_leaf: [`JavaScript6 函数扩展`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript6/ECS6Function.md)
 
+- [x] :maple_leaf: [`JavaScript6 数组扩展`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript6/ECS6Array.md)
+
 
 -----
 `ES6推荐书籍:` <br/>
