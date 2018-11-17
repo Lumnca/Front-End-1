@@ -6,6 +6,7 @@
 - [x] :maple_leaf: [`Boolean 对象`](#boolean)
 - [x] :maple_leaf: [`Number 对象`](#number)
 - [x] :maple_leaf: [`String 对象`](#string)
+- [x] :maple_leaf: [`Array 对象`](#array)
  
 #####  :star2: [Object 对象](#top) <b id="object"></b>
 `尽管JS支持对象,但是它并不支持接口和类的基本结构,引用类型又叫对象定义 描述属性和方法`
@@ -105,7 +106,6 @@ alert(oNumberObject.toPrecision(2));  //输出 "68"
 alert(oNumberObject.toPrecision(3));  //输出 "68.0"
 ```
 #####  :star2: [String 对象](#top) <b id="string"></b> 
-####  :star2: <a id="string" href="#NumberObject">String 对象 </a><a href="#top">:whale2:</a>
 [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) `官方文档解释方法属性`
 `String 是一个基本包装类型,它是唯一的,一旦创建不能改变,每次改变实际上都是创建一个新的字符串`
 * `String的属性`
@@ -207,3 +207,5 @@ String.prototype.valueOf()
 String.prototype[@@iterator]()
 String.raw()
 ```
+#####  :star2: [Array 对象](#top) <b id="array"></b> 
+`Array 对象`
