@@ -5,6 +5,7 @@
 - [x] :maple_leaf: [`Object 对象`](#object)
 - [x] :maple_leaf: [`Boolean 对象`](#boolean)
 - [x] :maple_leaf: [`Number 对象`](#number)
+- [x] :maple_leaf: [`String 对象`](#string)
  
 #####  :star2: [Object 对象](#top) <b id="object"></b>
 `尽管JS支持对象,但是它并不支持接口和类的基本结构,引用类型又叫对象定义 描述属性和方法`
@@ -81,7 +82,7 @@ console.log(val.toString());
 var val = new Boolean(true);
 console.log(val.toString());
 ```
-####  :star2: [Number 对象](#top) <b id="number"></b> 
+#####  :star2: [Number 对象](#top) <b id="number"></b> 
 `正如你可能想到的，Number 对象是 Number 原始类型的引用类型。要创建 Number 对象，采用下列代码：`
 ```javascript
 
@@ -103,7 +104,8 @@ alert(oNumberObject.toPrecision(1));  //输出 "7e+1"
 alert(oNumberObject.toPrecision(2));  //输出 "68"
 alert(oNumberObject.toPrecision(3));  //输出 "68.0"
 ```
-####  :star2: <a id="NumberObject" href="#NumberObject">Number 对象 </a><a href="#top">:whale2:</a>
+#####  :star2: [String 对象](#top) <b id="string"></b> 
+####  :star2: <a id="string" href="#NumberObject">String 对象 </a><a href="#top">:whale2:</a>
 [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) `官方文档解释方法属性`
 `String 是一个基本包装类型,它是唯一的,一旦创建不能改变,每次改变实际上都是创建一个新的字符串`
 * `String的属性`
