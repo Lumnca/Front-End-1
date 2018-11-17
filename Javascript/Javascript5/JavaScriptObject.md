@@ -64,7 +64,8 @@ console.log(`Name:${p1["age"]}`);
 console.log(`Name:${p1["sex"]}`);
 ```
 * `访问属性的方式,不仅仅可以通过` `.` `的方式 还可以通过方括号` `[]` `变量的方式引用属性`
-- [x] :maple_leaf: <a href="#BooleanObject" id="BooleanObject" >Boolean 对象</a>
+
+##### :maple_leaf: [Boolean 对象](#top)  <b id="boolean"></b>
 * `Boolean 对象是 Boolean 原始类型的引用类型。要创建 Boolean 对象，只需要传递 Boolean 值作为参数：`
 * `Boolean 对象将覆盖 Object 对象的 ValueOf() 方法，返回原始值，即 true 和 false。ToString() 方法也会被覆盖，返回字符串 "true" 或 "false"。`
 * `遗憾的是，在 ECMAScript 中很少使用 Boolean 对象，即使使用，也不易理解。`
@@ -80,7 +81,7 @@ console.log(val.toString());
 var val = new Boolean(true);
 console.log(val.toString());
 ```
-####  :star2: <a id="NumberObject" href="#NumberObject">Number 对象 </a><a href="#top">:whale2:</a>
+####  :star2: [Number 对象](#top) <b id="number"></b> 
 `正如你可能想到的，Number 对象是 Number 原始类型的引用类型。要创建 Number 对象，采用下列代码：`
 ```javascript
 
