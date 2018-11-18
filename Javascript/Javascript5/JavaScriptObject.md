@@ -9,7 +9,10 @@
 - [x] :maple_leaf: [`String 对象`](#string)
 - [x] :maple_leaf: [`Array 对象`](#array)
 - [x] :maple_leaf: [`Date 对象`](#date)
- 
+- [x] :maple_leaf: [`Function 对象`](#function)
+- [x] :maple_leaf: [`Global 对象`](#global)
+- [x] :maple_leaf: [`Math 对象`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)
+
 #####  :star2: [Object 对象](#top) <b id="object"></b>
 `尽管JS支持对象,但是它并不支持接口和类的基本结构,引用类型又叫对象定义 描述属性和方法`
 * `Object 是终极父类 Object 对象中的所有属性和方法都会出现在其他对象中`
@@ -467,5 +470,98 @@ if (date2.getTime() === date1.getTime()) {
 ```
 `请记住， getTime() 返回的毫秒数，因此您需要在比较中考虑时间因素。July 10, 2018 07:22:13 不等于 July 10, 2018 。在这种情况下，您可以使用 setHours(0, 0, 0, 0) 重置时间。`
 
+##### [Function 对象](#top) <b id="function"></b>  :maple_leaf:
+`函数本质是一个对象`
 
+##### 声明函数--[`函数声明语法定义`](#top)
+```node
+ function sum(num1,num2){
+    return num1 +num2;
+ }
+ // 另一种语法 函数表达式声明语法
+ var sum = function(num1,num2){
+    return num1 +num2;
+ }
+```
+##### 声明函数--[`Function 构造函数`](#top)
+> `前面声明参数 最后一个参数为方法体` `不推荐这样方法定义函数,因为这会导致解析两次代码 ` `1. 解析常规代码 2.解析字符串构造函数`
 
+```node
+var sum = new Function("num1","num2","return num1 + num2")
+```
+
+> `函数名仅仅是指向函数的指针,因此函数名与包含函数指针的其他变量没有什么不同,也就是说 一个函数可以有很多个函数名` <br/>
+> `Javascript 函数没有重载 ` <br/>
+> `Javascript 函数会率先读取函数声明并使其在执行任何代码之前可用【函数声明提升】，至于函数表达式必须等到解析器执行到它所在的代码行 才能真正被解析执行` <br/>
+> `函数可以作为值传递给另一个函数`
+
+##### 函数内部属性
+> `arguments`:`类数组对象，包含着传入函数中的所有参数,保存函数参数,arguments还有一个名叫callee的属性 该属性是一个指针指向拥有arguments对象的函数
+可以用来做阶乘`
+> `caller 属性`：`显示当前函数在被那个函数调用`
+> `length 属性`：`函数接受的函数个数`
+> `prototype`:`父类指向`
+> `this`:`对于ES5 普通函数 this执行函数运行时所在环境`
+```node
+function factorial(end){
+    if(end <= 1){
+        return 1;
+    }eles{
+        return end * arguments.callee(end - 1);
+    }
+}
+
+//如果不用 callee 属性 当factorial 被赋予另一个函数的时候就会错误 factorial只是一个函数的引用  不是函数本身
+function factorial(end){
+    if(end <= 1){
+        return 1;
+    }eles{
+        return end * factorial(end -1);
+    }
+}
+
+var fac = factorial;
+
+factorial = function(){
+   return 0;
+}
+
+fac(5) //结果出错
+
+```
+
+##### apply / call 方法  手动指定this 
+`两者的区别就在于，两者之间的参数。`
+* `apply`:`参数为数组`
+```node
+var obj = {};
+ 
+function foo(a, b, c) {
+  console.log(b);
+}
+ 
+foo.apply(obj, [1, 2, 3])   打印结果： 2;
+```
+* `call`:`参数为一个一个传递`
+```node
+var obj = {};
+ 
+function foo(a, b, c) {
+  console.log(b);
+}
+ 
+foo.call(obj, 1, 2, 3)   //打印结果： 2;
+```
+##### [Global 对象](#top) <b id="global"></b>  :maple_leaf:
+* `JavaScript 中有一个特殊的对象，称为全局对象（Global Object），它及其所有属性都可以在程序的任何地方访问，即全局变量。`
+* `全局对象只是一个对象，而不是类。既没有构造函数，也无法用new实例化一个新的全局对象。`
+* `实际上，ECMAScript 标准没有规定全局对象的类型，而在客户端 JavaScript 中，全局对象就是 Window 对象，表示允许 JavaScript 代码的 Web 浏览器窗口。浏览器把全局对象作为window对象的一部分实现了，因此，所有的全局属性和函数都是window对象的属性和方法。 `
+
+> `中谈到，global对象可以说是ECMAScript中最特别的一个对象了，因为不管你从什么角度上看，这个对象都是不存在的。从某种意义上讲，它是一个终极的“兜底儿对象”，换句话说呢，就是不属于任何其他对象的属性和方法，最终都是它的属性和方法。我理解为，这个global对象呢，就是整个JS的“老祖宗”，找不到归属的那些“子子孙孙”都可以到它这里来认祖归宗。所有在全局作用域中定义的属性和函数，都是global对象的属性和方法，比如isNaN()、parseInt()以及parseFloat()等，实际都是它的方法；还有就是常见的一些特殊值，如：NaN、undefined等都是它的属性，以及一些构造函数Object、Array等也都是它的方法。总之，记住一点：global对象就是“老祖宗”，所有找不到归属的就都是它的。`
+
+##### [拥有的方法](#top)
+* `encodeURI`:`对整个URI 编码 编码后其他字符都原封不动 空格被替换为%20`
+* `encodeURIComponent`:`使用对应的编码替换所有非字母数字字符 例如中文`
+* `decodeURI`:`解码URI`
+* `decodeURIComponent`:`解码`
+* `eval方法 解析器`
