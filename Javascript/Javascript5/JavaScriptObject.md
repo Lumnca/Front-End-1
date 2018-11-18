@@ -1,4 +1,5 @@
-<a id="top" href="#top">:blue_heart: JavaScript 引用类型  :maple_leaf:</a> 
+### [JavaScript 引用类型](#top) <b id="top"></b> :maple_leaf:
+
 ----
 :white_check_mark: `引用类型通常叫做类（class），也就是说，遇到引用值，所处理的就是对象`
 
@@ -7,6 +8,7 @@
 - [x] :maple_leaf: [`Number 对象`](#number)
 - [x] :maple_leaf: [`String 对象`](#string)
 - [x] :maple_leaf: [`Array 对象`](#array)
+- [x] :maple_leaf: [`Date 对象`](#date)
  
 #####  :star2: [Object 对象](#top) <b id="object"></b>
 `尽管JS支持对象,但是它并不支持接口和类的基本结构,引用类型又叫对象定义 描述属性和方法`
@@ -207,5 +209,263 @@ String.prototype.valueOf()
 String.prototype[@@iterator]()
 String.raw()
 ```
-#####  :star2: [Array 对象](#top) <b id="array"></b> 
-`Array 对象`
+##### [Array 对象](#top) <b id="array"></b>  :maple_leaf:
+`Array 对象,是一种不区分类型的数组，他可以存储任意类型的数组 在一个数组中 十分变态`
+
+##### 创建数组 
+* `使用构造函数`
+```node
+let ary = new Array(7);  //7位数组
+
+let ary1 = new Array("a","b","c","d","e","f");// ["a","b","c","d","e","f"] 
+
+let ary2 = new Array();//空数组
+```
+* `使用 操作符` `[]`
+```node
+let opo = [];
+
+let pop1 = [1,2,3,4,"sd",{id:1,age:15},true];
+```
+##### 数组的属性
+* `length`：`表示数组的长度 可以修改 一旦修改数组变长 也可以变短 变长后未赋值的值为 undefined`
+##### 数组的检测
+* `两种检测方式`
+```node
+if(pop1 instanceof Array){
+    console.log('pop1 是否为数组:', true);
+}
+
+if(Array.isArray(pop1)){
+    console.log('pop1 是否为数组:', true);
+}
+```
+##### 数组转字符
+```node
+let pop2 = [1,2,3,4,"sd",true];
+console.log('pop2:', pop2.toString()); // pop1: 1,2,3,4,sd,true
+console.log('pop2:', pop2.join('-'));  // pop2: 1-2-3-4-sd-true
+```
+##### 栈与队列方法
+* `push()`:`可以接受任意数量的参数,把他们逐个添加到数组末尾`
+* `pop()`:`从数组末尾移出最后一项并且返回 减少length的值`
+* `shift()`:`移出队列的第一项并且返回 length 减一`
+* `unshift()`:`在数组前端添加任意多个值`
+
+
+##### 排序方法
+* `sort([?function(value,value1){return 0|1|-1;}])`:`排序方法 可以传入一个函数 排序,返回排序后的数组`
+* `reverse()`:`数组反转排序 返回排序后的数组` 
+
+##### 操作方法
+* `concat()`:`数组合并 可以传入任意多个数组 或者 元素`
+```node
+var colors = ["grey","green","red"];
+
+var array = [1,2,3,4,5,6,7,8,9];
+
+let ary_new = colors.concat(array,"asd","123");
+
+console.log('tag', ary_new); 
+//tag [ 'grey', 'green', 'red', 1, 2, 3, 4, 5, 6, 7, 8, 9, 'asd', '123' ]
+
+```
+* `slice(start,end? = array.length)`:`切片操作`
+* `splice(delete_start:int,delete_length:int,...new_add_value)`：`从什么地方删除多少个元素 然后将后面的元素添加到删除索引处 返回一个数组 表示删除的元素` 
+```node
+var array = [1,2,3,4,5,6,7,8,9];
+let gg = array.splice(2,3,456,879);
+
+console.log('gg:', gg);
+console.log('array:', array);
+/*
+gg: [ 3, 4, 5 ]
+array: [ 1, 2, 456, 879, 6, 7, 8, 9 ]
+*/
+```
+* `indexOf(value)`:`要查找项的索引位置 顺序位置`
+* `lastIndexOf(value)`:`要查找项的索引位置 倒叙位置 从后往前找`
+##### 迭代方法
+* `every`:`对数组中的每一项运行给定函数,如果该函数对每一项都返回true 则返回true`
+* `filter`:`对数组中的每一项运行给定函数，返回该函数会返回true的项组成的数组`
+* `forEach`:`对数组中的每一项运行给定函数,这个方法没有返回值`
+* `map`:`对数组中的每一项运行给定函数 返回每次函数调用的结果组成的数组`
+* `some`:`对数组中的每一项运行给定函数,如果函数对任一项返回true 则返回`
+##### 归并方法
+* `reduce(function(prev,current,index,array))`:`都会迭代数组的所有项,然后构建一个最终的返回值 前一个值 当前值 索引 迭代的数组`
+```node
+var sum = values.reduce(function(prev,cur,index,array){
+    console.log(prev);
+    console.log(cur);
+    console.log(index);
+    console.log(array);
+    return prev + cur;
+})
+//sum = 21
+```
+* `reduceRight`:`从后向前遍历 和reduce 方向相反`
+```node
+var sum = values.reduceRight(function(prev,cur,index,array){
+    console.log(prev);
+    console.log(cur);
+    console.log(index);
+    console.log(array);
+    return prev + cur;
+})
+//sum = 21
+```
+##### [Date 对象](#top) <b id="date"></b>  :maple_leaf:
+[`构造方法`](#top)
+* `Date 对象实例表示单个时间点。我们使用下面的代码初始化 Date 对象`:`new Date()`
+* `在内部，日期用 1970年1月1日（UTC）以来的毫秒数表示。这个日期很重要，因为就计算机而言，这就是一切开始的地方。`
+* `重要：UNIX 时间戳的原因以秒（seconds）为单位。JavaScript 以毫秒（milliseconds）为单位记录时间。`
+* `如果我们有 UNIX 时间戳，我们可以使用实例化 JavaScript Date 对象`
+```node
+const timestamp = 1530826365
+new Date(timestamp * 1000)
+```
+* `如果我们传递 0 ，我们将得到一个 Date 对象，表示 1970年1月1日（UTC）的时间：`:`new Date(0)`
+* `如果我们传递一个字符串而不是一个数字，那么Date对象使用 parse 方法来确定您传递的日期。例如：`
+* `你也可以使用 Date.parse：Date.parse 将返回一个时间戳（以毫秒为单位）而不是 Date 对象。`
+```node
+new Date('2018-07-22')
+new Date('2018-07') //July 1st 2018, 00:00:00
+new Date('2018') //Jan 1st 2018, 00:00:00
+new Date('07/22/2018')
+new Date('2018/07/22')
+new Date('2018/7/22')
+new Date('July 22, 2018')
+new Date('July 22, 2018 07:22:13')
+new Date('2018-07-22 07:22:13')
+new Date('2018-07-22T07:22:13')
+new Date('25 March 2018')
+new Date('25 Mar 2018')
+new Date('25 March, 2018')
+new Date('March 25, 2018')
+new Date('March 25 2018')
+new Date('March 2018') //Mar 1st 2018, 00:00:00
+new Date('2018 March') //Mar 1st 2018, 00:00:00
+new Date('2018 MARCH') //Mar 1st 2018, 00:00:00
+new Date('2018 march') //Mar 1st 2018, 00:00:00
+
+
+Date.parse('2018-07-22')
+Date.parse('2018-07') //July 1st 2018, 00:00:00
+Date.parse('2018') //Jan 1st 2018, 00:00:00
+Date.parse('07/22/2018')
+Date.parse('2018/07/22')
+Date.parse('2018/7/22')
+Date.parse('July 22, 2018')
+Date.parse('July 22, 2018 07:22:13')
+Date.parse('2018-07-22 07:22:13')
+Date.parse('2018-07-22T07:22:13')
+```
+* `您还可以传递一组代表日期各部分的有序值：年，月（从0开始），日，小时，分钟，秒和毫秒：`
+* `最小值应该是 3 个参数，但是大多数 JavaScript 引擎都能解析 2 个或 1 个参数：`
+```node
+new Date(2018, 6, 22, 7, 22, 13, 0)
+new Date(2018, 6, 22)
+```
+##### 构造总结
+* 不传参数，创建一个表示“现在”的Date对象
+* 传递 number ，表示从格林威治标准时间1970年1月1日00:00开始的毫秒数
+* 传递一个字符串，代表一个日期
+* 传递一组参数，它们代表日期的不同部分
+
+##### 时区
+* `初始化日期时，您可以传递时区，因此日期不会被假定为 UTC ，然后转换为您当地的时区。`
+* `您可以通过以 +HOURS 格式添加时区来指定时区，或者通过添加括在括号中的时区名称来指定时区：`
+```node
+new Date('July 22, 2018 07:22:13 +0700')
+new Date('July 22, 2018 07:22:13 (CET)')
+```
+##### [日期转换和格式设置](#top)
+```node
+const date = new Date('July 22, 2018 07:22:13')
+ 
+date.toString() // "Sun Jul 22 2018 07:22:13 GMT+0200 (Central European Summer Time)"
+date.toTimeString() //"07:22:13 GMT+0200 (Central European Summer Time)"
+date.toUTCString() //"Sun, 22 Jul 2018 05:22:13 GMT"
+date.toDateString() //"Sun Jul 22 2018"
+date.toISOString() //"2018-07-22T05:22:13.000Z" (ISO 8601 format)
+date.toLocaleString() //"22/07/2018, 07:22:13"
+date.toLocaleTimeString()    //"07:22:13"
+date.getTime() //1532236933000
+date.getTime() //1532236933000
+```
+##### [Date 对象的 getter 方法](#top)
+```node
+const date = new Date('July 22, 2018 07:22:13')
+ 
+date.getDate() //22
+date.getDay() //0 (0 means sunday, 1 means monday..)
+date.getFullYear() //2018
+date.getMonth() //6 (starts from 0)
+date.getHours() //7
+date.getMinutes() //22
+date.getSeconds() //13
+date.getMilliseconds() //0 (not specified)
+date.getTime() //1532236933000
+date.getTimezoneOffset() //-120 （将取决于您的位置和检查时间 - 这是夏季的CET）。 返回以分钟为单位表示的时区差异
+
+date.getUTCDate() //22
+date.getUTCDay() //0 (0 means sunday, 1 means monday..)
+date.getUTCFullYear() //2018
+date.getUTCMonth() //6 (starts from 0)
+date.getUTCHours() //5 (not 7 like above)
+date.getUTCMinutes() //22
+date.getUTCSeconds() //13
+date.getUTCMilliseconds() //0 (not specified)
+```
+##### [编辑日期](#top)
+`Date对象提供了几种编辑日期值的方法：`
+```node
+const date = new Date('July 22, 2018 07:22:13')
+ 
+date.setDate(newValue)
+date.setDay(newValue)
+date.setFullYear(newValue) //note: avoid setYear(), it's deprecated
+date.setMonth(newValue)
+date.setHours(newValue)
+date.setMinutes(newValue)
+date.setSeconds(newValue)
+date.setMilliseconds(newValue)
+date.setTime(newValue)
+date.setTimezoneOffset(newValue)
+```
+* `也有一个相对应的 UTC set方法`
+```node
+const date = new Date('July 22, 2018 07:22:13')
+ 
+date.setUTCDate(newalue)
+date.setUTCDay(newValue)
+date.setUTCFullYear(newValue)
+date.setUTCMonth(newValue)
+date.setUTCHours(newValue)
+date.setUTCMinutes(newValue)
+date.setUTCSeconds(newValue)
+date.setUTCMilliseconds(newValue)
+```
+##### [`获取当前时间戳`](#top)
+
+```node
+Date.now()
+new Date().getTime()
+```
+
+##### [`比较两个日期`](#top)
+```node
+const date1 = new Date('July 10, 2018 07:22:13')
+const date2 = new Date('July 22, 2018 07:22:13')
+const diff = date2.getTime() - date1.getTime() //difference in milliseconds
+
+const date1 = new Date('July 10, 2018 07:22:13')
+const date2 = new Date('July 10, 2018 07:22:13')
+if (date2.getTime() === date1.getTime()) {
+  //dates are equal
+}
+```
+`请记住， getTime() 返回的毫秒数，因此您需要在比较中考虑时间因素。July 10, 2018 07:22:13 不等于 July 10, 2018 。在这种情况下，您可以使用 setHours(0, 0, 0, 0) 重置时间。`
+
+
+
