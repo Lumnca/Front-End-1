@@ -6,6 +6,8 @@
 - [x] :maple_leaf: [`a03. 样式绑定`](https://github.com/kickgod/Front-End/blob/master/vue/document/a03style-vue.md)
 - [x] :maple_leaf: [`a04. 条件渲染`](https://github.com/kickgod/Front-End/blob/master/vue/document/a04condition-vue.md)
 - [x] :maple_leaf: [`a05. 列表渲染`](https://github.com/kickgod/Front-End/blob/master/vue/document/a05list-vue.md)
+- [x] :maple_leaf: [`a06. 事件处理`](https://github.com/kickgod/Front-End/blob/master/vue/document/a06event-vue.md)
+
 
 -----
 [`Vue 官方网站`](https://cn.vuejs.org/)
