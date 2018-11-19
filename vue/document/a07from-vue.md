@@ -10,7 +10,7 @@
 - [x] :maple_leaf: [`系统修饰键`](#system)
 
 
-##### [文本绑定](#top)  :maple_leaf: <b id="array"></b> 
+##### [文本绑定](#top)  :maple_leaf: <b id="text"></b> 
 > 很简单 使用 `v-model` 命令实现双向绑定就行 
 
 ```html
@@ -110,20 +110,28 @@
 ```html
   <label for="cityID" >城市:</label>
   <select id="cityID" v-model="city">
+       <option disabled value="">请选择</option>
       <option v-for="(item,index) in UserCitys" :value="item.id"  :key="item.id" >{{ item.name }}</option>
   </select>
 ```
+> `如果 v-model 表达式的初始值未能匹配任何选项，<select> 元素将被渲染为“未选中”状态。在 iOS 中，这会使用户无法选择第一个选项。因为这样的情况下，iOS 不会触发 change 事件。因此，更推荐像上面这样提供一个值为空的禁用选项。`
 ```node
   data:{
     UserCitys:[{id:1,name:"贵州"},{id:2,name:"北京"},{id:3,name:"沈阳"},{id:4,name:"南京"}],
     city:""
   }
 ```
-`多选时`
+`多选时 值绑定到数组中`
 ```html
-
+ <label for="grade" >历史成绩:</label>
+ <select id="grade" v-model="Grades" multiple >
+    <option v-for="(item,index) in UserGrades" :value="item"  :key="index" >{{ item }}</option>
+ </select>
 ```
-
+```node
+  UserGrades:[68.6,96.5,95.6,88,94],
+  Grades:[]
+```
 
 
 
