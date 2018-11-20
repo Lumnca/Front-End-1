@@ -19,7 +19,7 @@
 
 - [x] `(1)`. `[[Configurable]]`:`是否能够通过delete 删除属性从而重新定义属性 默认值为true`
 - [x] `(2)`. `[[Enumerable]]`: `表示能否通过for-in循环返回属性默认为true`
-- [x] `(3)`. `[[Writeable]]`:`表示能否修改属性的值 默认为true`
+- [x] `(3)`. `[[Writeable]]`:`表示能否修改属性的值 默认为 true`
 - [x] `(4)`. `[[Value]]`:`包含这个属性的数据值，读取属性值的时候 从这个位置读取 写入属性值的 吧新值保存在这个位置`
 
 ```javascript
@@ -85,9 +85,11 @@ var book = {};
 
 Object.defineProperties(book,{
     _year:{
+        writable:true,
         value:2004
     },
     edition:{
+        writable:true, //一定要有 不然要出错 使用 defineProperties 默认值为
         value:1
     },
     year:{
@@ -103,7 +105,6 @@ Object.defineProperties(book,{
         }
     }
 });
-
 book.year = 2008;
 
 console.log(book.edition);
