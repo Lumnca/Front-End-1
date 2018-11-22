@@ -8,6 +8,7 @@
 - [x] :maple_leaf: [`a05. 列表渲染`](https://github.com/kickgod/Front-End/blob/master/vue/document/a05list-vue.md)
 - [x] :maple_leaf: [`a06. 事件处理`](https://github.com/kickgod/Front-End/blob/master/vue/document/a06event-vue.md)
 - [x] :maple_leaf: [`a07. 表单收集`](https://github.com/kickgod/Front-End/blob/master/vue/document/a07from-vue.md)
+- [x] :maple_leaf: [`a08. 生命周期`](https://github.com/kickgod/Front-End/blob/master/vue/document/a08life-vue.md)
 
 
 -----
