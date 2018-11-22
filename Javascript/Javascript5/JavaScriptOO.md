@@ -9,6 +9,7 @@
    * `访问器属性`
        * `特性` `Object.defineProperties`
 - [x] :maple_leaf: [`创建对象`](#create)
+- [x] :maple_leaf: [`基本定理`](#basic)
 
 ##### [Object 属性类型/特性](#top)  :maple_leaf:   <b id="object"></b>
 `ECMA 在第五版定义了只有内部采用的特性 描述了属性的各种特性,ECM-262 定义这些特性是否了实现JavaScript 是为了实现JavaScripty殷勤用的,因此Js代码中无法访问他们
@@ -189,5 +190,40 @@ console.log('person2_:', person2_);
  // 可以检测出来类型
  console.log('person1_ instanceof Person : ', person1_ instanceof Person); //true
 ```
+`构造函数的问题-同一种功能的函数被反复创建`
+
+##### [原型模式](#top)
+`我们创建的每个函数都有一个prototype(原型)属性,这个属性是一个指针,指向一个对象,而这个对象的用途是包含由特定类型的所有势力共享的属性和方法 你可以理解为静态`：`最大的好处: 可以让所有对象势力共享它所包含的属性和方法 也就是说说不必再构造函数中定义方法 也可以将这些方法直接添加到原型对象中`
+
+* `默认指向Object`
+
+```node
+function Person(name = "",age = 0,sex = true,job ="" ){
+    this.name = name;
+    this.age = age;
+    this.sex = sex;
+    this.job = job; 
+}
+
+Person.prototype.SaidHello = function(){
+    console.log(`${this.name} siad : Hello World!`);
+}
 
 
+var person1_ = new Person("JxKicker",28,true,"Worker");
+var person2_ = new Person("Ninchol",25,false,"Coder");
+
+console.log('person1_:', person1_);
+console.log('person2_:', person2_);
+
+
+person1_.SaidHello();
+person2_.SaidHello();
+
+```
+
+##### [基本定理](#top)  :maple_leaf:   <b id="basic"></b>
+* `Function是最顶层的构造方法，所有对象都由Function方法构造，包括Object方法，Function方法（有些人把这个认为是Function方法的自生性，不用纠结，不管是什么原因，只要记住Function是方法也是对象就行）`
+* `所有的方法（就是克隆类）都继承Function.prototype对象（包括Function方法 通过定理1可得）`
+* `不要纠结是先有Object对象，还是先有Function方法，就跟先有鸡还是现有蛋一样，相互依赖，同时诞生`
+* `每个对象的_proto_属性（注意不是prototype属性）都指向自己的继承父类，也就是他的克隆类的原型对象，也就是Foo.prototype对象（object对象）`
