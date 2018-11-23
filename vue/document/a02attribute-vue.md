@@ -4,6 +4,7 @@
 `Vue 数据属性体验 {{}} ` `v-text` `v-html` `计算属性` `监视`
 
 - [x] [`vue 数据绑定语法`](#bind)
+    * [`过滤器`](#filter) 
 - [x] [`vue 计算属性`](#calcul)
 - [x] [`vue 侦听器`](#watch)
 
@@ -190,7 +191,7 @@ new Vue({
 //age 属性是否大于 18
 <span v-if="age >= 18" ></span>
 ```
-##### [filter 过滤器](#top)
+##### [filter 过滤器](#top) <b id="filter"></b>
 `Vue.js 允许你自定义过滤器` `{{name | capitalize | uppercase }}` `通过 管道 |可以定义多个过滤器` 
 ```html
 <div class=" row">
@@ -211,6 +212,21 @@ new Vue({
         }
     });
 </script>
+```
+**`给过滤器传递参数-全局过滤器`**
+```node
+Vue.filter('Dataformat', function (data,newValue) {
+  return data.replace(/蒋先生/g,newValue)
+})
+```
+
+```node
+<div class=" row">
+    {{name | Dataformat('蒋星') }}
+</div>
+
+原值：蒋先生是一个很厉害的人
+过滤器后: 蒋星是一个很厉害的人 
 ```
 ##### [修饰符 事件](#top)
 `修饰符 (Modifiers) 是以半角句号 . 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()：`
