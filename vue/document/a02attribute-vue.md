@@ -1,4 +1,5 @@
-[`Vue 数据属性` ](#top) <b id="top"></b> :maple_leaf:
+### [`Vue 数据属性` ](#top) <b id="top"></b> :maple_leaf:
+
 -----
 `Vue 数据属性体验 {{}} ` `v-text` `v-html` `计算属性` `监视`
 
@@ -100,7 +101,12 @@ new Vue({
 `当一个 Vue 实例被创建时，它向 Vue 的响应式系统中加入了其 data 对象中能找到的所有的属性。当这些属性的值发生改变时，视图将会
 产生“响应”，即匹配更新为新的值。`
 * `v-hmtl`:`渲染为 innerHtml`
-* `v-text`:`渲染为 `
+* `v-text`:`渲染为 文本值 最好多实用 v-text 渲染值 而不是 {{name}} 插值表达式 因为在网速慢的情况下  vue没有加载完成 页面会显示为 {{name}}` `而不是 name的属性值` `但是会覆盖标签的整个内容 如果要使用 {{}} 插值表达式 最好使用 v-cloak 指令`
+```css
+[v-cloak]{
+    display:none;
+}
+```
 ```html
 <body class="container">
     <br/>
