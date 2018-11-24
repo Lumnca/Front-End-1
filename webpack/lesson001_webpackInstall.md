@@ -1,11 +1,11 @@
 ### [Webpack 安装使用](#top) :maple_leaf: <b id="top"></b>
 
 ----
-`Webpack 的入门使用方式 在开始之前，请确保安装了 Node.js 的最新版本。使用 Node.js 最新的长期支持版本(LTS - Long Term Support)，是理想的起步`
+:white_check_mark: `Webpack 的入门使用方式 在开始之前，请确保安装了 Node.js 的最新版本。使用 Node.js 最新的长期支持版本(LTS - Long Term Support)，是理想的起步`
 - [x] :maple_leaf: [`命令行安装`](#install) 
 - [x] :maple_leaf: [`起步咯`](#start) 
 
-##### [(一.1).命令行安装](#top) <b id="install"></b> :maple_leaf:
+#### [(一.1).命令行安装](#top) <b id="install"></b> :maple_leaf:
 `-g 是全局安装的意思`
 ```npm
  cnpm install webpack -g
@@ -34,19 +34,92 @@ npm install --save-dev webpack-cli
 `webpack --mode production` :`打包成一行  生产环境`<br/>
 `webpack --mode development`：`打包就可以了,开发环境`
 
-##### [(二. 1).起步咯](#top) <b id="start"></b> :maple_leaf:
-`首先我们创建一个目录，初始化 npm，然后 在本地安装 webpack，接着安装 webpack-cli（此工具用于在命令行中运行 webpack）：`
+#### [(二. 1).起步咯-初次使用webpack](#top) <b id="start"></b> :maple_leaf:
+(1).首先我们创建一个目录，初始化 npm，然后 在本地安装 webpack，接着安装 webpack-cli（此工具用于在命令行中运行 webpack）：
 ```linux
-mkdir webpack-demo && cd webpack-demo
+mkdir install && cd webpack-demo
 npm init -y
 npm install webpack webpack-cli --save-dev
 ```
-(2).现在我们将创建以下目录结构、文件和内容：
-```diff
-  webpack-demo
-  |- package.json
-+ |- index.html
-+ |- /src
-+   |- index.js
-src/index.js
+(2).现在我们将创建以下目录结构、文件和内容：<br/>
+![基本使用](/Resources/webpack/exmaple.png)
+
+(3).Person.js
+```node
+function Person(name,age,sex){
+    this.name = name;
+    this.age = age;
+    this.sex = sex;
+}
+Person.prototype.toString = function(){
+    return `name:${this.name} age:${this.age} sex:${this.sex}`;
+}
+export default Person;
 ```
+(4).address.js
+```node
+function address(states,street,code,province = "Sichuan",country = "China"){
+    this.country = country;
+    this.states = states;
+    this.province = province;
+    this.states = states;
+    this.street = street
+    this.code = code;
+}
+
+export default address;
+```
+(5).index.js
+```node
+import Person from "./compiler/address"
+import address from "./compiler/person"
+
+let person1 = new Person("jxKicker",18,true);
+let person2 = new Person("RRlover",15,false);
+
+let adr = new address("GA-YC","XinFen",8341);
+
+
+console.log(person1);
+console.log(person2);
+
+console.log(adr);
+```
+(6).package.json
+```json
+{
+  "name": "install",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2"
+  }
+}
+
+```
+(7).index.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="main.js"></script>
+</html>
+```
+(8).组织好文件后运行 npm run build 打包完成  dist文件夹里面生成一个 main.js
