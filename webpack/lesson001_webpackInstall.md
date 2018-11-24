@@ -5,7 +5,7 @@
 - [x] :maple_leaf: [`命令行安装`](#install) 
 - [x] :maple_leaf: [`起步咯`](#start) 
 
-#### [(一.1).命令行安装](#top) <b id="install"></b> :maple_leaf:
+##### [(一.1).命令行安装](#top) <b id="install"></b> :maple_leaf:
 `-g 是全局安装的意思`
 ```npm
  cnpm install webpack -g
@@ -34,7 +34,7 @@ npm install --save-dev webpack-cli
 `webpack --mode production` :`打包成一行  生产环境`<br/>
 `webpack --mode development`：`打包就可以了,开发环境`
 
-#### [(二. 1).起步咯-初次使用webpack](#top) <b id="start"></b> :maple_leaf:
+##### [(二. 1).起步咯-初次使用webpack](#top) <b id="start"></b> :maple_leaf:
 (1).首先我们创建一个目录，初始化 npm，然后 在本地安装 webpack，接着安装 webpack-cli（此工具用于在命令行中运行 webpack）：
 ```linux
 mkdir install && cd webpack-demo
