@@ -8,8 +8,7 @@
 - [x] :maple_leaf: [`生命周期钩子`](#hook)
 - [x] :maple_leaf: [`有用的钩子函数`](#useful)
 - [x] :maple_leaf: [`注意了`](#notice)
-- [x] :maple_leaf: [`绑定值`](#bind)
-- [x] :maple_leaf: [`修饰符`](#desc)
+
 
 ##### [三个大的阶段](#top)  :maple_leaf: <b id="hook"></b> 
 `基本是一个vue实例都经过三个大的过程` `初始化显示` `更新显示` `死亡`
