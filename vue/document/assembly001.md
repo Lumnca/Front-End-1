@@ -9,8 +9,6 @@
 - [x]  [`简单小例子`](#exp)
 - [x]  [`配置参数`](#set)
 - [x]  [`传递数据`](#data)
-- [x]  [`绑定值`](#bind)
-- [x]  [`修饰符`](#desc)
 
 #####  [Vue 组件介绍](#top)  <b id="intro"></b>  
 `组件是Vue.js 最核心的功能,也是整个框架设计最精彩的地方,当然也是最难掌握的。`
@@ -55,12 +53,9 @@ let vals = new Vue({
 #####  [配置参数说名](#top)  <b id="set"></b> 
 * `data 属性必须是函数 为什么 因为组件可以复用使用函数 可以让每个组件都具有自己的data属性  不然就多个组件共用一个data 对象 然后
 一个改变 其他都改变 可以返回一个对象`
-```json
-
-data: function () {
-  return {
-    count: 0
-  }
+```node
+data: function (){
+  return { count: 0 };
 }
 ```
 * `template:属性的Dom结构必须被一个元素包含,如果直接写出 <span>...</span><b>...</b> 是不会渲染成功的`
@@ -110,8 +105,43 @@ Vue.component('my-row',{
 
 ##### 利用props 传递数据
 `props的值可以是两种,一种是字符串数组,一种书对象 props的数组 来自于父组件`
+##### 字符串数组
+`可以由父组件绑定 也可以手动传参`
+```html
+<div id="val">
+    <person-info-componet
+          v-for="p in persons" 
+          :key=p.id  :name = p.name :age = p.age  :id=p.id>
+    </person-info-componet>
+    <person-info-componet name="LiZhiMing" age="15" id="2016110425" ></person-info-componet>
+</div>
+```
+
+```node
+Vue.component('person-info-componet', {
+    props:["name","age","id"],
+    template:`
+        <div>
+            <span class="text-danger"> {{ id }} </span>
+            <span class="text-danger"> {{ age }} </span>
+            <span class="text-danger"> {{ name }} </span>
+        </div>
+    `
+});
 
 
+let vals = new Vue({
+    el:"#val",
+    data:{
+        count:3,
+        persons:[
+            { name:"Jxkicker",age:20,id:"2016110418"},
+            { name:"Ljk",age:20,id:"2016110423"},
+            { name:"JLZ",age:22,id:"2016110417"}
+        ]
+    }
+});
+```
 
 
 
