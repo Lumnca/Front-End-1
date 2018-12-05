@@ -1,18 +1,18 @@
-### [vue 组件 01](#top) :maple_leaf: <b id="top"></b> 
+### [vue 组件 01](#top) <b id="top"></b> 
 
 ----
 `至此才是vue的起步 组件`
 
 
 -----
-- [x] :maple_leaf: [`介绍`](#intro)
-- [x] :maple_leaf: [`简单小例子`](#exp)
-- [x] :maple_leaf: [`配置参数`](#set)
-- [x] :maple_leaf: [`传递数据`](#data)
-- [x] :maple_leaf: [`绑定值`](#bind)
-- [x] :maple_leaf: [`修饰符`](#desc)
+- [x]  [`介绍`](#intro)
+- [x]  [`简单小例子`](#exp)
+- [x]  [`配置参数`](#set)
+- [x]  [`传递数据`](#data)
+- [x]  [`绑定值`](#bind)
+- [x]  [`修饰符`](#desc)
 
-#####  [Vue 组件介绍](#top) :maple_leaf: <b id="intro"></b>  
+#####  [Vue 组件介绍](#top)  <b id="intro"></b>  
 `组件是Vue.js 最核心的功能,也是整个框架设计最精彩的地方,当然也是最难掌握的。`
 * `组件是可复用的 Vue 实例，且带有一个名字`
 * `组件在渲染时 会用 template 内容代替原来的组件标签`
@@ -22,7 +22,7 @@ Vue.component('first-componet',{
     //配置组件选项
 });
 ```
-#####  [Vue 简单小例子](#top) :maple_leaf: <b id="exp"></b>
+#####  [Vue 简单小例子](#top)  <b id="exp"></b>
 ```html
 <div id="val">
     <first-componet></first-componet>
@@ -52,7 +52,7 @@ let vals = new Vue({
   <button class="btn btn-sm btn-primary">1 请点击我吧</button>
 </div>
 ```
-#####  [配置参数说名](#top) :maple_leaf: <b id="set"></b> 
+#####  [配置参数说名](#top)  <b id="set"></b> 
 * `data 属性必须是函数 为什么 因为组件可以复用使用函数 可以让每个组件都具有自己的data属性  不然就多个组件共用一个data 对象 然后
 一个改变 其他都改变 可以返回一个对象`
 ```json
@@ -104,7 +104,7 @@ Vue.component('my-row',{
 </table>
 ```
 
-#####  [传递数据](#top) :maple_leaf: <b id="data"></b> 
+#####  [传递数据](#top)  <b id="data"></b> 
 `vue组件有很多数据流转 比如父组件和子组件之间 组件之前通信 主要是 父组件向子组件传递数据 子组件根据参数的不同来渲染不同的内容或执行操作 `
 * `data: 让每个vue具有自己的数据 他来自于自己`
 
