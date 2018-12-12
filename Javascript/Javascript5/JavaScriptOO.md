@@ -10,6 +10,10 @@
        * `特性` `Object.defineProperties`
 - [x] :maple_leaf: [`创建对象`](#create)
 - [x] :maple_leaf: [`基本定理`](#basic)
+  * `工厂模式`
+  * `构造函数`
+  * `原型模式`
+      
 
 ##### [Object 属性类型/特性](#top)  :maple_leaf:   <b id="object"></b>
 `ECMA 在第五版定义了只有内部采用的特性 描述了属性的各种特性,ECM-262 定义这些特性是否了实现JavaScript 是为了实现JavaScripty殷勤用的,因此Js代码中无法访问他们
@@ -196,7 +200,7 @@ console.log('person2_:', person2_);
 `我们创建的每个函数都有一个prototype(原型)属性,这个属性是一个指针,指向一个对象,而这个对象的用途是包含由特定类型的所有势力共享的属性和方法 你可以理解为静态`：`最大的好处: 可以让所有对象势力共享它所包含的属性和方法 也就是说说不必再构造函数中定义方法 也可以将这些方法直接添加到原型对象中`
 
 * `默认指向Object`
-
+* `我们原型模式和构造函数相结构的方法 来创建对象  因为原型对象 里面包含的东西 是静态的 但是又是类似于对象属性 本事上来说 它是公有的 所有对象的公有属性方法`
 ```node
 function Person(name = "",age = 0,sex = true,job ="" ){
     this.name = name;
@@ -221,9 +225,41 @@ person1_.SaidHello();
 person2_.SaidHello();
 
 ```
+* `只要创建一个新函数,就会根据一组特定的规则为该函数创建一个prototype 属性,该属性指向函数的原型对象,在默认的情况下,所有的原型对象都会自动获得
+一个 constructor[构造函数]属性这个属性包含一个指向 prototype属性所在函数的指针`
+##### Object.getPrototypeOf(obj) 得到一个对象的原型
+```node
+function Person(){}
+Person.prototype= {
+    name:"Jxkicker",
+    age:29,
+    job:"Software Engineer",
+    sayName:function(){
+        alert(this.name);
+    }
+}
 
+var p1 = new Person();
+let pro = Object.getPrototypeOf(p1);
+console.log('pro:\n', pro);
+/*
+pro:
+ { name: 'Jxkicker',
+  age: 29,
+  job: 'Software Engineer',
+  sayName: [Function: sayName] }
+*/
+```
+##### [属性访问属性](#top)  :maple_leaf:  
+`当访问一个属性的,它是如何查找值的呢？ 这和静态语言不同 且等我嘻嘻说来`
+* `每当读取某个对象的某个属性的时候,都会执行一次搜索,目标是具有给定名称的属性`
+* `1.首先搜索对象实例本身的属性 找到 返回值 找不到 搜索指针指向的原型对象`
+* `2.在原型对象中搜素属性 找到返回 找不到 则继续向上查找 原型的原型`
+* `所以 如果原型对象属性 和实例对象的属性 同名的时候 会发生覆盖 并且实例属性的优先级高`
 ##### [基本定理](#top)  :maple_leaf:   <b id="basic"></b>
 * `Function是最顶层的构造方法，所有对象都由Function方法构造，包括Object方法，Function方法（有些人把这个认为是Function方法的自生性，不用纠结，不管是什么原因，只要记住Function是方法也是对象就行）`
 * `所有的方法（就是克隆类）都继承Function.prototype对象（包括Function方法 通过定理1可得）`
 * `不要纠结是先有Object对象，还是先有Function方法，就跟先有鸡还是现有蛋一样，相互依赖，同时诞生`
 * `每个对象的_proto_属性（注意不是prototype属性）都指向自己的继承父类，也就是他的克隆类的原型对象，也就是Foo.prototype对象（object对象）`
+
+
