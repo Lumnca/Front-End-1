@@ -12,7 +12,7 @@
 
 - [x] :maple_leaf: [`JavaScript6 数组扩展`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript6/ECS6Array.md)
 
-
+- [x] :maple_leaf: [`JavaScript6 Promise`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript6/ECS6Promise.md)
 -----
 `ES6推荐书籍:` <br/>
 [`《ECMAScript 6 入门》 阮一峰`](http://es6.ruanyifeng.com/) [`《深入理解ES6》 NICHOLA..`](https://segmentfault.com/a/1190000010199272)
