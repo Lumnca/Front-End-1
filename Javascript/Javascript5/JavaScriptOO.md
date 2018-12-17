@@ -11,8 +11,10 @@
 - [x] :maple_leaf: [`创建对象`](#create)
 - [x] :maple_leaf: [`基本定理`](#basic)
   * `工厂模式`
-  * `构造函数`
+  * `构造函数` ` * 指定这种 其他理解` 
   * `原型模式`
+  * `寄生构造函数模式`
+  * `稳妥构造函数`
       
 
 ##### [Object 属性类型/特性](#top)  :maple_leaf:   <b id="object"></b>
@@ -250,6 +252,71 @@ pro:
   sayName: [Function: sayName] }
 */
 ```
+##### 寄生构造模式
+* `用来干嘛呀 用来扩展一个现有的对象 例如 Array类型`
+```node
+//寄生构造函数模式 
+
+function Person(name,age,sex){
+    var o = new Object();
+    o.name = name;
+    o.age = age
+    o.sex = sex
+    o.sayName = function () {
+        return this.name;
+    }
+    return o;
+}
+
+function NumberArray(){
+    var array = new Array();
+    array.getFirst = function () {
+        return this.length > 0 ? this[0]:null;
+    }
+    return array;
+}
+
+var myArray = new NumberArray();
+myArray.push(1);
+myArray.push(2);
+myArray.push(3);
+
+console.log(myArray.getFirst());
+```
+
+##### 稳妥构造函数
+`你会发现 除了通过哪些方法  是无法访问 name age的 真是稳妥`
+```node
+function Person(name,age){
+    var o = new Object();
+    Object.defineProperty(o,"Place",{
+        enumerable:false,
+        value:"SiChuan",
+        writable:false
+    });
+    o.getName = function () {
+        return name;
+    }
+    o.setName = function (value) {
+        name = value
+    }
+
+    o.getAge = function () {
+        return age;
+    }
+    o.setAge = function (value) {
+        age = value
+    }
+    return o;
+}
+
+var friend = Person("JxKicker",18)
+
+console.log('name:', friend.getName() );
+```
+
+
+
 ##### [属性访问属性](#top)  :maple_leaf:  
 `当访问一个属性的,它是如何查找值的呢？ 这和静态语言不同 且等我嘻嘻说来`
 * `每当读取某个对象的某个属性的时候,都会执行一次搜索,目标是具有给定名称的属性`
