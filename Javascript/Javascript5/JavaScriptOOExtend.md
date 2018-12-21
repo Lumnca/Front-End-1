@@ -6,6 +6,7 @@
 - [x] [`3.借用构造函数继承`](#constructor)
 - [x] [`4.组合继承`](#useall)
 - [x] [`5.原型继承`](#prototype)
+- [x] [`6.寄生式继承`](#extend)
 ----
 #####  :octocat: [1.原型链继续](#top) <b id="proto"></b> 
 * `原型链-继承,你不会喜欢这个继承方式  原因 你不是继承一个类 而是继承一个 父类的实例 这是不优雅的`
@@ -121,10 +122,36 @@ console.log(littleChicken instanceof Egg); //而且 并不承认它的继承地�
 * `利用一件存在的一个对象作为原型 赋值给一个新的对象 完成继承`
 * `要求必须先要有一个对象`
 * `放弃它吧 我们需要继承的 不是对象 而是类 从这点看来 这个继承方式就是错误的 `
+* `为此 ES5 还专门为这种继承 新增了 Object.create() 方法来规范原型继承`
 ```node
- function object(o){
-  function F() {};
-  F.prototype = o;
-  return new F();
- }
+function object(o){
+    function F() {};
+    F.prototype = o;
+    return new F();
+   }
+
+var person = {
+    name:"JxKicker",
+    friends:["xaio","ming","hong"]
+};
+
+var antherPerson = object(person);
+antherPerson.name = "Kicker";
+antherPerson.friends.push('liz');
+
+var yetPerson = object(person);
+yetPerson.name = "Linda";
+yetPerson.friends.push('Barce');
+
+console.log(person);
+/*
+{ 
+  name: 'JxKicker',
+  friends: [ 'xaio', 'ming', 'hong', 'liz', 'Barce' ] 
+}
+*/
 ```
+#####  :octocat: [6.寄生式继承](#top) <b id="extend"></b> 
+``
+
+
