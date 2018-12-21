@@ -98,7 +98,7 @@ Mustache.parse(template);
 let result = Mustache.render(template,data)
 $('#Login').html(result);
 ```
-
+* `如果你需要取反怎么办呢？ 那么使用 {{^parame}}`
 ------`结果如下:`------
 <p> 你已登录了</p>
 
