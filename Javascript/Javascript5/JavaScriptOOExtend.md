@@ -7,6 +7,7 @@
 - [x] [`4.组合继承`](#useall)
 - [x] [`5.原型继承`](#prototype)
 - [x] [`6.寄生式继承`](#extend)
+- [x] [`7.寄生组合式继承`](#compile) :grey_exclamation:
 ----
 #####  :octocat: [1.原型链继续](#top) <b id="proto"></b> 
 * `原型链-继承,你不会喜欢这个继承方式  原因 你不是继承一个类 而是继承一个 父类的实例 这是不优雅的`
@@ -88,7 +89,12 @@ console.log(littleChicken instanceof Egg); //而且 并不承认它的继承地�
 `它又名为 伪经典继承 同时使用原型继承 和构造函数继承 构造函数继承属性  原型继承原型函数对象`
 * `这是非常需要掌握的继承方式 `
 * `子类 instanceof 父类 会返回 ture 实现了继承`
+* `缺点: 同一个名称的属性 同时存在实例上面 和原型上面 由于搜索优先级的关系  原型上面的属性被屏蔽了`
 ```node
+function Egg(color = "white",typeName ="卵生物种"){
+    this.typeName =  typeName ,
+    this.color = color
+}
 
 function Chicken(MainColor,sex,weight){
     Egg.call(this,MainColor,"鸡"); //借用构造函数
@@ -97,6 +103,7 @@ function Chicken(MainColor,sex,weight){
 }
 
 Chicken.prototype = new Egg();
+
 Chicken.prototype.getPrice = function(Meony){
     if (typeof Meony != "number") {
         console.error('Error', 'Meony is not Number Type')
@@ -128,7 +135,7 @@ function object(o){
     function F() {};
     F.prototype = o;
     return new F();
-   }
+}
 
 var person = {
     name:"JxKicker",
@@ -152,6 +159,74 @@ console.log(person);
 */
 ```
 #####  :octocat: [6.寄生式继承](#top) <b id="extend"></b> 
-``
+`寄生式继承是与原型式继承紧密相关第一种思路,他利用了工厂模式和原型式继承模式`
+* `这玩意儿 不行不适合`
+```node
+function object(o){
+    function F() {};
+    F.prototype = o;
+    return new F();
+}
+
+function createAnthor(original){
+  var clone = object(original);
+  clone.sayHi = function(){
+    alert("hi");
+  }
+}
+
+var person = {
+    name:"JxKicker",
+    friends:["xaio","ming","hong"]
+};
+
+var obj = createAnthor(person);
+```
+* `新增的扩展的函数 不能实现函数复用 继承的是对象而不是类模板 垃圾呀 不要用`
+#####  :octocat: [7.寄生组合式继承](#top) <b id="compile"></b> 
+`组合继承,非常不错 很常用 但是也有一些缺点`
+* `多次调用构造函数 会两次调用父类的构造函数 1.子类构造函数内部 2.超类型构造函数`
+* `属性重复`
+
+----
+* `寄生组合式继承`:`很好减少了很多的东西 通过改变引用关系 完美的实现了继承 它是最应该掌握的继承方式`
+
+```node
+function inheritPrototype(subType,superType){
+    var prototype = object(superType.prototype); //  var prototype = Object.create(superType.prototype)；
+    prototype.constructor = subType;
+    subType.prototype = prototype;
+}
+
+/***************** 父类 *******************/
+function Egg(color = "white",typeName ="卵生物种"){
+    this.typeName =  typeName ,
+    this.color = color
+}
+
+Egg.prototype.getType = function(){
+    return this.typeName;
+}
+/***************** 父类 *******************/
 
 
+/***************** 子类 *******************/
+
+function chicken(MainColor,sex,weight){
+    Egg.call(this,MainColor,"鸡"); //借用构造函数 实现属性 继承
+    this.sex = sex;
+    this.weight = weight;
+}
+
+inheritPrototype(chicken,Egg);//函数复用 和继承关系 实现
+
+chicken.prototype.getPrice = function(Meony){
+    if (typeof Meony != "number") {
+        console.error('Error', 'Meony is not Number Type')
+    }
+    return  this.weight * Meony;
+}
+```
+
+-----------------
+`多好呀 基本上都实现了继承,上面好多方法呀 ！但是,放弃吧  看完就行了 明白那两个最重要的， 然后去看JS6 提供的类吧 哪种才是科学的面相对象`
