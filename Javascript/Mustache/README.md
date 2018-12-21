@@ -204,7 +204,34 @@ console.log(output);
 
 * `{{^}}与{{#}}相反，如果变量是null、undefined、 false、和空数组讲输出结果`
 
+##### 例子
+```html
+<ul id="enum-list" class="admin-narbar clearStyle border-light-down">
 
+</ul>
+<script id="template" type="x-tmpl-mustache">
+{{#types}}
+    <li>
+        <a href="#" data-value-store-typeId='{{typeID}}' >{{typeName}}</a>
+    </li>
+{{/types}}
+</script>
+
+
+<script>
+let jqXHRresult = $.get("product/getType",function (data,status,jqXhr) {
+    console.log(data);
+    let typeList = {
+        types:data
+    }
+    var template = $('#template').html();
+    Mustache.parse(template);
+    let result =  Mustache.render(template,typeList);
+    console.log(result);
+    $('#enum-list').html(result);
+},"json");
+</script>
+```
 
 
 
