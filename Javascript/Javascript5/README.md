@@ -9,6 +9,8 @@
 * [x] [`JavaScript5. 引用类型`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptObject.md)
 
 * [x] [`JavaScript5. 构建对象`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptOO.md)
+
+* [x] [`JavaScript5. 对象继承`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptOOExtend.md)
  
 * [x] [`JavaScript5. 原生Event`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptEvent.md)
 
