@@ -126,7 +126,9 @@ console.log(adr);
 (8).组织好文件后运行 npm run build 打包完成  dist文件夹里面生成一个 main.js
 
 
-##### [(三. 1).webpack 卸载](#top) <b id="start"></b> :maple_leaf:
+##### [(三. 1).webpack 卸载](#top) <b id="uninstall"></b> :maple_leaf:
+`注意使用 cnpm /npm 安装的webpack 要分别用 cnpm/npm卸载 `
+* `检测是否卸载干净 webpack -v 看看是否有回显`
 ```npm
 cnpm uninstall -g webpack //卸载全局webpack
 
