@@ -4,7 +4,7 @@
 :white_check_mark: `Webpack 的入门使用方式 在开始之前，请确保安装了 Node.js 的最新版本。使用 Node.js 最新的长期支持版本(LTS - Long Term Support)，是理想的起步`
 - [x] :maple_leaf: [`命令行安装`](#install) 
 - [x] :maple_leaf: [`起步咯`](#start) 
-
+- [x] :maple_leaf: [`webpack 卸载`](#uninstall)
 ---
 ##### [(一.1).命令行安装](#top) <b id="install"></b> :maple_leaf:
 `-g 是全局安装的意思 ` **`千万不要全局安装不然会死得很惨的`**
@@ -124,3 +124,11 @@ console.log(adr);
 </html>
 ```
 (8).组织好文件后运行 npm run build 打包完成  dist文件夹里面生成一个 main.js
+
+
+##### [(三. 1).webpack 卸载](#top) <b id="start"></b> :maple_leaf:
+```npm
+cnpm uninstall -g webpack //卸载全局webpack
+
+npm uninstall webpack //卸载本地webpack
+```
