@@ -72,8 +72,8 @@ export default address;
 ```
 (5).index.js
 ```node
-import Person from "./compiler/address"
-import address from "./compiler/person"
+import Person from "./compiler/person.js"
+import address from "./compiler/address.js"
 
 let person1 = new Person("jxKicker",18,true);
 let person2 = new Person("RRlover",15,false);
