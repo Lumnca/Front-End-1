@@ -5,8 +5,9 @@
 - [x] :maple_leaf: [`命令行安装`](#install) 
 - [x] :maple_leaf: [`起步咯`](#start) 
 
+---
 ##### [(一.1).命令行安装](#top) <b id="install"></b> :maple_leaf:
-`-g 是全局安装的意思`
+`-g 是全局安装的意思 ` **`千万不要全局安装不然会死得很惨的`**
 ```npm
  cnpm install webpack -g
  
@@ -16,14 +17,14 @@
 ##### [(一.2)本地安装](#top)
 `要安装最新版本或特定版本，请运行以下命令之一：`
 ```npm
-npm install --save-dev webpack
-npm install --save-dev webpack@<version>
+cnpm install --save-dev webpack
+cnpm install --save-dev webpack@<version>
 ```
 `如果你使用 webpack 4+ 版本，你还需要安装 CLI。`
 ```npm
-npm install --save-dev webpack-cli
+cnpm install --save-dev webpack-cli
 ```
-`对于大多数项目，我们建议本地安装。这可以使我们在引入破坏式变更(breaking change)的依赖时，更容易分别升级项目。通常，webpack 通过运行一个或多个 npm scripts，会在本地 node_modules 目录中查找安装的 webpack：`
+`对于大多数项目，我们建议本地安装。这可以使我们在引入破坏式变更(breaking change)的依赖时，更容易分别升级项目。通常，webpack 通过运行一个或多个 cnpm scripts，会在本地 node_modules 目录中查找安装的 webpack：`
 ```node
 "scripts": {
     "start": "webpack --config webpack.config.js"
