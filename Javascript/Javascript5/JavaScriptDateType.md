@@ -114,6 +114,31 @@ false
 var i =1,num2 = 3 ,num4 = 5;
 // 使用逗号操作符 一条语句运行多个操作
 ```
-`2.=== !== 全等和不全等运算符`
-* `== 和 != 在执行的时候回进行隐式转换 例如`
+`2. === !== 全等和不全等运算符` <br/>
+`== 和 != 在执行的时候回进行隐式转换 例如 7 == "7" 返回 true 但是 全等操作符 会比较类型 引用 7 === "7" 返回false`
+<br/?
+`3.for-in 运算符`
+* `对于数组 返回索引,对于对象返回key`
+```node
+function Person(name,age){
+    this.name = name;
+    this.age = age;
+}
+Person.prototype.GetName = function () {
+    return this.name.toLowerCase();
+}
 
+let p1 = new Person("JxKicker",19);
+
+for (let val in p1) {
+    console.log(val); //name age GetName
+}
+
+let array = ["list","jxkicker",true]
+
+for(let value in array){
+    console.log(value); // 0 1 2
+}
+```
+-----
+`其他的都很简答的`
