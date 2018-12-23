@@ -2,6 +2,7 @@
 :white_check_mark: `Javascript 函数有很多的其他深层次的东西`
 
 - [x] [`1.递归`](#proto) 
+- [x] [`1.闭包`](#close) 
 
 ----
 #####  :octocat: [1.递归](#top) <b id="proto"></b> 
@@ -61,3 +62,5 @@ console.log(test(10));//跑递归
 //3628800
 
 ```
+#####  :octocat: [2.闭包](#top) <b id="close"></b> 
+`闭包`:`有权访问另一个函数作用域的变量的函数`
