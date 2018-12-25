@@ -119,17 +119,16 @@ console.log(obj.getNameFuc()()); //The Window  非严格模式
 ```
 > `那么怎么使用 obj.name ？ 一切都是引用`
 ```node
+ var name = "The Window";
+ var obj = {
+     name : "My Object",
+     getNameFuc() {
+         var that = this
+         return function(){
+            return that.name;
+         };
+     }
+ }
 
-var name = "The Window";
-
-var obj = {
-    name : "My Object",
-    getNameFuc() {
-        return function(){
-            this.name
-        };
-    }
-}
-
-console.log(obj.getNameFuc()());
+ console.log(obj.getNameFuc()()); //My Object
 ```
