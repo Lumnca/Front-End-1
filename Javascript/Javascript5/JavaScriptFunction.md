@@ -2,7 +2,9 @@
 :white_check_mark: `Javascript 函数有很多的其他深层次的东西`
 
 - [x] [`1.递归`](#proto) 
-- [x] [`1.闭包`](#close) 
+    * [`匿名函数`](#lambda)
+- [x] [`2.闭包`](#close) 
+- [x] [`3.this对象`](#this) 
 
 ----
 #####  :octocat: [1.递归](#top) <b id="proto"></b> 
@@ -62,5 +64,72 @@ console.log(test(10));//跑递归
 //3628800
 
 ```
+#####  	:triangular_flag_on_post: [匿名函数](#top) <b id="lambda"></b> 
+`通过如下形式创建的函数 叫做匿名函数 又叫` `拉姆达函数`
+```javascript
+ //function 后面没有标识符
+ const test = function(num){
+    if(num <= 1){
+        return 1;
+    }else{
+        return num * test(num-1);
+    }
+}
+```
 #####  :octocat: [2.闭包](#top) <b id="close"></b> 
 `闭包`:`有权访问另一个函数作用域的变量的函数`
+```javascript
+function getMax(propertyName){
+    return function (objext) {
+        return Math.max(...objext[propertyName]);
+    }
+}
+
+let person = {
+    name :"jxkicker",
+    age:20,
+    scores:[98.6,78.5,78.6,95.6,15.5]
+}
+
+let func_getmax = getMax("scores");
+let maxScore =  func_getmax(person);
+
+console.log(maxScore); //98.6
+```
+- `func_getmax 依赖于 getMax 的 propertyName `
+- `func_getmax 延长了 getMax 的函数作用域 getMax被引用 `
+- `func_getmax 被销毁后 getMax 才能被销毁`
+
+#####  :octocat: [3.this对象](#top) <b id="this"></b> 
+`this 对象是在运行时给予函数的执行环境绑定的,在全局函数中,this等于 window` `注意: 匿名函数的执行环境具有全局性,因此this通常指向window`<br/>
+> `在闭包中使用this对象可能会导致一些问题`
+```javascript
+var name = "The Window";
+
+var obj = {
+    name : "My Object",
+    getNameFuc() {
+        return function(){
+           return this.name;
+        };
+    }
+}
+
+console.log(obj.getNameFuc()()); //The Window  非严格模式
+```
+> `那么怎么使用 obj.name ？ 一切都是引用`
+```node
+
+var name = "The Window";
+
+var obj = {
+    name : "My Object",
+    getNameFuc() {
+        return function(){
+            this.name
+        };
+    }
+}
+
+console.log(obj.getNameFuc()());
+```
