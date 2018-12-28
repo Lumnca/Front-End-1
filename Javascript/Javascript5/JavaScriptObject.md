@@ -294,6 +294,7 @@ array: [ 1, 2, 456, 879, 6, 7, 8, 9 ]
 * `[返回 void]    forEach`:`对数组中的每一项运行给定函数,这个方法没有返回值`
 * `[返回 Array]   map`:`对数组中的每一项运行给定函数 返回每次函数调用的结果组成的数组`
 * `[返回 Boolean] some`:`对数组中的每一项运行给定函数,如果函数对任一项返回true 则返回`
+* `传入的函数方法`:`function(currentValue, index,arr){} 类型 当前值 索引  数组`
 ##### 归并方法
 * `reduce(function(prev,current,index,array))`:`都会迭代数组的所有项,然后构建一个最终的返回值 前一个值 当前值 索引 迭代的数组`
 ```node
