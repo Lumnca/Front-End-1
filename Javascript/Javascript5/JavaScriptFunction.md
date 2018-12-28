@@ -1,6 +1,7 @@
 ### [JavaScript 函数](#top) :grey_exclamation: <b id="top"></b>
-:white_check_mark: `Javascript 函数有很多的其他深层次的东西`
+ `Javascript 函数有很多的其他深层次的东西`:white_check_mark:
 
+---
 > - [x] [`1.递归`](#proto) 
 >    * [`匿名函数`](#lambda)
 > - [x] [`2.闭包`](#close) 
