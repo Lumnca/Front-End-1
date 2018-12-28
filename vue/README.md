@@ -3,11 +3,4 @@
 `学习vue的旅途开始啦`
 
 ----
-#### :checkered_flag: [Vue 学习要求](#top) 
-* `Css`
-* `HTML`
-* `Javascript5`
-* `Javascript6`
-* `webpack`
-* `npm`
-
+- [`vue 源码阅读博客`](https://www.cnblogs.com/Sherlock09/category/1022193.html)
