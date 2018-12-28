@@ -12,6 +12,8 @@
 
 * [x] [`JavaScript5. 对象继承`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptOOExtend.md)
  
+* [x] [`JavaScript5. 函数对象`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptFunction.md)
+
 * [x] [`JavaScript5. 原生Event`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptEvent.md)
 
 * [x] [`JavaScript5. 表单脚本`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptForm.md)
