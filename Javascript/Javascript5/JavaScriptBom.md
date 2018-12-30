@@ -11,7 +11,8 @@
 > - [x] [`4.定时器`](#setInternal) 
 > - [x] [`5.系统对话框`](#dialog) 
 > - [x] [`6.location 对象`](#location) 
-> - [x] [`7.位置操作`](#navigator) 
+> - [x] [`7.navigator 对象`](#navigator) 
+
 ----
 
 #####  :octocat: [1.window 对象](#top) <b id="window"></b> 
@@ -200,7 +201,7 @@ function getQueryStringArgs(){
 
 console.log(getQueryStringArgs());
 ```
-##### :octocat:  [ 7.位置操作](#top) <b id="navigator"></b>
+##### :two:  [ 6.2.位置操作](#top) <b id="navigator"></b>
 `使用location对象可以通过很多方式来改变浏览器的位置,首先,也是最常用的方式，就是使用assign() 方法`
 * `以下三个方法都是可以重新定位页面 他们本质都是调用 assign方法`
 ```node
@@ -210,10 +211,29 @@ window.location = "http://www.baidu.com";
 window.location.href = "http://www.baidu.com";
 ```
 * `你可以通过改变上面的除了 hash之外的任意属性 都会导致页面重定向,同时关键的是`:`他会在浏览器的历史中生成的一条记录`
+* `location.reload()`:`重新加载 如果不传参数 有可能从缓存中加载`
+* `location.reload(true)`:`重新加载,从服务端重新加载`
 
-
-
-
-
+##### :octocat:  [7.navigator 对象](#top) <b id="navigator"></b>
+`它是标识客户端浏览器的事实标准`
+|`属性方法`|`说明`|
+|:----|:-----|
+|`appCodeName`|`浏览器的名称。通常都是Mozilla 即使在非Mozilla浏览器中也是如此`|
+|`appMinorVersion`|`此版本信息`|
+|`appName`|`完整的浏览器名称`|
+|`appVersion`|`完整的版本,一般不与实际的浏览器版本对应`|
+|`buildID`|`浏览器编译版本`|
+|`cookieEnable`|`标识cookie是否启用`|
+|`language`|`浏览器语言`|
+|`cpuClass`|`客户端计算机使用的CPU类型(X86,Alpha，PPC,Other)`|
+|`mineType`|`浏览器中注册的MIME类型数组`|
+|`onLine`|`表示浏览器是否联网`|
+|`oscpu`|`客户端计算机的操作系统或使用的CPU`|
+|`platform`|`浏览器所在的系统平台`|
+|`plugins`|`浏览器所在的系统平台`|
+|`preference()`|`设置系统首选项`|
+|`product`|`产品名称`|
+|`userAgent`|`浏览器的用户代理字符串`|
+|``|``|
 
 
