@@ -231,10 +231,11 @@ window.location.href = "http://www.baidu.com";
 |`onLine`|`表示浏览器是否联网`|
 |`oscpu`|`客户端计算机的操作系统或使用的CPU`|
 |`platform`|`浏览器所在的系统平台`|
-|`plugins`|`浏览器所在的系统平台`|
+|`plugins`|`浏览器安装插件信息的数组`|
 |`preference()`|`设置系统首选项`|
 |`product`|`产品名称`|
 |`userAgent`|`浏览器的用户代理字符串`|
-|``|``|
 
+##### 插件检查
+`检查浏览器是否安装了特定的插件`
 
