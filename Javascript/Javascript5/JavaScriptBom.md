@@ -216,6 +216,7 @@ window.location.href = "http://www.baidu.com";
 
 ##### :octocat:  [7.navigator 对象](#top) <b id="navigator"></b>
 `它是标识客户端浏览器的事实标准`
+
 |`属性方法`|`说明`|
 |:----|:-----|
 |`appCodeName`|`浏览器的名称。通常都是Mozilla 即使在非Mozilla浏览器中也是如此`|
