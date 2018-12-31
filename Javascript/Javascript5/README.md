@@ -2,17 +2,19 @@
 -----
 `更新时间:2018/10/8`
 
-* [x] [`JavaScript5. 基本数据类型 简述`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptDateType.md)
+* [x] [`1.JavaScript5. 基本数据类型 简述`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptDateType.md)
 
-* [x] [`JavaScript5. 内存作用域环境`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptVariable.md)
+* [x] [`2.JavaScript5. 内存作用域环境`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptVariable.md)
 
-* [x] [`JavaScript5. 引用类型`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptObject.md)
+* [x] [`3.JavaScript5. 引用类型`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptObject.md)
 
-* [x] [`JavaScript5. 构建对象`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptOO.md)
+* [x] [`4.JavaScript5. 构建对象`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptOO.md)
 
-* [x] [`JavaScript5. 对象继承`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptOOExtend.md)
+* [x] [`5.JavaScript5. 对象继承`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptOOExtend.md)
  
-* [x] [`JavaScript5. 函数对象`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptFunction.md)
+* [x] [`6.JavaScript5. 函数对象`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptFunction.md)
+
+* [x] [`7.JavaScript5. Bom对象`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptBom.md)
 
 * [x] [`JavaScript5. 原生Event`](https://github.com/kickgod/Front-End/blob/master/Javascript/Javascript5/JavaScriptEvent.md)
 
