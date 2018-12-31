@@ -12,8 +12,8 @@
 > - [x] [`5.系统对话框`](#dialog) 
 > - [x] [`6.location 对象`](#location) 
 > - [x] [`7.navigator 对象`](#navigator) 
-> - [x] [`8.screen 对象`](#screen) 
-> - [x] [`9.screen 对象`](#history) 
+> - [x] [`8.screen 对象`](#dscreen) 
+> - [x] [`9.history 对象`](#history) 
 
 ----
 
@@ -263,7 +263,7 @@ if(hasPlugins("Flash")){
     alert("尚未安装Flash");
 }
 ```
-##### :octocat:  [8.screen 对象](#top) <b id="screen"></b>
+##### :octocat:  [8.screen 对象](#top) <b id="dscreen"></b>
 `他的能力就是展示一些客户端的信息,例如浏览器窗口外部显示器的信息,如像素宽度,和高度等等 每一个浏览器的screen 属性可能各不相同`
 
 |`属性`|`说明`|`兼容性`|
