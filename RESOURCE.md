@@ -2,19 +2,18 @@
 ----
 `个人主页的资源链接很简单的`
 
-- [x] :beginner: [1. 前端相关](#font) 
-- [x] :beginner: [2. DotNET Core](#net) 
-
-
-##### [`1. 前端相关`](#top)  <b id="font"></b> 
-
-* :checkered_flag: `框架技术`
-  * [`Vue官方文档`](http://doc.vue-js.com/) 
-  * [`Bootstrap 官方文档`](http://www.bootcss.com/)
+- [x]  [`1. 前端相关`](#font) 
+- [x]  [`2. DotNET Core`](#net)
+- [x]  [`3. 文档模板`](https://github.com/kickgod/document-template)
 
 ----
+##### [`1. 前端相关`](#top)  <b id="font"></b> 
 
-* :checkered_flag: `前端工具`
+* :triangular_flag_on_post:`框架技术`
+  * [`Vue官方文档`](http://doc.vue-js.com/) 
+  * [`Vue Github`](https://github.com/vuejs/vue) 
+  * [`Bootstrap 官方文档`](http://www.bootcss.com/)
+* :triangular_flag_on_post: `前端工具`
   * [`BootCDN`](https://www.bootcdn.cn/)
   * [`JSON格式化`](https://c.runoob.com/front-end/53)
   
