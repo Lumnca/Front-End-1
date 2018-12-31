@@ -12,6 +12,8 @@
 > - [x] [`5.系统对话框`](#dialog) 
 > - [x] [`6.location 对象`](#location) 
 > - [x] [`7.navigator 对象`](#navigator) 
+> - [x] [`8.screen 对象`](#screen) 
+> - [x] [`9.screen 对象`](#history) 
 
 ----
 
@@ -46,6 +48,7 @@ console.log(window.index);//30
 * :arrow_lower_left: `1.每个 window对象都有一个name属性 其中包含框架的名称`
 * :arrow_lower_left: `2.window.frames[0].parent 执行框架的上层框架 `
 * :arrow_lower_left: `3.window.frames[0].window 每一个框架都有自己的 window对象`
+* :arrow_lower_left: `4.window.frames[0].top 始终实现最外围的框架,也就是浏览器窗口`
 ```javascript
 console.log(window.index);//30
 
@@ -113,7 +116,8 @@ let dHeight = document.body.clientHeight;
 
 console.log(dWidth,dHeight);
 ```
-##### 移动设备
+##### 窗口大小问题
+**`许多浏览器都禁止跳转浏览器窗口大小的能力！----所以下面的函数 就很尴尬...`**<br/>
 `window.resizeTo(100,100)`:`将窗口大小变成 100,100`<br/>
 `window.resizeBy(100,100)`:`将窗口长宽各增加 100,100`<br/>
 
@@ -237,5 +241,65 @@ window.location.href = "http://www.baidu.com";
 |`userAgent`|`浏览器的用户代理字符串`|
 
 ##### 插件检查
-`检查浏览器是否安装了特定的插件`
+`检查浏览器是否安装了特定的插件 通过 plugins plugins 数组成员具有一些属性` 
+* `name`:`插件名称`
+* `description`:`插件的描述`
+* `filename`:`插件文件名称`
+* `length`:`插件所处理的MIME类型的数量`
+```javascript
+export function hasPlugins(name){
+    name = name.toLowerCase();
+    for( let index = 0 ;index < navigator.plugins.length; index++){
+        if(navigator.plugins[index].name.toLowerCase().indexOf(name) > -1 ){
+            return true;
+        }
+    }
+    return false;
+}
+
+if(hasPlugins("Flash")){
+    alert("具备Flash");
+}else{
+    alert("尚未安装Flash");
+}
+```
+##### :octocat:  [8.screen 对象](#top) <b id="screen"></b>
+`他的能力就是展示一些客户端的信息,例如浏览器窗口外部显示器的信息,如像素宽度,和高度等等 每一个浏览器的screen 属性可能各不相同`
+
+|`属性`|`说明`|`兼容性`|
+|:----|:----|:----|
+|`avaliHeight`|`屏幕的像素的高端减系统部件高度之后的值[只读]`|`都支持`|
+|`avaliWidth`|`屏幕的像素宽度减系统部件宽度之后的值[只读]`|`都支持`|
+|`colorDepth`|`由于表现颜色的位数,多数是32位[只读]`|`都支持`|
+|`width`|`屏幕的宽度`|`都支持`|
+|`height`|`屏幕的高度`|`都支持`|
+
+##### :octocat:  [8.history 对象](#top) <b id="history"></b>
+`这个对象保存着用户上网的历史记录,从这个窗口打开的那一刻算起,因为history是window对象的属性,所以每一个窗口框架都有自己的 history,出于安全，开发人员无法得知用户浏览过的URL。不过,借由用户访问过的页面列表,痛呀可以在不知道实际URL的情况下进行后退和前进`
+* `go()`:`histroy.go(-1) 后退一页，histroy.go(1) 前进一页 `
+* `back()`:`后退一页`
+* `forward()`:`前进一页`
+* `length`:`用户打开了几个页面了！`
+```node
+if(history.length == 0){
+   //这是第一次打开的页面
+}
+```
+
+-------
+`Bom 就这些内容吧 ！ 相信你都应该记住它们！`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
