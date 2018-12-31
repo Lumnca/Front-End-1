@@ -274,7 +274,7 @@ if(hasPlugins("Flash")){
 |`width`|`屏幕的宽度`|`都支持`|
 |`height`|`屏幕的高度`|`都支持`|
 
-##### :octocat:  [8.history 对象](#top) <b id="history"></b>
+##### :octocat:  [9.history 对象](#top) <b id="history"></b>
 `这个对象保存着用户上网的历史记录,从这个窗口打开的那一刻算起,因为history是window对象的属性,所以每一个窗口框架都有自己的 history,出于安全，开发人员无法得知用户浏览过的URL。不过,借由用户访问过的页面列表,痛呀可以在不知道实际URL的情况下进行后退和前进`
 * `go()`:`histroy.go(-1) 后退一页，histroy.go(1) 前进一页 `
 * `back()`:`后退一页`
