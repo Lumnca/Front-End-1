@@ -8,7 +8,9 @@
 - [x] [`2.Node 类型`](#target2)
 - [x] [`3.节点关系`](#target3)
 - [x] [`4.节点操作`](#target4)
-
+- [x] [`5.Document 类型`](#target5)
+  * [`5.1 Document 查询API`](#target6)
+  * [`5.2 Document 一致性检测`](#target7)
 ------
 
 #####  :octocat: [1.节点层次](#top) <b id="target1"></b> 
@@ -28,25 +30,18 @@
 `Document 是文档对象 最高的根节点 Dom 结构就是数据结构中 树`
 ```c#
 Document
-    |
     |_ _ Element Html
-          |
-          |
           |_ _ Element head
           |     |
           |     |_ _ meta 
-          |     |     |
           |     |     |_ _ Attribute "charset UTF-8"
           |     |
           |     |_ _ title 
           |          |
           |          |_ _ Text 首页
           |
-          |
           |— — Element body
-               |
                |_ _ div
-                    |
                     |_ _ Text Hello World!
 ```
 
@@ -212,6 +207,17 @@ console.log(body.lastChild); //最后一个节点
 * `previousElementSibling`:`前一个 Element类型的 兄弟节点`
 * `nextElementSibling`:`后一个 Element类型的 兄弟节点`
 
+`找到下一个 Element类型的节点`
+```node
+function next(node) {
+    node = node.nextSibling;
+    while (node != null && node.nodeName == "#text") {
+        node = node.nextSibling;
+    }
+    return node;
+}
+```
+
 #####  :octocat: [4.节点操作](#top) <b id="target4"></b> 
 `操作一般分为四种 增删改查`
 * `父子节点的操作`
@@ -225,8 +231,50 @@ console.log(body.lastChild); //最后一个节点
    * `normalise`:`处理文档树的文本节点,删除空文本节点,合并相邻的文本节点`
 
 
+#####  :octocat: [5.Document 类型:HTMLDocument](#top) <b id="target5"></b> 
+`Js 通过Document类型表示文档,在浏览器中,document对象是 HTMLDocument 继承自 Document 类型的一个实例,表示整个HTML页面,而且document对象是
+window对象的一个属性,因此可以将其作为全局对象来访问,Document节点具有下列特征`
+* `nodeType`:`9`
+* `nodeName`:`#document`
+* `nodeValue`:`null`
+* `parentNode`:`null`
+* `ownerDocument`:`null`
+* `它的子节点可能是一个 DocumentType[最多一个] Element[最多一个] ProcessingInstruction或 Comment`
+
+
+`HTMLDocument 的实例是 document对象`
+
+##### 属性
+* `documentElement`:`该属性始终指向HTML 页面中的 html元素,另一个就是通过childNodes 列表访问文档元素,但通过documentElement更快捷`
+* `body`:`指向 document.body`
+* `doctype`:`指向  <!DOCTYPE html> IE8 之前一直为null, 少用它 而且他也没有什么用`
+* `title`:`title 标签的文本内容`
+* `URL`:`地址栏中显示的URL`
+* `domain`:`包含页面的域名`
+* `referrer`:`保存着链接到当前页面的那个页面的URL 无来源则为 空字符串`
+```node
+有时候 document.firstChild 不是  html 也是<!DOCTYPE html>  切记切记
+```
+
+#####  :octocat: [5.1 Document 查询API](#top) <b id="target6"></b> 
+* `document.getElementById(id)`:`通过元素ID 获得 元素 返回 HTMLElement 类型`
+
+* `document.getElementsByClassName(name)`:`通过类名获取 元素 返回类型为 HTMLCollection`
+* `document.getElementsByName(name)`:`通过属性 name获得元素 返回类型为 HTMLCollection`
+* `document.getElementsByTagName(name)`:`通过标签名称获得元素 返回类型为 HTMLCollection`
+* `getElementsByTagNameNS(ns,name)`:`在某个域中获取元素 返回类型为 HTMLCollection`
+
+##### 特殊集合 查询API
+* `document.anchors`:`包含文档中所有带name的 <a>元素`
+
+* `document.forms`:`文档中所有的 form 表单` = `document.getElementsByTagName("from")`
+* `document.images`:`文档中所有的 img 元素` = `document.getElementsByTagName("img")`
+* `document.links`:`返回文档中所有包含 href 特性的 a 标签元素`
+
+#####  :octocat: [5.2 Document 一致性检测](#top) <b id="target7"></b> 
+`Dom 是分多个级别的 有 DOM1 DOM2 DOM3 三个级别每个级别提供的功能不一样所以检测浏览器实现了Dom 那些部分就十分必要了`
 
 --------------------
-`作者:` `模板` 
-`完成时间`:`2018年12月31日18:33:38`
-`备注信息`: `禁止转载` 
+`作者:` `JxKicker` 
+`完成时间`:`2019年1月24日21:15:23`
+`备注信息`: `任意使用` 
