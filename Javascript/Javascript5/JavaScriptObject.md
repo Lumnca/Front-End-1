@@ -116,7 +116,22 @@ alert(oNumberObject.toPrecision(3));  //输出 "68.0"
 * `String的属性`
   * `String.prototype`:`对该对象的对象原型的引用`
   * `String.length`:`字符串长度`
-* `方法`
+
+##### 常用方法
+* `substring(start,end_)`:`截取 start开始 end_ 之前的字符`
+```node
+var str = 'Mozilla';
+
+console.log(str.substring(1, 3));
+// expected output: "oz"
+
+console.log(str.substring(2));
+// expected output: "zilla"
+```
+
+
+
+##### API 方法
 ```javascript
 String.fromCodePoint()
 String.prototype.anchor()
