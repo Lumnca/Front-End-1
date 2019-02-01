@@ -45,96 +45,27 @@ Document
                     |_ _ Text Hello World!
 ```
 
+
+
+
+
 #####  :octocat: [2.Node 类型](#top) <b id="target2"></b> 
 `Dom1 级定义了一个Node 接口,该接口将由Dom 中所有的节点类型实现 每一个节点都有一个 nodeType 表名节点的类型,任何节点类型必然是这十二个节点之一`
 
-<table>
-<tbody><tr>
-<th colspan="1">值</th>
-<th colspan="1">节点类型</th>
-<th>描述</th>
-<th>子节点</th>
-</tr>
-<tr>
-<td style="width:5%;">1</td>
-<td style="width:25%;">Element</td>
-<td style="width:35%;">代表元素</td>
-<td>Element, Text, Comment, ProcessingInstruction, CDATASection, EntityReference</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Attr</td>
-<td>代表属性</td>
-<td>Text, EntityReference</td>
-</tr>
-
-<tr>
-<td>3</td>
-<td>Text</td>
-<td>代表元素或属性中的文本内容。</td>
-<td>None</td>
-</tr>
-
-<tr>
-<td>4</td>
-<td>CDATASection</td>
-<td>代表文档中的 CDATA 部分（不会由解析器解析的文本）。</td>
-<td>None</td>
-</tr>
-
-<tr>
-<td>5</td>
-<td>EntityReference</td>
-<td>代表实体引用。</td>
-<td>Element, ProcessingInstruction, Comment, Text, CDATASection, EntityReference</td>
-</tr>
-
-<tr>
-<td>6</td>
-<td>Entity</td>
-<td>代表实体。</td>
-<td>Element, ProcessingInstruction, Comment, Text, CDATASection, EntityReference</td>
-</tr>
-
-<tr>
-<td>7</td>
-<td>ProcessingInstruction</td>
-<td>代表处理指令。</td>
-<td>None</td>
-</tr>
-
-<tr>
-<td>8</td>
-<td>Comment</td>
-<td>代表注释。</td>
-<td>None</td>
-</tr>
-<tr>
-<td>9</td>
-<td>Document</td>
-<td>代表整个文档（DOM 树的根节点）。</td>
-<td>Element, ProcessingInstruction, Comment, DocumentType</td>
-</tr>
-<tr>
-<td>10</td>
-<td>DocumentType</td>
-<td>向为文档定义的实体提供接口</td>
-<td>None</td>
-</tr>
-<tr>
-<td>11</td>
-<td>DocumentFragment</td>
-<td>代表轻量级的 Document 对象，能够容纳文档的某个部分</td>
-<td>Element, ProcessingInstruction, Comment, Text, CDATASection, EntityReference</td>
-</tr>
-<tr>
-<td>12</td>
-<td>Notation</td>
-<td>代表 DTD 中声明的符号。</td>
-<td>None</td>
-</tr>
-</tbody></table>
-
+|`值`|`节点类型`|`描述`|`子节点`|
+|:---|:----|:----|:----|
+|`1`|`Element`|`代表元素`|`Element, Text, Comment, ProcessingInstruction, CDATASection, EntityReference`|
+|`2`|`Attr`|`代表属性`|`Text, EntityReference`|
+|`3`|`Text`|`代表元素或属性中的文本内容`|`None`|
+|`4`|`CDATASection`|`代表文档中的 CDATA 部分（不会由解析器解析的文本）。`|`None`|
+|`5`|`EntityReference`|`代表实体引用`|`Element, ProcessingInstruction, Comment, Text, CDATASection, EntityReference`|
+|`6`|`Entity`|`代表实体`|`Element, ProcessingInstruction, Comment, Text, CDATASection, EntityReference`|
+|`7`|`ProcessingInstruction`|`代表处理指令`|`None`|
+|`8`|`Comment`|`代表注释`|`None`|
+|`9`|`Document`|`代表整个文档（DOM 树的根节点）。`|`Element, ProcessingInstruction, Comment, DocumentType`|
+|`10`|`DocumentType`|`向为文档定义的实体提供接口`|`None`|
+|`11`|`DocumentFragment`|`代表轻量级的 Document 对象，能够容纳文档的某个部分`|`Element, ProcessingInstruction, Comment, Text, CDATASection, EntityReference`|
+|`12`|`Notation`|`代表 DTD 中声明的符号。`|`None`|
 
 * `nodeName`:`Node.nodeName 表名节点名称 例如 body div p`
 * `nodeType`:`返回数字 节点类型的值 它属于 Node 类型枚举之一  `
@@ -259,7 +190,7 @@ window对象的一个属性,因此可以将其作为全局对象来访问,Docume
 #####  :octocat: [5.1 Document 查询API](#top) <b id="target6"></b> 
 * `document.getElementById(id)`:`通过元素ID 获得 元素 返回 HTMLElement 类型`
 
-* `document.getElementsByClassName(name)`:`通过类名获取 元素 返回类型为 HTMLCollection`
+* `document.getElementsByClassName(name)`:`通过类名获取 元素 返回类型为`  [`HTMLCollection`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)
 * `document.getElementsByName(name)`:`通过属性 name获得元素 返回类型为 HTMLCollection`
 * `document.getElementsByTagName(name)`:`通过标签名称获得元素 返回类型为 HTMLCollection`
 * `getElementsByTagNameNS(ns,name)`:`在某个域中获取元素 返回类型为 HTMLCollection`
