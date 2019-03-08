@@ -1,12 +1,11 @@
-### [`Vue 数据属性` ](#top) <b id="top"></b> :maple_leaf:
-
+### [`Vue 数据属性` ](#top) <b id="top"></b> 
 -----
 `Vue 数据属性体验 {{}} ` `v-text` `v-html` `计算属性` `监视`
 
-- [x] [`vue 数据绑定语法`](#bind)
-    * [`过滤器`](#filter) 
-- [x] [`vue 计算属性`](#calcul)
-- [x] [`vue 侦听器`](#watch)
+- [x] [`1.vue 数据绑定语法`](#bind)
+    * [`1.1 vue 过滤器`](#filter) 
+- [x] [`2.vue 计算属性`](#calcul)
+- [x] [`3.vue 侦听器`](#watch)
 
 #### :maple_leaf: [零.数据](#top)
 `Vue 实例中可以通过data属性定义数据,这些数据可以在实例对应的模板中进行绑定并使用`
@@ -77,7 +76,11 @@ new Vue({
 [`通过 Prop 向子组件传递数据`](#top)
 ```html
 <div id="post">
-     <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:count="post.id" v-bind:title="post.title" >
+     <blog-post 
+                v-for="post in posts" 
+                v-bind:key="post.id" 
+                v-bind:count="post.id" 
+                v-bind:title="post.title" >
     </blog-post>
 </div>
 ```
@@ -150,7 +153,7 @@ new Vue({
 ```
 ##### :maple_leaf: [二.Vue 数据绑定语法](#top) <b id="bind"></b>
 `Vue.js 使用了基于 HTML 的模板语法 数据绑定具有多种方法 ` `在底层的实现上，Vue 将模板编译成虚拟 DOM 渲染函数。结合响应系统，Vue 能够智能地计算出最少需要重新渲染多少组件，并把 DOM 操作次数减到最少。` 
-* `插值绑定 {{}} v-once`
+* `插值绑定 {{}} v-once`:`{{}} 应该配合 v-once 使用不然会出现原始的{{}}问题`
 * `原始 HTML`
 * `HTML 特性 v-bind`
 * `使用 JavaScript 表达式`
