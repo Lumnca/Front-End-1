@@ -106,6 +106,7 @@ new Vue({
 产生“响应”，即匹配更新为新的值。`
 * `v-hmtl`:`渲染为 innerHtml`
 * `v-text`:`渲染为 文本值 最好多实用 v-text 渲染值 而不是 {{name}} 插值表达式 因为在网速慢的情况下  vue没有加载完成 页面会显示为 {{name}}` `而不是 name的属性值` `但是会覆盖标签的整个内容 如果要使用 {{}} 插值表达式 最好使用 v-cloak 指令`
+* `v-pre`:`你写什么就给你输出什么 类似与 pre html 标签`
 ```css
 [v-cloak]{
     display:none;
@@ -195,6 +196,7 @@ new Vue({
 <span v-if="age >= 18" ></span>
 ```
 ##### [filter 过滤器](#top) <b id="filter"></b>
+`vue 过滤器有两种 全局过滤器或者 实例过滤器[局部过滤器]`
 `Vue.js 允许你自定义过滤器` `{{name | capitalize | uppercase }}` `通过 管道 |可以定义多个过滤器` 
 ```html
 <div class=" row">
