@@ -4,16 +4,16 @@
 `每个 Vue 应用都是通过用 Vue 函数创建一个新的 Vue 实例开始的：它进过了 从创建到 更新 再到死亡这三个大的生命周期过程 每一个vue实例都有一系列的初始化步骤
 例如建立数据库,创建数据绑定,再次过程中我们可以通过一些定义好的生命周期钩子函数来运行业务逻辑`
 
-- [x] :maple_leaf: [`三个大的阶段`](#process)
-- [x] :maple_leaf: [`生命周期钩子`](#hook)
-- [x] :maple_leaf: [`有用的钩子函数`](#useful)
-- [x] :maple_leaf: [`注意了`](#notice)
+- [x] [`1.三个大的阶段`](#process)
+- [x] [`2.生命周期钩子`](#hook)
+- [x] [`3.有用的钩子函数`](#useful)
+- [x] [`4.注意了`](#notice)
 
 
-##### [三个大的阶段](#top)  :maple_leaf: <b id="hook"></b> 
+##### [三个大的阶段](#top)  <b id="hook"></b> 
 `基本是一个vue实例都经过三个大的过程` `初始化显示` `更新显示` `死亡`
 
-##### [生命周期钩子](#top)  :maple_leaf: <b id="process"></b> 
+##### [生命周期钩子](#top)  <b id="process"></b> 
 `每个 Vue 实例在被创建时都要经过一系列的初始化过程——例如，需要设置数据监听、编译模板、将实例挂载到 DOM 并在数据变化时更新 DOM 等。
 同时在这个过程中也会运行一些叫做生命周期钩子的函数，这给了用户在不同阶段添加自己的代码的机会。`
 * `比如 created 钩子可以用来在一个实例被创建之后执行代码：`
@@ -21,7 +21,7 @@
 <img src="https://cn.vuejs.org/images/lifecycle.png" width = "500" />
 
 
-##### [有用的钩子函数](#top)  :maple_leaf: <b id="useful"></b> 
+##### [有用的钩子函数](#top)   <b id="useful"></b> 
 `主要关心那几个状态就行`
 * `beforeCreate`:`在vue实例开始初始化时同步调用,此时数据观测,事件等尚未初始化`
 * `created`:`实例已经创建，此时已经完成数据绑定事件方法,但是尚未开始DOM编译 就是vue尚未挂载到 dom中`
@@ -32,7 +32,7 @@
 * `beforeDestroy`:`在vue实例销毁之前调用`
 * `destroyed`:`实例销毁后调用`
 
-##### [注意了](#top)  :maple_leaf: <b id="notice"></b> 
+##### [注意了](#top)  <b id="notice"></b> 
 `不要在选项属性或回调上使用箭头函数` `比如 created: () => console.log(this.a) 或
 vm.$watch('a', newValue => this.myMethod())。` `因为箭头函数是和父级上下文绑定在一起的，this
 不会是如你所预期的 Vue 实例，` `经常导致` <br/>
