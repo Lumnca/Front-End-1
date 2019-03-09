@@ -5,7 +5,7 @@
 ------
 
 - [x] [`1.例子`](#target1)
-- [x] [`2.title2`](#target2)
+- [x] [`2.四个类名的解释`](#target2)
 - [x] [`3.title3`](#target3)
 
 ------
@@ -46,9 +46,20 @@ new Vue({
 
 
 
-#####  [2.title2](#top) <b id="target2"></b> 
-`概括`
+#####  [2.四个类名的解释](#top) <b id="target2"></b> 
 
+```node
+会有 4 个(CSS)类名在 enter/leave 的过渡中切换
+
+  v-enter: Dom要显示出来了 给这个Dom 加上这个样式
+
+  v-enter-active: Dom 出场的动画 完成出场后删除这些样式
+
+  v-leave: Dom 将要离开了 此时给Dom 加上这个类 
+
+  v-leave-active: 定义离开过程总的动画 离开完成后 Dom 被移出
+
+```
 
 #####  [3.title3](#top) <b id="target3"></b> 
 `概括`
