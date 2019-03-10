@@ -19,12 +19,12 @@
    
 ```html
 <div id="demo">
-  <button v-on:click="show = !show">
-    Toggle
-  </button>
-  <transition name="fade">
-    <p v-if="show">hello</p>
-  </transition>
+    <button v-on:click="show = !show">
+        Toggle
+    </button>
+    <transition name="fade">
+        <h4 v-if="show" class="">My Name is What!</h4>
+    </transition>
 </div>
 
 new Vue({
@@ -35,16 +35,66 @@ new Vue({
 })
 
 <style>
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s
+.fade-enter-active{
+    /* 进行动画配置 */
+    transition: all 0.5s;
 }
-.fade-enter, .fade-leave-active {
-  opacity: 0
+
+.fade-enter{
+    /* 定义进入的过渡动画 */
+    line-height: 50px;
+    padding: 5px;
+    padding-left: 50px;
+    border-radius: 10px;
+}
+
+
+.fade-leave-active {
+    /* 定义离开的动画 */
+    padding-left: 50px; 
+    transition: all 0.5s;
+    transition-timing-function: linear;
 }
 <style>
 ```
+`所以 css类其实可以这样写`
+```css
+.fade-enter-active {
+  animation: bounce-in .5s;
+}
 
+.fade-leave-active {
+  animation: bounce-out .5s;
+}
 
+@keyframes bounce-in {
+  0% {
+      transform: scale(0);
+  }
+
+  50% {
+      transform: scale(1.5);
+  }
+
+  100% {
+      transform: scale(1);
+  }
+}
+
+@keyframes bounce-out {
+  0% {
+      transform: scale(1);
+  }
+
+  50% {
+      transform: scale(1.5);
+  }
+
+  100% {
+      transform: scale(0);
+  }
+}
+```
 
 #####  [2.四个类名的解释](#top) <b id="target2"></b> 
 
