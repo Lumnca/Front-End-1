@@ -6,7 +6,7 @@
 
 - [x] [`1.例子`](#target1)
 - [x] [`2.四个类名的解释`](#target2)
-- [x] [`3.title3`](#target3)
+- [x] [`3.自定义类名`](#target3)
 
 ------
 
@@ -111,10 +111,25 @@ new Vue({
 
 ```
 
-#####  [3.title3](#top) <b id="target3"></b> 
-`概括`
+#####  [3.自定义类名](#top) <b id="target3"></b> 
+`概括:我们可以通过以下特性来自定义过渡类名：`
+* `enter-class`
+* `enter-active-class`
+* `leave-class`
+* `leave-active-class`
 
+```html
+<link href="https://cdn.bootcss.com/animate.css/3.7.0/animate.css" rel="stylesheet">
 
+<div id="example-3">
+    <button @click="show = !show">
+        Toggle render
+    </button>
+    <transition enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutRight">
+        <p v-if="show" >hello</p>
+    </transition>
+</div>
+```
 
 
 --------------------
