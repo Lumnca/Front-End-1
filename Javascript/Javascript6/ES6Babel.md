@@ -1,13 +1,13 @@
-<a id="top"  href="#top">:arrow_lower_left: JavaScript6 Babel 环境配置 vscode :maple_leaf:</a>
+<a id="top"  href="#top">JavaScript6 Babel 环境配置 vscode</a>
 ----
-`将ES6 转换为ES5的编译器`
+`将ES6 转换为ES5的编译器` [`babel 配置官网`](https://www.babeljs.cn/docs/plugins/preset-env/)
 
-- [x] <a href="#LetNodeStart">`安装 node 环境`</a>
-- [x] <a href="#BabelrcFile">`配置.Babelrc文件`</a>
-- [x] <a href="#UseBabel">`使用babel`</a>
+- [x] <a href="#LetNodeStart">`1.安装 node 环境`</a>
+- [x] <a href="#BabelrcFile">`2.配置.Babelrc文件`</a>
+- [x] <a href="#UseBabel">`3.使用babel`</a>
 
 
-#### 1.	:whale2: <a id="LetNodeStart" href="#LetNodeStart">node 安装</a>    <a href="#top">----:arrow_up::arrow_up: </a>
+##### 1. <a id="LetNodeStart" href="#LetNodeStart">node 安装</a>    
 
 * `安装地址`: [`node 官方`](https://nodejs.org/zh-cn/)
 ```C#
@@ -18,7 +18,7 @@
   npm config set -g registry https://registry.npm.taobao.org
   //切换npm 镜像 不然下载贼慢
 ```
-#### 1.	:whale2: <a id="BabelrcFile" href="#BabelrcFile">Babelrc 配置文件</a>    <a href="#top">----:arrow_up::arrow_up: </a>
+##### 2.	<a id="BabelrcFile" href="#BabelrcFile">Babelrc 配置文件</a>   
 * `增加一个.Babelrc 文件 内容如下`
 ```xml
 {
@@ -52,7 +52,7 @@
  // ...
 ```
 
-#### 1.	:whale2: <a id="UseBabel" href="#UseBabel">`使用babel`</a>    <a href="#top">----:arrow_up::arrow_up: </a>
+##### 3.	<a id="UseBabel" href="#UseBabel">`使用babel`</a>    
 ```node
 
 //安装 babel-cli 工具，用于命令行转码
