@@ -32,7 +32,7 @@ export default {
 ```
 
 ```npm 
-cnpm install babel babel-loader babel-core babel-preset-env webpack
+cnpm install babel babel-loader babel-core babel-preset-env 
 
 /* babel-loader@8 requires Babel 7.x (the package '@babel/core') */
 npm install -D babel-loader@7.1.5
