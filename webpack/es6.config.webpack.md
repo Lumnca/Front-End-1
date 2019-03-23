@@ -1,4 +1,4 @@
-### [webpack 配置用于Es6 语法的例子](#top) <b id="top"></b>
+#### [webpack 配置用于Es6 语法的例子](#top) <b id="top"></b>
 `需求添加 rollup 用于代码合并,添加bable 用于代码转换,注意:一切都安装在本地 而不是全局安装 `
 
 ------
