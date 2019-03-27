@@ -7,7 +7,7 @@
 - [x] [`1.module 说明`](#target1) :arrow_lower_left:
 - [x] [`2.export 命令: 导出模块信息`](#target2) :arrow_lower_left:
 - [x] [`3.import 命令: 导入模块信息`](#target3) :arrow_lower_left:
-
+- [x] [`4.浏览器情况`](#target4) :arrow_lower_left:
 
 ----
 ##### [0.环境配置](#top) <b id="target0"></b>
@@ -190,6 +190,8 @@ export const C = 4;
 
 ##### [3.import 命令: 导入模块信息](#top) <b id="target3"></b>
 `使用export命令定义了模块的对外接口以后，其他 JS 文件就可以通过import命令加载这个模块。`
+* `注意，import命令具有提升效果，会提升到整个模块的头部，首先执行`
+* `由于import是静态执行，所以不能使用表达式和变量，这些只有在运行时才能得到结果的语法结构`
 
 ```node
 import {firstName, lastName, year} from './profile.js';
@@ -233,11 +235,30 @@ import * as circle from './circle';
 circle.foo = 'hello';  //foo 是一个函数
 circle.area = function () {}; //area 也是一个函数
 ```
+##### :three: as 重命名接口
+`如果你想要改变导出的变量的名称那么你可以使用 as 关键字`
+```node
+import { lastName as surname } from './profile.js';
+```
 
+##### :four: 模块的继承
+`假设有一个circleplus模块，继承了circle模块。`
+```sql
+// circleplus.js
 
+export * from 'circle';
+export var e = 2.71828182846;
+export default function(x) {
+  return Math.exp(x);
+}
 
+```
 
-
+##### [4.浏览器情况](#top) <b id="target4"></b>
+`高版本浏览器已经可以支持模块化加载js 模板来但是需要 type支持`
+```html
+<script type="module" src="./foo.js" async></script>
+```
 
 
 
