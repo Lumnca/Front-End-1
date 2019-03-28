@@ -1,15 +1,14 @@
-:checkered_flag: [Sass CSS 扩展语言](https://www.sass.hk/) :blue_heart:
-<a id="top" href="#top">  :maple_leaf:</a> 
+#### [1.Sass CSS 扩展语言](https://www.sass.hk/) <a id="top" ></a> 
 ----
 `世界上最成熟、最稳定、最强大的专业级CSS扩展语言，想要学习sass 请先学习完css.`
 
- - [x] 	:maple_leaf: [Sass 安装环境配置](https://github.com/kickgod/Front-End/blob/master/Sass/InstallSass.md)
+ - [x] [`1.Sass 安装环境配置`](InstallSass.md)
  
- - [x] 	:maple_leaf: [Sass 基本语法入门](https://github.com/kickgod/Front-End/blob/master/Sass/SassBasiSytnax.md)
+ - [x] [`2.Sass 基本语法入门`](SassBasiSytnax.md)
   
- - [x] 	:maple_leaf: [Sass SassScript](https://github.com/kickgod/Front-End/blob/master/Sass/SassScriptSupport.md)  
+ - [x] [`3.Sass SassScript`](SassScriptSupport.md)  
 
- - [x]  :maple_leaf: [Sass 流程控制和函数指令](https://github.com/kickgod/Front-End/blob/master/Sass/SassProcessControl.md)
+ - [x] [`4.Sass 流程控制和函数指令`](SassProcessControl.md)
  
 
 
