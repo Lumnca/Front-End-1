@@ -167,4 +167,43 @@ const store = new Vuex.Store({
 时不需要在同一模块内额外添加空间名前缀。更改 namespaced 属性后不需要修改模块内的代码。`
 
 
+##### 在带命名空间的模块内访问全局内容（Global Assets）
 
+* `如果你希望使用全局 state 和 getter，rootState 和 rootGetter 会作为第三和第四参数
+传入 getter，也会通过 context 对象的属性传入 action。`
+
+* `若需要在全局命名空间内分发 action 或提交 mutation，将 { root: true } 作为第三参数传给 dispatch 或 commit 即可。`
+
+```node
+modules: {
+  foo: {
+    namespaced: true,
+
+    getters: {
+      // 在这个模块的 getter 中，`getters` 被局部化了
+      // 你可以使用 getter 的第四个参数来调用 `rootGetters`
+      someGetter (state, getters, rootState, rootGetters) {
+        getters.someOtherGetter // -> 'foo/someOtherGetter'
+        rootGetters.someOtherGetter // -> 'someOtherGetter'
+      },
+      someOtherGetter: state => { ... }
+    },
+
+    actions: {
+      // 在这个模块中， dispatch 和 commit 也被局部化了
+      // 他们可以接受 `root` 属性以访问根 dispatch 或 commit
+      someAction ({ dispatch, commit, getters, rootGetters }) {
+        getters.someGetter // -> 'foo/someGetter'
+        rootGetters.someGetter // -> 'someGetter'
+
+        dispatch('someOtherAction') // -> 'foo/someOtherAction'
+        dispatch('someOtherAction', null, { root: true }) // -> 'someOtherAction'
+
+        commit('someMutation') // -> 'foo/someMutation'
+        commit('someMutation', null, { root: true }) // -> 'someMutation'
+      },
+      someOtherAction (ctx, payload) { ... }
+    }
+  }
+}
+```
