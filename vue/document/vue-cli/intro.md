@@ -35,8 +35,13 @@ $ vue init <template-name> <project-name>
 * `simple - The simplest possible Vue setup in a single HTML file`
 
 
-#####  [3.title3](#top) <b id="target3"></b> 
-`概括`
+#####  [3.安装其他的 vue配置](#top) <b id="target3"></b> 
+`概括: vuex,axios`
+
+```node
+
+npm install -D vuex axios
+```
 
 
 
